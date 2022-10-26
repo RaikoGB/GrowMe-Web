@@ -6,8 +6,8 @@ import PruebaScreen from '../Screens/PruebaScreen';
 export const AppRoutes: React.FunctionComponent = () => {
   return (
     <Routes>
-      <Route path="" element={<AppScreen />} />
-      <Route path="/prueba" element={<PruebaScreen />} />
+      <Route path="index" element={<AppScreen />} />
+      <Route path="prueba" element={<PruebaScreen />} />
       {
         // TODO:
         // <Route path="/About" element = { <AboutScreen />} />
