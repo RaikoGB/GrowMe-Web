@@ -1,10 +1,10 @@
 {
   "files": {
-    "main.js": "/raikogb.github.io/GrowMe-Web/static/js/main.e7f30069.js",
-    "index.html": "/raikogb.github.io/GrowMe-Web/index.html",
-    "main.e7f30069.js.map": "/raikogb.github.io/GrowMe-Web/static/js/main.e7f30069.js.map"
+    "main.js": "/GrowMe-Web/static/js/main.60b7e6d3.js",
+    "index.html": "/GrowMe-Web/index.html",
+    "main.60b7e6d3.js.map": "/GrowMe-Web/static/js/main.60b7e6d3.js.map"
   },
   "entrypoints": [
-    "static/js/main.e7f30069.js"
+    "static/js/main.60b7e6d3.js"
   ]
 }
