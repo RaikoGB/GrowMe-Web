@@ -6,8 +6,8 @@ import { AuthRoutes } from './auth/Routes/AuthRoutes';
 export const AppRouter: React.FunctionComponent = () => {
   return (
     <Routes>
-      <Route path="/GrowMe-Web/#/*" element={<AppRoutes />} />
-      <Route path="/GrowMe-Web/#/auth/*" element={<AuthRoutes />} />
+      <Route path="/*" element={<AppRoutes />} />
+      <Route path="/auth/*" element={<AuthRoutes />} />
     </Routes>
   );
 };

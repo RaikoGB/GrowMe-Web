@@ -14,15 +14,15 @@ import { NavLink } from 'react-router-dom';
 const pages = [
   {
     text: 'Comenzar',
-    Link: '/auth/SingUp'
+    Link: '/GrowMe-Web/#/auth/SingUp'
   },
   {
     text: 'Aplicacion Móvil',
-    Link: '/MovileApp'
+    Link: '/GrowMe-Web/#/MovileApp'
   },
   {
     text: 'Sobre nosotros',
-    Link: '/About'
+    Link: '/GrowMe-Web/#/About'
   }
 ];
 
@@ -51,7 +51,7 @@ const Navbar: React.FunctionComponent = () => {
               variant="h6"
               noWrap
               component="a"
-              href="/app"
+              href="/GrowMe-Web/#/Index"
               sx={{
                 mr: 2,
                 display: { xs: 'none', md: 'flex' },
@@ -109,7 +109,7 @@ const Navbar: React.FunctionComponent = () => {
               variant="h5"
               noWrap
               component="a"
-              href=""
+              href="/GrowMe-Web/#/Index"
               sx={{
                 mr: 2,
                 display: { xs: 'flex', md: 'none' },
@@ -136,12 +136,20 @@ const Navbar: React.FunctionComponent = () => {
               ))}
             </Box>
             <Box>
-              <Button variant="text" color="inherit" href="/auth/LogIn">
+              <Button
+                variant="text"
+                color="inherit"
+                href="/GrowMe-Web/#/auth/LogIn"
+              >
                 LogIn
               </Button>
             </Box>
             <Box>
-              <Button variant="outlined" color="inherit" href="/auth/SingUp">
+              <Button
+                variant="outlined"
+                color="inherit"
+                href="/GrowMe-Web/#/auth/SingUp"
+              >
                 Sing Up
               </Button>
             </Box>

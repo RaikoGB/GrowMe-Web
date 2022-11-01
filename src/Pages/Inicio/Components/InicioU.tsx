@@ -1,4 +1,12 @@
-import { Box, Card, CardContent, Grid, Typography } from '@mui/material';
+import {
+  BottomNavigation,
+  BottomNavigationAction,
+  Box,
+  Card,
+  CardContent,
+  Grid,
+  Typography
+} from '@mui/material';
 import { Container } from '@mui/system';
 import Paper from '@mui/material/Paper';
 import React from 'react';
@@ -13,9 +21,22 @@ import EditIcon from '@mui/icons-material/Edit';
 import { ModalHabitos } from '../Modals/ModalHabitos';
 import { ModalEventos } from '../Modals/ModalEventos';
 import { ModalActividades } from '../Modals/ModalActividades';
+import EmojiEventsIcon from '@mui/icons-material/EmojiEvents';
+import InsightsIcon from '@mui/icons-material/Insights';
+import SpaIcon from '@mui/icons-material/Spa';
+import FaceIcon from '@mui/icons-material/Face';
+import Avatar from './Avatar';
+import Farm from './Farm';
+import ProgresoCohen from './ProgresoCohen';
+import Premios from './Premios';
 
 const InicioU: React.FunctionComponent = () => {
   const [checked, setChecked] = React.useState([0]);
+  const [value, setValue] = React.useState('Avatar');
+
+  function handleChange(event: React.SyntheticEvent, newValue: string): void {
+    setValue(newValue);
+  }
 
   const handleToggle = (value: any) => () => {
     const currentIndex = checked.indexOf(value);
@@ -33,22 +54,58 @@ const InicioU: React.FunctionComponent = () => {
     <>
       <Box sx={{ height: 350 }}>
         <Grid container spacing={1}>
-          <Grid item xs={4}>
+          <Grid item xs={6}>
             <Container>
               <Paper elevation={24} background-color="black">
                 <Box sx={{ height: 350 }}>
-                  <Typography>Avatar</Typography>
-                  <img
-                    src="https://res.cloudinary.com/damzv3dfx/image/upload/v1664219643/GrowMeLogo_oluytz.png"
-                    alt="logo"
-                    height="300"
-                  ></img>
+                  <Box>
+                    {(() => {
+                      switch (value) {
+                        case 'Avatar':
+                          return <Avatar />;
+                        case 'Granja':
+                          return <Farm />;
+                        case 'Progreso':
+                          return <ProgresoCohen />;
+                        case 'Premios':
+                          return <Premios />;
+                        default:
+                          return <Avatar />;
+                      }
+                    })()}
+                  </Box>
+                  <BottomNavigation
+                    showLabels
+                    value={value}
+                    onChange={handleChange}
+                  >
+                    <BottomNavigationAction
+                      label="Avatar"
+                      value={'Avatar'}
+                      icon={<FaceIcon />}
+                    />
+                    <BottomNavigationAction
+                      label="Granja"
+                      value={'Granja'}
+                      icon={<SpaIcon />}
+                    />
+                    <BottomNavigationAction
+                      label="Progreso"
+                      value={'Progreso'}
+                      icon={<InsightsIcon />}
+                    />
+                    <BottomNavigationAction
+                      label="Premios"
+                      value={'Premios'}
+                      icon={<EmojiEventsIcon />}
+                    />
+                  </BottomNavigation>
                 </Box>
               </Paper>
               {/* Pendiente pues necesita las iamgenes, probablemente sea bueno un componente para el */}
             </Container>
           </Grid>
-          <Grid item xs={8}>
+          <Grid item xs={6}>
             <Paper elevation={24}>
               <Box
                 sx={{

@@ -3,7 +3,7 @@ import TileMap from './TileMap';
 
 const Canva: React.FunctionComponent = () => {
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
-  const TileSize = 64;
+  const TileSize = 3;
   // eslint-disable-next-line react-hooks/exhaustive-deps
   const tileMap = new TileMap(TileSize);
 

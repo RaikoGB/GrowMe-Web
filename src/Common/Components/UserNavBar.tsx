@@ -11,22 +11,17 @@ import Button from '@mui/material/Button';
 import MenuItem from '@mui/material/MenuItem';
 import { NavLink } from 'react-router-dom';
 import AccountCircle from '@mui/icons-material/AccountCircle';
-import SyncIcon from '@mui/icons-material/Sync';
 import NotificationsIcon from '@mui/icons-material/Notifications';
 import { Badge } from '@mui/material';
 
 const pages = [
   {
     text: 'Inicio',
-    Link: '/auth/Inicio'
+    Link: '/#/auth/Inicio'
   },
   {
     text: 'Calendario',
-    Link: '/auth/calendario'
-  },
-  {
-    text: 'Progreso',
-    Link: '/auth/progreso'
+    Link: '/#/auth/calendario'
   }
 ];
 
@@ -117,7 +112,7 @@ const UserNavBar: React.FunctionComponent = () => {
               variant="h6"
               noWrap
               component="a"
-              href="/app"
+              href="/GrowMe-Web/#/auth/Inicio"
               sx={{
                 mr: 2,
                 display: { xs: 'none', md: 'flex' },
@@ -176,7 +171,7 @@ const UserNavBar: React.FunctionComponent = () => {
               variant="h5"
               noWrap
               component="a"
-              href=""
+              href="/GrowMe-Web/#/auth/Inicio"
               sx={{
                 mr: 2,
                 display: { xs: 'flex', md: 'none' },
@@ -204,12 +199,7 @@ const UserNavBar: React.FunctionComponent = () => {
             </Box>
             <Box sx={{ flexGrow: 1 }} />
             <Box sx={{ display: { xs: 'none', md: 'flex' } }}>
-              <IconButton size="large" aria-label="Sync" color="inherit">
-                <SyncIcon />
-              </IconButton>
-              {/* Estas notificiaciones pieden hacer de boton, s
-              i no es necesario cambiar el componente popupstate por un popover de material */}
-
+              {/* Estas notificiaciones pieden hacer de boton, si no es necesario cambiar el componente popupstate por un popover de material */}
               <IconButton
                 size="large"
                 aria-label="notifications"
@@ -262,7 +252,6 @@ const UserNavBar: React.FunctionComponent = () => {
                 <MenuItem>Noti 2</MenuItem>
                 <MenuItem>Noti 3</MenuItem>
               </Menu>
-
               <IconButton
                 size="large"
                 edge="end"
