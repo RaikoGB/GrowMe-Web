@@ -1,10 +1,10 @@
 {
   "files": {
-    "main.js": "/GrowMe-Web/static/js/main.6d35f73f.js",
+    "main.js": "/GrowMe-Web/static/js/main.69d2c5c5.js",
     "index.html": "/GrowMe-Web/index.html",
-    "main.6d35f73f.js.map": "/GrowMe-Web/static/js/main.6d35f73f.js.map"
+    "main.69d2c5c5.js.map": "/GrowMe-Web/static/js/main.69d2c5c5.js.map"
   },
   "entrypoints": [
-    "static/js/main.6d35f73f.js"
+    "static/js/main.69d2c5c5.js"
   ]
 }
