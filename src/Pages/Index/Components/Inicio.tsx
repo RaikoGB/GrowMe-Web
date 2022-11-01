@@ -43,7 +43,11 @@ const Inicio: React.FunctionComponent = () => {
                   </Typography>
                 </CardContent>
                 <CardActions>
-                  <Button variant="contained" size="large" href="/auth/SingUp">
+                  <Button
+                    variant="contained"
+                    size="large"
+                    href="/GrowMe-Web/#/auth/SingUp"
+                  >
                     Registrate
                   </Button>
                 </CardActions>
@@ -181,7 +185,7 @@ const Inicio: React.FunctionComponent = () => {
                   </Typography>
                   <br />
                   <CardActions>
-                    <Button size="large" href="/MovileApp">
+                    <Button size="large" href="/GrowMe-Web/#/MovileApp">
                       Descargar
                     </Button>
                   </CardActions>
@@ -207,7 +211,7 @@ const Inicio: React.FunctionComponent = () => {
                   </Typography>
                 </CardContent>
                 <CardActions>
-                  <Button size="small" href="/faq">
+                  <Button size="small" href="/GrowMe-Web/#/FAQ">
                     Aprende Mas
                   </Button>
                 </CardActions>
@@ -231,7 +235,7 @@ const Inicio: React.FunctionComponent = () => {
                   </Typography>
                 </CardContent>
                 <CardActions>
-                  <Button size="small" href="/faq">
+                  <Button size="small" href="/GrowMe-Web/#/FAQ">
                     Aprende Mas
                   </Button>
                 </CardActions>

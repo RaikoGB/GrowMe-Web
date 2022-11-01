@@ -19,12 +19,12 @@ const Footer: React.FunctionComponent = () => {
             <Grid item xs={12} sm={4}>
               <Box borderBottom={1}>Producto</Box>
               <Box>
-                <Link href="/MovileApp" color="inherit">
+                <Link href="/GrowMe-Web/#/MovileApp" color="inherit">
                   Android App
                 </Link>
               </Box>
               <Box>
-                <Link href="/faq" color="inherit">
+                <Link href="/GrowMe-Web/#/FAQ" color="inherit">
                   ¿Como funciona?
                 </Link>
               </Box>
@@ -32,7 +32,7 @@ const Footer: React.FunctionComponent = () => {
             <Grid item xs={12} sm={4}>
               <Box borderBottom={1}>Apoyo</Box>
               <Box>
-                <Link href="/faq" color="inherit">
+                <Link href="/GrowMe-Web/#/FAQ" color="inherit">
                   Preguntas Frecuentes
                 </Link>
               </Box>
@@ -45,19 +45,19 @@ const Footer: React.FunctionComponent = () => {
             <Grid item xs={12} sm={4}>
               <Box borderBottom={1}>Sociales</Box>
               <Box>
-                <Link href="/about" color="inherit">
+                <Link href="/GrowMe-Web/#/About" color="inherit">
                   ¿Quienes Somos?
                 </Link>
               </Box>
               <Box>
                 <Stack direction="row">
-                  <IconButton aria-label="Twitter" href="/app">
+                  <IconButton aria-label="Twitter" href="/GrowMe-Web/#/Index">
                     <TwitterIcon />
                   </IconButton>
-                  <IconButton aria-label="Facebook" href="/app">
+                  <IconButton aria-label="Facebook" href="/GrowMe-Web/#/Index">
                     <FacebookIcon />
                   </IconButton>
-                  <IconButton aria-label="Instagram" href="/app">
+                  <IconButton aria-label="Instagram" href="/GrowMe-Web/#/Index">
                     <InstagramIcon />
                   </IconButton>
                 </Stack>
