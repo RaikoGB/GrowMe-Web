@@ -1,15 +1,12 @@
 import React from 'react';
 import Box from '@mui/material/Box';
 import Drawer from '@mui/material/Drawer';
-import AppBar from '@mui/material/AppBar';
 import Toolbar from '@mui/material/Toolbar';
 import List from '@mui/material/List';
-import Typography from '@mui/material/Typography';
 import Divider from '@mui/material/Divider';
 import ListItemButton from '@mui/material/ListItemButton';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
-import { Container } from '@mui/material';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import KeyIcon from '@mui/icons-material/Key';
 import LogoutIcon from '@mui/icons-material/Logout';
@@ -34,39 +31,24 @@ const Cuenta: React.FunctionComponent = () => {
 
   return (
     <>
-      <Container>
         <Box sx={{ display: 'flex' }}>
-          <AppBar
-            position="fixed"
-            sx={{ zIndex: (theme) => theme.zIndex.drawer + 1 }}
-          >
-            <Toolbar>
-              {
-                // la siguiente linea se puede cambiar por el nombre de la cuenta
-              }
-              <Typography variant="h6" noWrap component="div">
-                Cuenta
-              </Typography>
-            </Toolbar>
-          </AppBar>
           <Drawer
-            sx={{
+           sx={{
+            width: drawerWidth,
+            flexShrink: 0,
+            '& .MuiDrawer-paper': {
               width: drawerWidth,
-              flexShrink: 0,
-              '& .MuiDrawer-paper': {
-                width: drawerWidth,
-                boxSizing: 'border-box'
-              }
-            }}
-            variant="permanent"
-            anchor="left"
+              boxSizing: 'content-box',
+            },
+          }}
+          variant="permanent"
           >
             <Toolbar />
             <Divider />
             <List>
               <ListItemButton
-                selected={selectedIndex === 0}
-                onClick={(event) => handleListItemClick({ event, index: 0 })}
+                selected={selectedIndex === 1}
+                onClick={(event) => handleListItemClick({ event, index: 1 })}
               >
                 <ListItemIcon>
                   <AccountCircleIcon />
@@ -74,8 +56,8 @@ const Cuenta: React.FunctionComponent = () => {
                 <ListItemText primary="Cuenta" />
               </ListItemButton>
               <ListItemButton
-                selected={selectedIndex === 1}
-                onClick={(event) => handleListItemClick({ event, index: 1 })}
+                selected={selectedIndex === 2}
+                onClick={(event) => handleListItemClick({ event, index: 2 })}
               >
                 <ListItemIcon>
                   <KeyIcon />
@@ -83,8 +65,8 @@ const Cuenta: React.FunctionComponent = () => {
                 <ListItemText primary="Contraseña" />
               </ListItemButton>
               <ListItemButton
-                selected={selectedIndex === 2}
-                onClick={(event) => handleListItemClick({ event, index: 2 })}
+                selected={selectedIndex === 3}
+                onClick={(event) => handleListItemClick({ event, index: 3 })}
               >
                 <ListItemIcon>
                   <LogoutIcon />
@@ -101,20 +83,19 @@ const Cuenta: React.FunctionComponent = () => {
             <Box>
               {(() => {
                 switch (selectedIndex) {
-                  case 1:
+                  case 3:
                     return <LogOut />;
                   case 2:
                     return <Password />;
-                  case 3:
+                  case 1:
                     return <UpdateCuenta />;
                   default:
-                    return <br />;
+                    return <UpdateCuenta />;
                 }
               })()}
             </Box>
           </Box>
         </Box>
-      </Container>
     </>
   );
 };

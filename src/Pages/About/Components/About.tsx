@@ -11,6 +11,12 @@ import Card from '@mui/material/Card';
 import CardMedia from '@mui/material/CardMedia';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import CardActions from '@mui/material/CardActions';
+import AboutIMG from '../../../Assets/AboutIMG.png'
+import GioIMG from '../../../Assets/GioIMG.png'
+import LeoIMG from '../../../Assets/LeoIMG.png'
+import RichIMG from '../../../Assets/RichIMG.png'
+import Divider from '@mui/material/Divider';
+
 
 const About: React.FunctionComponent = () => {
   return (
@@ -19,9 +25,10 @@ const About: React.FunctionComponent = () => {
         <Typography variant="h2" align="center">
           Sobre nosotros
         </Typography>
+        <br></br>
         <Grid container spacing={2}>
-          <Grid item xs={7}>
-            <Typography variant="h5" align="center">
+          <Grid item xs={5}>
+            <Typography mt={20} variant="h5" align="center">
               Velit deserunt culpa ad pariatur tempor labore magna incididunt
               tempor est consectetur anim. Deserunt culpa enim esse do magna
               deserunt cillum. Velit quis duis est reprehenderit consequat et
@@ -29,12 +36,15 @@ const About: React.FunctionComponent = () => {
               id deserunt pariatur fugiat cupidatat veniam aliquip.
             </Typography>
           </Grid>
-          <Grid item xs={5}>
-            <img src="../../../Assets/carrot.png" alt="gio"></img>
+          <br></br>
+          <Grid item xs={7}>
+            <img width={800} height={500} src={AboutIMG} alt="AboutIMG"></img>
           </Grid>
         </Grid>
       </Container>
+      <Divider></Divider>
       <Container>
+        <br></br>
         <Typography variant="h2" align="center">
           Nuestro Equipo
         </Typography>
@@ -45,8 +55,9 @@ const About: React.FunctionComponent = () => {
             <Card>
               <CardMedia
                 component="img"
-                height="200"
-                image="../../../Assets/carrot.png"
+                width="200"
+                height="250"
+                image={GioIMG}
                 alt="Gio"
               ></CardMedia>
               <CardContent>
@@ -55,6 +66,7 @@ const About: React.FunctionComponent = () => {
               </CardContent>
               <CardActions disableSpacing>
                 <IconButton
+                  size='large'
                   aria-label="linkedIn"
                   href="https://www.linkedin.com/in/geovanni-castañeda-beltran-78a83a224/"
                 >
@@ -67,8 +79,9 @@ const About: React.FunctionComponent = () => {
             <Card>
               <CardMedia
                 component="img"
-                height="200"
-                image="../../../Assets/carrot.png"
+                width="200"
+                height="250"
+                image={RichIMG}
                 alt="Gio"
               ></CardMedia>
               <CardContent>
@@ -77,6 +90,7 @@ const About: React.FunctionComponent = () => {
               </CardContent>
               <CardActions disableSpacing>
                 <IconButton
+                  size='large'
                   aria-label="linkedIn"
                   href="https://www.linkedin.com"
                 >
@@ -89,8 +103,9 @@ const About: React.FunctionComponent = () => {
             <Card>
               <CardMedia
                 component="img"
-                height="200"
-                image="../../../Assets/carrot.png"
+                width="200"
+                height="250"
+                image={LeoIMG}
                 alt="Gio"
               ></CardMedia>
               <CardContent>
@@ -99,6 +114,7 @@ const About: React.FunctionComponent = () => {
               </CardContent>
               <CardActions disableSpacing>
                 <IconButton
+                  size='large'
                   aria-label="linkedIn"
                   href="https://www.linkedin.com"
                 >
