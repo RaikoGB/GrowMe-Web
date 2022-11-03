@@ -11,10 +11,10 @@ import Card from '@mui/material/Card';
 import CardMedia from '@mui/material/CardMedia';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import CardActions from '@mui/material/CardActions';
-import AboutIMG from '../../../Assets/AboutIMG.png'
-import GioIMG from '../../../Assets/GioIMG.png'
-import LeoIMG from '../../../Assets/LeoIMG.png'
-import RichIMG from '../../../Assets/RichIMG.png'
+import AboutIMG from '../../../Assets/AboutIMG.png';
+import GioIMG from '../../../Assets/GioIMG.png';
+import LeoIMG from '../../../Assets/LeoIMG.png';
+import RichIMG from '../../../Assets/RichIMG.png';
 import Divider from '@mui/material/Divider';
 
 

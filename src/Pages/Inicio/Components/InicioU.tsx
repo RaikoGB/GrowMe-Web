@@ -58,7 +58,7 @@ const InicioU: React.FunctionComponent = () => {
             <Container>
               <Paper elevation={24} background-color="black">
                 <Box sx={{ height: 350 }}>
-                  <Box>
+                  <Box sx={{ height: 300 }}>
                     {(() => {
                       switch (value) {
                         case 'Avatar':
