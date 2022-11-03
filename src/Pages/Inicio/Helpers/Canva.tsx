@@ -3,8 +3,7 @@ import TileMap from './TileMap';
 
 const Canva: React.FunctionComponent = () => {
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
-  const TileSize = 3;
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+  const TileSize = 32;
   const tileMap = new TileMap(TileSize);
 
   useEffect(() => {
@@ -19,8 +18,13 @@ const Canva: React.FunctionComponent = () => {
       return;
     }
     tileMap.draw(canvas, context);
-  }, [tileMap]);
-  return <canvas ref={canvasRef}></canvas>;
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+  return (
+    <>
+    <canvas ref={canvasRef}></canvas>
+    </>
+  );
 };
 
 export default Canva;

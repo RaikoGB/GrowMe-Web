@@ -13,6 +13,7 @@ import { NavLink } from 'react-router-dom';
 import AccountCircle from '@mui/icons-material/AccountCircle';
 import NotificationsIcon from '@mui/icons-material/Notifications';
 import { Badge } from '@mui/material';
+import LogoutIcon from '@mui/icons-material/Logout';
 
 const pages = [
   {
@@ -92,15 +93,22 @@ const UserNavBar: React.FunctionComponent = () => {
       open={isMenuOpen}
       onClose={handleMenuClose}
     >
-      <MenuItem onClick={handleMenuClose}>Perfil</MenuItem>
-      <MenuItem onClick={handleMenuClose}>Cuenta</MenuItem>
-      <MenuItem onClick={handleMenuClose}>Cerrar Sesion</MenuItem>
+      <MenuItem>
+        <Button variant="text" href='/#/auth/cuenta' startIcon={<AccountCircle />}>
+          Cuenta
+        </Button>
+      </MenuItem>
+      <MenuItem>
+        <Button variant="text" href='/#/auth/cuenta' startIcon={<LogoutIcon />}>
+          Cerrar Sesion
+        </Button>
+      </MenuItem>
     </Menu>
   );
 
   return (
     <>
-      <AppBar position="fixed">
+      <AppBar position="fixed" sx={{ zIndex: (theme) => theme.zIndex.drawer + 1 }}>
         <Container maxWidth="xl">
           <Toolbar disableGutters>
             <img
