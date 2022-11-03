@@ -1,4 +1,4 @@
-import { Container, IconButton, Typography } from '@mui/material';
+import { Container, Typography, Button } from '@mui/material';
 import React from 'react';
 import LogoutIcon from '@mui/icons-material/Logout';
 
@@ -6,10 +6,10 @@ const LogOut: React.FunctionComponent = () => {
   return (
     <>
       <Container>
-        <Typography>Estas seguro de cerrar sesion?</Typography>
-        <IconButton size="large">
-          <LogoutIcon></LogoutIcon>
-        </IconButton>
+        <Typography variant='h3'>¿Estas seguro de cerrar sesion?</Typography>
+        <br></br>
+        <br></br>
+        <Button variant="contained" size="large" href="/#/index" endIcon={<LogoutIcon />}>Salir</Button>
       </Container>
     </>
   );

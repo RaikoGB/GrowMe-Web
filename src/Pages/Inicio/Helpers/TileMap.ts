@@ -4,7 +4,6 @@ export default class tilemap {
   soil2: HTMLImageElement;
   soil3: HTMLImageElement;
   soil4: HTMLImageElement;
-  soil5: HTMLImageElement;
   soil6: HTMLImageElement;
   soil7: HTMLImageElement;
   soil8: HTMLImageElement;
@@ -20,23 +19,22 @@ export default class tilemap {
   constructor(tileSize: number) {
     this.tileSize = tileSize;
     // Background para la primera layaer
-    this.soil1 = this.images('../../../Assets/Tiles/soil-1.png');
-    this.soil2 = this.images('../../../Assets/Tiles/soil-2.png');
-    this.soil3 = this.images('../../../Assets/Tiles/soil-3.png');
-    this.soil4 = this.images('../../../Assets/Tiles/soil-4.png');
-    this.soil5 = this.images('../../../Assets/Tiles/soil-5.png');
-    this.soil6 = this.images('../../../Assets/Tiles/soil-6.png');
-    this.soil7 = this.images('../../../Assets/Tiles/soil-7.png');
-    this.soil8 = this.images('../../../Assets/Tiles/soil-8.png');
-    this.soil9 = this.images('../../../Assets/Tiles/soil-9.png');
-    this.soilR = this.images('../../../Assets/Tiles/soil-R.png');
-    this.soilL = this.images('../../../Assets/Tiles/soil-L.png');
-    this.soil = this.images('../../../Assets/Tiles/soil.png');
+    this.soil1 = this.images("soil-1.png");
+    this.soil2 = this.images("soil-1.png");
+    this.soil3 = this.images("soil-1.png");
+    this.soil4 = this.images("soil-1.png");
+    this.soil6 = this.images("soil-1.png");
+    this.soil7 = this.images("soil-1.png");
+    this.soil8 = this.images("soil-1.png");
+    this.soil9 = this.images("soil-1.png");
+    this.soilR = this.images("soil-1.png");
+    this.soilL = this.images("soil-1.png");
+    this.soil = this.images("soil-1.png");
     // Las plantas y sus estados
-    this.carrot1 = this.images('../../../Assets/Tiles/carrot1.png');
-    this.carrot2 = this.images('../../../Assets/Tiles/carrot2.png');
-    this.carrot3 = this.images('../../../Assets/Tiles/carrot3.png');
-    this.carrot4 = this.images('../../../Assets/Tiles/carrot4.png');
+    this.carrot1 = this.images("soil-1.png");
+    this.carrot2 = this.images("soil-1.png");
+    this.carrot3 = this.images("soil-1.png");
+    this.carrot4 = this.images("soil-1.png");
   }
 
   images(filename: string): HTMLImageElement {
@@ -64,6 +62,7 @@ export default class tilemap {
   ): void {
     this.setCanvasSize(canvas);
     this.clearCanvas(canvas, context);
+    // 
     this.drawMap(context);
   }
 
@@ -84,9 +83,6 @@ export default class tilemap {
             break;
           case 3:
             image = this.soil4;
-            break;
-          case 4:
-            image = this.soil5;
             break;
           case 5:
             image = this.soil6;
