@@ -257,7 +257,6 @@ const UserNavBar: React.FunctionComponent = () => {
                 anchorOrigin={{ horizontal: 'right', vertical: 'bottom' }}
               >
                 <MenuItem>Noti 1</MenuItem>
-                <MenuItem>Noti 2</MenuItem>
                 <MenuItem>Noti 3</MenuItem>
               </Menu>
               <IconButton
