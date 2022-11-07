@@ -10,11 +10,13 @@ const Canva: React.FunctionComponent = () => {
     const canvas = canvasRef.current;
     // eslint-disable-next-line no-empty
     if (canvas == null) {
+      console.log("UseEffect cerro por canvas null");
       return;
     }
     const context = canvas?.getContext('2d');
     // eslint-disable-next-line no-empty
     if (context == null) {
+      console.log("UseEffect cerro por context null");
       return;
     }
     tileMap.draw(canvas, context);
@@ -25,6 +27,6 @@ const Canva: React.FunctionComponent = () => {
     <canvas ref={canvasRef}></canvas>
     </>
   );
-};
+}; 
 
 export default Canva;

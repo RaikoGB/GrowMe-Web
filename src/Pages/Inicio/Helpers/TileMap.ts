@@ -1,3 +1,15 @@
+// import React from "react";
+import soilIMG from '../../../Assets/Tiles/soil.png';
+import soil1IMG from '../../../Assets/Tiles/soil1.png';
+import soil2IMG from '../../../Assets/Tiles/soil-2.png';
+import soil3IMG from '../../../Assets/Tiles/soil-3.png';
+import soil4IMG from '../../../Assets/Tiles/soil-4.png';
+import soil6IMG from '../../../Assets/Tiles/soil-6.png';
+import soil7IMG from '../../../Assets/Tiles/soil-7.png';
+import soil8IMG from '../../../Assets/Tiles/soil-8.png';
+import soil9IMG from '../../../Assets/Tiles/soil-9.png';
+import soilRIMG from '../../../Assets/Tiles/soil-R.png';
+import soilLIMG from '../../../Assets/Tiles/soil-L.png';
 export default class tilemap {
   tileSize: number;
   soil1: HTMLImageElement;
@@ -19,28 +31,33 @@ export default class tilemap {
   constructor(tileSize: number) {
     this.tileSize = tileSize;
     // Background para la primera layaer
-    this.soil1 = this.images("soil-1.png");
-    this.soil2 = this.images("soil-1.png");
-    this.soil3 = this.images("soil-1.png");
-    this.soil4 = this.images("soil-1.png");
-    this.soil6 = this.images("soil-1.png");
-    this.soil7 = this.images("soil-1.png");
-    this.soil8 = this.images("soil-1.png");
-    this.soil9 = this.images("soil-1.png");
-    this.soilR = this.images("soil-1.png");
-    this.soilL = this.images("soil-1.png");
-    this.soil = this.images("soil-1.png");
+    this.soil1 = this.images(soil1IMG);
+    this.soil2 = this.images(soil2IMG);
+    this.soil3 = this.images(soil3IMG);
+    this.soil4 = this.images(soil4IMG);
+    this.soil6 = this.images(soil6IMG);
+    this.soil7 = this.images(soil7IMG);
+    this.soil8 = this.images(soil8IMG);
+    this.soil9 = this.images(soil9IMG);
+    this.soilR = this.images(soilRIMG);
+    this.soilL = this.images(soilLIMG);
+    this.soil = this.images(soilIMG);
     // Las plantas y sus estados
-    this.carrot1 = this.images("soil-1.png");
-    this.carrot2 = this.images("soil-1.png");
-    this.carrot3 = this.images("soil-1.png");
-    this.carrot4 = this.images("soil-1.png");
+    this.carrot1 = this.images(soilIMG);
+    this.carrot2 = this.images(soilIMG);
+    this.carrot3 = this.images(soilIMG);
+    this.carrot4 = this.images(soilIMG);
   }
 
   images(filename: string): HTMLImageElement {
-    const img = new Image();
-    img.src = `../../../Assets/Tiles/${filename}`;
-    return img;
+     const img = new Image();
+     img.src = filename;
+     return img;
+    // const img = React.createElement("img", {
+    //  src: `../../../Assets/Tiles/${filename}`,
+      // any other image attributes you need go here
+    // }, null);
+    // return img;
   }
 
   // cada bracket es una fila
