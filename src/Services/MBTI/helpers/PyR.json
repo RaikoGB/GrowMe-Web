@@ -1,0 +1,38 @@
+{
+  "Q": [
+    "1. At a party do you:",
+    "2. Are you more:",
+    "3. Is it worse to:",
+    "4. Are you more impressed by:",
+    "5. Are more drawn toward the:",
+    "6. Do you prefer to work:",
+    "7. Do you tend to choose:",
+    "8. At parties do you:",
+    "9. Are you more attracted to:",
+    "10. Are you more interested in:"
+  ],
+  "A": [
+    "a. Interact with many, including strangers",
+    "a. Realistic than speculative",
+    "a. Have your “head in the clouds”",
+    "a. Principles",
+    "a. Convincing",
+    "a. To deadlines",
+    "a. Rather carefully",
+    "a. Stay late, with increasing energy",
+    "a. Sensible people",
+    "a. What is actual"
+  ],
+  "B": [
+    "b. Interact with a few, known to you",
+    "b. Speculative than realistic",
+    "b. Be “in a rut”",
+    "b. Emotions",
+    "b. Touching",
+    "b. Just “whenever”",
+    "b. Somewhat impulsively",
+    "b. Leave early with decreased energy",
+    "b. Imaginative people",
+    "b. What is possible"
+  ]
+}

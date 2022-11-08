@@ -7,12 +7,9 @@ import Typography from '@mui/material/Typography';
 import { questionsCohen } from '../helpers/CohenTEST';
 import ButtonGroup from '@mui/material/ButtonGroup';
 
-const TotalQ = 13;
-
-// TODO:Este modal debe aparecer en la barra de navegacion como parte de las notificaciones, por eso debe ser listado como un item de menu que abra un modal.
-
 const ModalCohen: React.FunctionComponent = () => {
   const [open, setOpen] = React.useState(false);
+  const TotalQ = 13;
 
   function handleOpen(): void {
     return setOpen(true);
@@ -59,7 +56,6 @@ const ModalCohen: React.FunctionComponent = () => {
     }
     if (NumberQ === TotalQ) {
       // EnviarCohen(Answer);
-      console.log("Se termino de recolectar los datos de Cohen la puntacion es: ", Answer);
       handleClose()
     }
   }
@@ -94,11 +90,11 @@ const ModalCohen: React.FunctionComponent = () => {
               }}
             >
               <ButtonGroup variant="contained" size="large" aria-label="large button group">
-                <Button key="Nunca" onClick={(event) => NextQ({ event, index: 0 })}>1</Button>
-                <Button key="Casi Nunca" onClick={(event) => NextQ({ event, index: 1 })}>2</Button>
-                <Button key="De vez en cuando" onClick={(event) => NextQ({ event, index: 2 })}>3</Button>
-                <Button key="A menudo" onClick={(event) => NextQ({ event, index: 3 })}>4</Button>
-                <Button key="Muy a menudo" onClick={(event) => NextQ({ event, index: 4 })}>5</Button>
+                <Button key="Nunca" onClick={(event) => NextQ({ event, index: 0 })}>Nunca</Button>
+                <Button key="Casi Nunca" onClick={(event) => NextQ({ event, index: 1 })}>Casi Nunca</Button>
+                <Button key="De vez en cuando" onClick={(event) => NextQ({ event, index: 2 })}>De vez en cuando</Button>
+                <Button key="A menudo" onClick={(event) => NextQ({ event, index: 3 })}>A menudo</Button>
+                <Button key="Muy a menudo" onClick={(event) => NextQ({ event, index: 4 })}>Muy a menudo</Button>
               </ButtonGroup>
               <br />
               <Typography id="modal-modal-title" variant="h6" component="h2">
