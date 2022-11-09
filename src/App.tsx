@@ -1,6 +1,7 @@
 import React from 'react';
 import { AppRouter } from './Router/AppRouter';
 import { ThemeProvider, createTheme } from '@mui/material';
+import './Styles/styles.css'
 
 const App: React.FunctionComponent = () => {
   return (

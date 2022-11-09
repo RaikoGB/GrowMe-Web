@@ -1,11 +1,22 @@
 import { createSlice } from '@reduxjs/toolkit';
+
+export interface AuthState {
+  
+  status : string,
+  user : any, // Crear otra interfaz? que llevará?
+  errorMessage : any,
+
+}
+
+const initialState : AuthState = {
+  status : 'checking',
+  user : {},
+  errorMessage : 'No autenticado'
+}
+
 export const AuthSlice = createSlice({
   name: 'Auth',
-  initialState: {
-    status: 'checking', // 'Authenticated' - 'Not-authenticated'
-    user: {},
-    errorMessage: undefined
-  },
+  initialState,
   reducers: {
     onChecking: (state) => {
       state.status = 'checking';
@@ -29,5 +40,4 @@ export const AuthSlice = createSlice({
 });
 
 // Action creators are generated for each case reducer function
-export const { onChecking, onLogin, onLogout, clearErrorMessage } =
-  AuthSlice.actions;
+export const { onChecking, onLogin, onLogout, clearErrorMessage } = AuthSlice.actions;
