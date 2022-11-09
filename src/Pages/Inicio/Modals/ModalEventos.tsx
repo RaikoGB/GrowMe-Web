@@ -39,6 +39,7 @@ export const ModalEventos: React.FunctionComponent = () => {
     return setOpen(true);
   }
   function handleClose(): void {
+    console.log("se cierra desde modal eventos");
     return setOpen(false);
   }
   const [value, setValue] = React.useState();
@@ -53,73 +54,74 @@ export const ModalEventos: React.FunctionComponent = () => {
           aria-label="add"
         >
           <AddIcon />
-          <Modal
-            open={open}
-            onClose={handleClose}
-            aria-labelledby="modal-modal-title"
-            aria-describedby="modal-modal-description"
-          >
-            <Container component="main" sx={style}>
-              <CssBaseline />
-              <Grid container spacing={3}>
-                <Grid ml={1} xs>
-                  <Typography component="div" variant="h5">
-                    Crear Evento
-                  </Typography>
-                </Grid>
-                <Grid xs={2}>
-                  <Button onClick={handleClose} variant="text">
-                    Cancelar
-                  </Button>
-                </Grid>
-                <Grid xs={2}>
-                  <Button variant="contained">Crear</Button>
-                </Grid>
-              </Grid>
-              <br></br>
-              <Stack spacing={2} sx={{ width: 500 }}>
-                <Typography>Titulo</Typography>
-                <TextField
-                  id="outlined-basic"
-                  label="Outlined"
-                  variant="outlined"
-                />
-                <Typography>Notas</Typography>
-                <TextField
-                  margin="normal"
-                  required
-                  fullWidth
-                  id="notes"
-                  label="Notas"
-                  name="Notas"
-                  autoComplete="Notas"
-                />
-              </Stack>
-              <Typography>Fecha de termino</Typography>
-              <LocalizationProvider dateAdapter={AdapterDayjs}>
-                <DatePicker
-                  disableFuture
-                  label="Fecha"
-                  openTo="year"
-                  views={['year', 'month', 'day']}
-                  value={value}
-                  onChange={(newValue) => {}}
-                  renderInput={(params) => <TextField {...params} />}
-                />
-              </LocalizationProvider>
-              <Typography>Horario</Typography>
-              <LocalizationProvider dateAdapter={AdapterDayjs}>
-                <TimePicker
-                  label="Tiempo"
-                  value={value2}
-                  onChange={(newValue2) => {}}
-                  renderInput={(params) => <TextField {...params} />}
-                />
-              </LocalizationProvider>
-            </Container>
-          </Modal>
+
         </IconButton>
       </div>
+      <Modal
+        open={open}
+        onClose={handleClose}
+        aria-labelledby="Modal Eventos"
+        aria-describedby="registrar eventos"
+      >
+        <Container component="main" sx={style}>
+          <CssBaseline />
+          <Grid container spacing={3}>
+            <Grid ml={1} xs>
+              <Typography component="div" variant="h5">
+                Crear Evento
+              </Typography>
+            </Grid>
+            <Grid xs={2}>
+              <Button onClick={handleClose} variant="text">
+                Cancelar
+              </Button>
+            </Grid>
+            <Grid xs={2}>
+              <Button variant="contained">Crear</Button>
+            </Grid>
+          </Grid>
+          <br></br>
+          <Stack spacing={2} sx={{ width: 500 }}>
+            <Typography>Titulo</Typography>
+            <TextField
+              id="outlined-basic"
+              label="Outlined"
+              variant="outlined"
+            />
+            <Typography>Notas</Typography>
+            <TextField
+              margin="normal"
+              required
+              fullWidth
+              id="notes"
+              label="Notas"
+              name="Notas"
+              autoComplete="Notas"
+            />
+          </Stack>
+          <Typography>Fecha de termino</Typography>
+          <LocalizationProvider dateAdapter={AdapterDayjs}>
+            <DatePicker
+              disableFuture
+              label="Fecha"
+              openTo="year"
+              views={['year', 'month', 'day']}
+              value={value}
+              onChange={(newValue) => { }}
+              renderInput={(params) => <TextField {...params} />}
+            />
+          </LocalizationProvider>
+          <Typography>Horario</Typography>
+          <LocalizationProvider dateAdapter={AdapterDayjs}>
+            <TimePicker
+              label="Tiempo"
+              value={value2}
+              onChange={(newValue2) => { }}
+              renderInput={(params) => <TextField {...params} />}
+            />
+          </LocalizationProvider>
+        </Container>
+      </Modal>
     </>
   );
 };

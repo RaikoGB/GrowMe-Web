@@ -41,6 +41,7 @@ export const ModalHabitos: React.FunctionComponent = () => {
     return setOpen(true);
   }
   function handleClose(): void {
+    console.log("se cierra desde modal habit");
     return setOpen(false);
   }
   const [value2, setValue2] = React.useState();
@@ -54,106 +55,106 @@ export const ModalHabitos: React.FunctionComponent = () => {
           aria-label="add"
         >
           <AddIcon />
-          <Modal
-            open={open}
-            onClose={handleClose}
-            aria-labelledby="modal-modal-title"
-            aria-describedby="modal-modal-description"
-          >
-            <Container component="main" sx={style}>
-              <CssBaseline />
-              <Grid container spacing={3}>
-                <Grid ml={1} xs>
-                  <Typography component="div" variant="h5">
-                    Crear Hábito
-                  </Typography>
-                </Grid>
-                <Grid xs={2}>
-                  <Button onClick={handleClose} variant="text">
-                    Cancelar
-                  </Button>
-                </Grid>
-                <Grid xs={2}>
-                  <Button variant="contained">Crear</Button>
-                </Grid>
-              </Grid>
-              <br></br>
-              <Stack spacing={2} sx={{ width: 500 }}>
-                {/* TODO:Cambiar las opciones para que las tome de BD */}
-                <Typography>Titulo</Typography>
-                <Autocomplete
-                  id="HabitName"
-                  freeSolo
-                  options={top100Films.map((option) => option.title)}
-                  renderInput={(params) => (
-                    <TextField {...params} label="Hábito" />
-                  )}
-                />
-                <Typography>Notas</Typography>
-                <TextField
-                  margin="normal"
-                  required
-                  fullWidth
-                  id="notes"
-                  label="Notas"
-                  name="Notas"
-                  autoComplete="Notas"
-                />
-              </Stack>
-              <InputLabel variant="standard" htmlFor="uncontrolled-native">
-                Dificultad
-              </InputLabel>
-              <NativeSelect
-                defaultValue={30}
-                inputProps={{
-                  name: 'Dificultad',
-                  id: 'uncontrolled-native'
-                }}
-              >
-                <option value={0.5}>Trivial</option>
-                <option value={1}>Facil</option>
-                <option value={2}>Normal</option>
-                <option value={3}>Dificil</option>
-              </NativeSelect>
-              <Typography>Fecha de termino</Typography>
-              <NativeSelect
-                defaultValue={30}
-                inputProps={{
-                  name: 'Dificultad',
-                  id: 'uncontrolled-native'
-                }}
-              >
-                <option value={0.5}>2 Semanas</option>
-                <option value={1}>1 Mes</option>
-                <option value={2}>2 Meses</option>
-                <option value={3}>Indefinido</option>
-              </NativeSelect>
-              <Typography>Tiempo Minimo (Min)</Typography>
-              <NativeSelect
-                defaultValue={30}
-                inputProps={{
-                  name: 'Dificultad',
-                  id: 'uncontrolled-native'
-                }}
-              >
-                <option value={0.5}>5</option>
-                <option value={1}>10</option>
-                <option value={2}>15</option>
-                <option value={3}>20</option>
-              </NativeSelect>
-              <Typography>Horario</Typography>
-              <LocalizationProvider dateAdapter={AdapterDayjs}>
-                <TimePicker
-                  label="Tiempo"
-                  value={value2}
-                  onChange={(newValue2) => {}}
-                  renderInput={(params) => <TextField {...params} />}
-                />
-              </LocalizationProvider>
-            </Container>
-          </Modal>
         </IconButton>
       </div>
+      <Modal
+        open={open}
+        onClose={handleClose}
+        aria-labelledby="Modal Habitos"
+        aria-describedby="Registrar habitos"
+      >
+        <Container component="main" sx={style}>
+          <CssBaseline />
+          <Grid container spacing={3}>
+            <Grid ml={1} xs={2}>
+              <Typography component="div" variant="h5">
+                Crear Hábito
+              </Typography>
+            </Grid>
+            <Grid xs={2}>
+              <Button onClick={handleClose} variant="text">
+                Cancelar
+              </Button>
+            </Grid>
+            <Grid xs={2}>
+              <Button variant="contained">Crear</Button>
+            </Grid>
+          </Grid>
+          <br></br>
+          <Stack spacing={2} sx={{ width: 500 }}>
+            {/* TODO:Cambiar las opciones para que las tome de BD */}
+            <Typography>Titulo</Typography>
+            <Autocomplete
+              id="HabitName"
+              freeSolo
+              options={top100Films.map((option) => option.title)}
+              renderInput={(params) => (
+                <TextField {...params} label="Hábito" />
+              )}
+            />
+            <Typography>Notas</Typography>
+            <TextField
+              margin="normal"
+              required
+              fullWidth
+              id="notes"
+              label="Notas"
+              name="Notas"
+              autoComplete="Notas"
+            />
+          </Stack>
+          <InputLabel variant="standard" htmlFor="uncontrolled-native">
+            Dificultad
+          </InputLabel>
+          <NativeSelect
+            defaultValue={30}
+            inputProps={{
+              name: 'Dificultad',
+              id: 'uncontrolled-native'
+            }}
+          >
+            <option value={0.5}>Trivial</option>
+            <option value={1}>Facil</option>
+            <option value={2}>Normal</option>
+            <option value={3}>Dificil</option>
+          </NativeSelect>
+          <Typography>Fecha de termino</Typography>
+          <NativeSelect
+            defaultValue={30}
+            inputProps={{
+              name: 'Dificultad',
+              id: 'uncontrolled-native'
+            }}
+          >
+            <option value={0.5}>2 Semanas</option>
+            <option value={1}>1 Mes</option>
+            <option value={2}>2 Meses</option>
+            <option value={3}>Indefinido</option>
+          </NativeSelect>
+          <Typography>Tiempo Minimo (Min)</Typography>
+          <NativeSelect
+            defaultValue={30}
+            inputProps={{
+              name: 'Dificultad',
+              id: 'uncontrolled-native'
+            }}
+          >
+            <option value={0.5}>5</option>
+            <option value={1}>10</option>
+            <option value={2}>15</option>
+            <option value={3}>20</option>
+          </NativeSelect>
+          <Typography>Horario</Typography>
+          <LocalizationProvider dateAdapter={AdapterDayjs}>
+            <TimePicker
+              label="Tiempo"
+              value={value2}
+              onChange={(newValue2) => { }}
+              renderInput={(params) => <TextField {...params} />}
+            />
+          </LocalizationProvider>
+        </Container>
+      </Modal>
     </>
   );
 };

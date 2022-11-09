@@ -29,6 +29,8 @@ import Avatar from './Avatar';
 import Farm from './Farm';
 import ProgresoCohen from './ProgresoCohen';
 import Premios from './Premios';
+import ModalCohen from '../../../Services/Cohen/Components/ModalCohen'
+import ModalMBTI from '../../../Services/MBTI/Components/ModalMBTI';
 
 const InicioU: React.FunctionComponent = () => {
   const [checked, setChecked] = React.useState([0]);
@@ -236,6 +238,8 @@ const InicioU: React.FunctionComponent = () => {
           </Grid>
         </Grid>
       </Container>
+      <ModalCohen />
+      <ModalMBTI />
     </>
   );
 };

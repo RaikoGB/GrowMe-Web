@@ -38,6 +38,7 @@ export const ModalActividades: React.FunctionComponent = () => {
     return setOpen(true);
   }
   function handleClose(): void {
+    console.log("se cierra desde modal act");
     return setOpen(false);
   }
   const [value, setValue] = React.useState<Date | null>();
@@ -51,79 +52,80 @@ export const ModalActividades: React.FunctionComponent = () => {
           aria-label="add"
         >
           <AddIcon />
-          <Modal
-            open={open}
-            onClose={handleClose}
-            aria-labelledby="modal-modal-title"
-            aria-describedby="modal-modal-description"
-          >
-            <Container component="main" sx={style}>
-              <CssBaseline />
-              <Grid container spacing={3}>
-                <Grid ml={1} xs>
-                  <Typography component="div" variant="h5">
-                    Crear Actividad
-                  </Typography>
-                </Grid>
-                <Grid xs={2}>
-                  <Button onClick={handleClose} variant="text">
-                    Cancelar
-                  </Button>
-                </Grid>
-                <Grid xs={2}>
-                  <Button variant="contained">Crear</Button>
-                </Grid>
-              </Grid>
-              <br></br>
-              <Stack spacing={2} sx={{ width: 500 }}>
-                <Typography>Titulo</Typography>
-                <TextField
-                  id="outlined-basic"
-                  label="Outlined"
-                  variant="outlined"
-                />
-                <Typography>Notas</Typography>
-                <TextField
-                  margin="normal"
-                  required
-                  fullWidth
-                  id="notes"
-                  label="Notas"
-                  name="Notas"
-                  autoComplete="Notas"
-                />
-              </Stack>
-              <InputLabel variant="standard" htmlFor="uncontrolled-native">
-                Dificultad
-              </InputLabel>
-              <NativeSelect
-                defaultValue={30}
-                inputProps={{
-                  name: 'Dificultad',
-                  id: 'uncontrolled-native'
-                }}
-              >
-                <option value={0.5}>Trivial</option>
-                <option value={1}>Facil</option>
-                <option value={2}>Normal</option>
-                <option value={3}>Dificil</option>
-              </NativeSelect>
-              <Typography>Fecha de termino</Typography>
-              <LocalizationProvider dateAdapter={AdapterDayjs}>
-                <DatePicker
-                  disableFuture
-                  label="Responsive"
-                  openTo="year"
-                  views={['year', 'month', 'day']}
-                  value={value}
-                  onChange={(newValue) => setValue(newValue)}
-                  renderInput={(params) => <TextField {...params} />}
-                />
-              </LocalizationProvider>
-            </Container>
-          </Modal>
+
         </IconButton>
       </div>
+      <Modal
+        open={open}
+        onClose={handleClose}
+        aria-labelledby="Modal Actividades"
+        aria-describedby="actividades"
+      >
+        <Container component="main" sx={style}>
+          <CssBaseline />
+          <Grid container spacing={3}>
+            <Grid ml={1} xs>
+              <Typography component="div" variant="h5">
+                Crear Actividad
+              </Typography>
+            </Grid>
+            <Grid xs={2}>
+              <Button onClick={handleClose} variant="text">
+                Cancelar
+              </Button>
+            </Grid>
+            <Grid xs={2}>
+              <Button variant="contained">Crear</Button>
+            </Grid>
+          </Grid>
+          <br></br>
+          <Stack spacing={2} sx={{ width: 500 }}>
+            <Typography>Titulo</Typography>
+            <TextField
+              id="outlined-basic"
+              label="Outlined"
+              variant="outlined"
+            />
+            <Typography>Notas</Typography>
+            <TextField
+              margin="normal"
+              required
+              fullWidth
+              id="notes"
+              label="Notas"
+              name="Notas"
+              autoComplete="Notas"
+            />
+          </Stack>
+          <InputLabel variant="standard" htmlFor="uncontrolled-native">
+            Dificultad
+          </InputLabel>
+          <NativeSelect
+            defaultValue={30}
+            inputProps={{
+              name: 'Dificultad',
+              id: 'uncontrolled-native'
+            }}
+          >
+            <option value={0.5}>Trivial</option>
+            <option value={1}>Facil</option>
+            <option value={2}>Normal</option>
+            <option value={3}>Dificil</option>
+          </NativeSelect>
+          <Typography>Fecha de termino</Typography>
+          <LocalizationProvider dateAdapter={AdapterDayjs}>
+            <DatePicker
+              disableFuture
+              label="Responsive"
+              openTo="year"
+              views={['year', 'month', 'day']}
+              value={value}
+              onChange={(newValue) => setValue(newValue)}
+              renderInput={(params) => <TextField {...params} />}
+            />
+          </LocalizationProvider>
+        </Container>
+      </Modal>
     </>
   );
 };

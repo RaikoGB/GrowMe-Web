@@ -6,6 +6,7 @@ import { store } from './Store/store';
 import { Provider } from 'react-redux';
 import { HashRouter } from 'react-router-dom';
 
+
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );
