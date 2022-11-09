@@ -1,6 +1,7 @@
 {
   "files": {
-    "main.js": "/GrowMe-Web/static/js/main.05274944.js",
+    "main.css": "/GrowMe-Web/static/css/main.4182e152.css",
+    "main.js": "/GrowMe-Web/static/js/main.01f7e079.js",
     "static/media/AboutIMG.png": "/GrowMe-Web/static/media/AboutIMG.9c8726b9bce072171680.png",
     "static/media/Trophy1.png": "/GrowMe-Web/static/media/Trophy1.ba2a124f3fffe3a3bcb4.png",
     "static/media/ENFJ.png": "/GrowMe-Web/static/media/ENFJ.24b310004495ed273ea2.png",
@@ -8,9 +9,11 @@
     "static/media/LeoIMG.png": "/GrowMe-Web/static/media/LeoIMG.8722ca4b7ed9fbc19cc8.png",
     "static/media/RichIMG.png": "/GrowMe-Web/static/media/RichIMG.8722ca4b7ed9fbc19cc8.png",
     "index.html": "/GrowMe-Web/index.html",
-    "main.05274944.js.map": "/GrowMe-Web/static/js/main.05274944.js.map"
+    "main.4182e152.css.map": "/GrowMe-Web/static/css/main.4182e152.css.map",
+    "main.01f7e079.js.map": "/GrowMe-Web/static/js/main.01f7e079.js.map"
   },
   "entrypoints": [
-    "static/js/main.05274944.js"
+    "static/css/main.4182e152.css",
+    "static/js/main.01f7e079.js"
   ]
 }
