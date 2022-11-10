@@ -10,6 +10,8 @@ import Container from '@mui/material/Container';
 import Button from '@mui/material/Button';
 import MenuItem from '@mui/material/MenuItem';
 import { NavLink } from 'react-router-dom';
+import LoginIcon from '@mui/icons-material/Login';
+import PersonAddIcon from '@mui/icons-material/PersonAdd';
 
 const pages = [
   {
@@ -58,7 +60,8 @@ const Navbar: React.FunctionComponent = () => {
                 fontWeight: 700,
                 letterSpacing: '.3rem',
                 color: 'inherit',
-                textDecoration: 'none'
+                textDecoration: 'none',
+                fontfamily: 'Press Start 2P'
               }}
             >
               GrowMe
@@ -98,8 +101,13 @@ const Navbar: React.FunctionComponent = () => {
                       component={NavLink}
                       to={page.Link}
                       textAlign="center"
+                      sx={{fontfamily: 'Press Start 2P'}}
                     >
-                      <NavLink to={page.Link}>{page.text}</NavLink>
+                      {page.text}
+                      {
+                        // ! <NavLink to={page.Link}>{page.text}</NavLink>
+                        // ! causaba error de <a><a></a></a>
+                      }
                     </Typography>
                   </MenuItem>
                 ))}
@@ -140,8 +148,9 @@ const Navbar: React.FunctionComponent = () => {
                 variant="text"
                 color="inherit"
                 href="/GrowMe-Web/#/auth/LogIn"
+                startIcon={<LoginIcon color="secondary" />}
               >
-                LogIn
+                Iniciar Sesion
               </Button>
             </Box>
             <Box>
@@ -149,8 +158,9 @@ const Navbar: React.FunctionComponent = () => {
                 variant="outlined"
                 color="inherit"
                 href="/GrowMe-Web/#/auth/SingUp"
+                startIcon={<PersonAddIcon color="secondary" />}
               >
-                Sing Up
+                Resgistrate
               </Button>
             </Box>
           </Toolbar>

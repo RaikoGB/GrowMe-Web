@@ -39,7 +39,7 @@ const theme = createTheme({
     }
   },
   typography: {
-    fontFamily: 'Press Start 2P',
+    fontFamily: ['Press Start 2P','Nunito','Lato','Muli'].join(','),
     subtitle1: {
       fontFamily: 'Nunito'
     },
@@ -58,5 +58,6 @@ const theme = createTheme({
     overline: {
       fontFamily: 'Muli'
     }
+    
   }
 });

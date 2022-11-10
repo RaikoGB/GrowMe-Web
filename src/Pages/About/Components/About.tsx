@@ -58,6 +58,7 @@ const About: React.FunctionComponent = () => {
                 width="200"
                 height="250"
                 image={GioIMG}
+                sx={{borderRadius: "50%"}}
                 alt="Gio"
               ></CardMedia>
               <CardContent>
@@ -82,6 +83,7 @@ const About: React.FunctionComponent = () => {
                 width="200"
                 height="250"
                 image={RichIMG}
+                sx={{borderRadius: "50%"}}
                 alt="Gio"
               ></CardMedia>
               <CardContent>
@@ -106,6 +108,7 @@ const About: React.FunctionComponent = () => {
                 width="200"
                 height="250"
                 image={LeoIMG}
+                sx={{borderRadius: "50%"}}
                 alt="Gio"
               ></CardMedia>
               <CardContent>

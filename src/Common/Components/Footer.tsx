@@ -10,7 +10,7 @@ const Footer: React.FunctionComponent = () => {
       <Box
         px={{ xs: 3, sm: 5 }}
         py={{ xs: 5, sm: 5 }}
-        bgcolor="text.secondary"
+        bgcolor="primary.dark"
         color="white"
         component="footer"
       >

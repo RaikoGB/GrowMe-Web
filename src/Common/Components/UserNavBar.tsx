@@ -169,7 +169,9 @@ const UserNavBar: React.FunctionComponent = () => {
                       to={page.Link}
                       textAlign="center"
                     >
-                      <NavLink to={page.Link}>{page.text}</NavLink>
+                      {
+                      page.text
+                      }
                     </Typography>
                   </MenuItem>
                 ))}
