@@ -39,7 +39,7 @@ const theme = createTheme({
     }
   },
   typography: {
-    fontFamily: ['Press Start 2P','Nunito','Lato','Muli'].join(','),
+    fontFamily: 'Press Start 2P',
     subtitle1: {
       fontFamily: 'Nunito'
     },

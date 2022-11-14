@@ -89,7 +89,7 @@ const Inicio: React.FunctionComponent = () => {
             <Grid container spacing={1}>
               <Grid item xs={4} >
                 <Paper elevation={6}>
-                <Card sx={{ maxWidth: 400, height: 450 }}>
+                  <Card sx={{ maxWidth: 400, height: 450 }}>
                     <CardMedia
                       component="img"
                       height="280"
@@ -112,7 +112,7 @@ const Inicio: React.FunctionComponent = () => {
               </Grid>
               <Grid item xs={4} >
                 <Paper elevation={6} >
-                <Card sx={{ maxWidth: 400, height: 450 }}>
+                  <Card sx={{ maxWidth: 400, height: 450 }}>
                     <CardMedia
                       component="img"
                       height="280"
@@ -188,7 +188,7 @@ const Inicio: React.FunctionComponent = () => {
                   </Typography>
                   <br />
                   <CardActions>
-                    <Button size="large" href="/GrowMe-Web/#/MovileApp">
+                    <Button variant="contained" size="large" href="/GrowMe-Web/#/MovileApp">
                       Descargar
                     </Button>
                   </CardActions>
@@ -232,9 +232,9 @@ const Inicio: React.FunctionComponent = () => {
                   </Typography>
                 </CardContent>
                 <CardActions>
-                    <Button size="large" href="/GrowMe-Web/#/FAQ">
-                      Aprende Mas
-                    </Button>
+                  <Button size="large" href="/GrowMe-Web/#/FAQ">
+                    Aprende Mas
+                  </Button>
                 </CardActions>
               </Card>
             </Grid>
