@@ -169,7 +169,9 @@ const UserNavBar: React.FunctionComponent = () => {
                       to={page.Link}
                       textAlign="center"
                     >
-                      <NavLink to={page.Link}>{page.text}</NavLink>
+                      {
+                      page.text
+                      }
                     </Typography>
                   </MenuItem>
                 ))}
@@ -211,8 +213,8 @@ const UserNavBar: React.FunctionComponent = () => {
               <IconButton
                 size="large"
                 aria-label="notifications"
-                color="inherit"
                 onClick={handleClick2}
+                color="inherit"
                 aria-controls={open2 ? 'account-menu' : undefined}
                 aria-haspopup="true"
                 aria-expanded={open2 ? 'true' : undefined}

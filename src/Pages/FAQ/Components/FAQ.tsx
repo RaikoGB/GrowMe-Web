@@ -55,7 +55,7 @@ const FAQ: React.FunctionComponent = () => {
   return (
     <>
       <Container>
-        <Typography variant="h2">Preguntas frecuentes</Typography>
+        <Typography variant="h2">Preguntas Frecuentes</Typography>
         <Accordion
           expanded={expanded === 'panel1'}
           onChange={handleChange('panel1')}
@@ -93,6 +93,57 @@ const FAQ: React.FunctionComponent = () => {
         <Accordion
           expanded={expanded === 'panel3'}
           onChange={handleChange('panel3')}
+        >
+          <AccordionSummary aria-controls="panel3d-content" id="panel3d-header">
+            <Typography>Pregunta #3</Typography>
+          </AccordionSummary>
+          <AccordionDetails>
+            <Typography>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+              Suspendisse malesuada lacus ex, sit amet blandit leo lobortis
+              eget. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+              Suspendisse malesuada lacus ex, sit amet blandit leo lobortis
+              eget.
+            </Typography>
+          </AccordionDetails>
+        </Accordion>
+        <Accordion
+          expanded={expanded === 'panel4'}
+          onChange={handleChange('panel4')}
+        >
+          <AccordionSummary aria-controls="panel3d-content" id="panel3d-header">
+            <Typography>Pregunta #3</Typography>
+          </AccordionSummary>
+          <AccordionDetails>
+            <Typography>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+              Suspendisse malesuada lacus ex, sit amet blandit leo lobortis
+              eget. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+              Suspendisse malesuada lacus ex, sit amet blandit leo lobortis
+              eget.
+            </Typography>
+          </AccordionDetails>
+        </Accordion>
+         <Accordion
+          expanded={expanded === 'panel5'}
+          onChange={handleChange('panel5')}
+        >
+          <AccordionSummary aria-controls="panel3d-content" id="panel3d-header">
+            <Typography>Pregunta #3</Typography>
+          </AccordionSummary>
+          <AccordionDetails>
+            <Typography>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+              Suspendisse malesuada lacus ex, sit amet blandit leo lobortis
+              eget. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+              Suspendisse malesuada lacus ex, sit amet blandit leo lobortis
+              eget.
+            </Typography>
+          </AccordionDetails>
+        </Accordion>
+        <Accordion
+          expanded={expanded === 'panel6'}
+          onChange={handleChange('panel6')}
         >
           <AccordionSummary aria-controls="panel3d-content" id="panel3d-header">
             <Typography>Pregunta #3</Typography>

@@ -2,7 +2,7 @@
   "name": "web-growme",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://raikogb.github.io/GrowMe-Web",
+  "homepage": "https://raikogb.github.io/GrowMe-Web/#/Index",
   "dependencies": {
     "@cloudinary/react": "^1.5.0",
     "@cloudinary/url-gen": "^1.8.6",
