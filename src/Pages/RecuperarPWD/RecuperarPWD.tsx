@@ -1,28 +1,24 @@
+
 import React from 'react';
 import { Formik, Form, Field, ErrorMessage } from 'formik'
 import * as Yup from 'yup'
 import {
   Container
 } from '@mui/material';
-import { useAuthStore } from '../../../hooks/useAuthStore';
+// import { useAuthStore } from '../../../hooks/useAuthStore';
 
-export const LogIn: React.FunctionComponent = () => {
-
-  const { startLogin } = useAuthStore()
-
+const RecuperarPWD: React.FunctionComponent = () => {
   return (
-
     <Container component="main" maxWidth="xs">
       <h1> LOGIN </h1>
       <Formik
         initialValues={{
-          email: '',
           password: '',
         }}
 
         onSubmit={(event) => {
-          console.log(event.email, event.password, ' DESDE LOGIN')
-          startLogin(event.email, event.password)
+          // console.log(event.email, event.password, ' DESDE LOGIN')
+          // startLogin(event.email, event.password)
 
         }}
         validationSchema={
@@ -42,10 +38,6 @@ export const LogIn: React.FunctionComponent = () => {
         {
           (formik) => (
             <Form>
-              <label htmlFor="email"> Email </label>
-              <Field name="email" type="text" />
-              <ErrorMessage name='email' component="span" />
-
               <label htmlFor="password"> Contraseña </label>
               <Field name="password" type="password" />
               <ErrorMessage name='password' component="span" />
@@ -55,5 +47,7 @@ export const LogIn: React.FunctionComponent = () => {
           )}
       </Formik>
     </Container>
-  );
-};
+  )
+}
+
+export default RecuperarPWD
