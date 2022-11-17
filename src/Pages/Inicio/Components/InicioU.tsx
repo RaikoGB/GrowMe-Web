@@ -10,15 +10,6 @@ import {
 import { Container } from '@mui/system';
 import Paper from '@mui/material/Paper';
 import React from 'react';
-import List from '@mui/material/List';
-import ListItem from '@mui/material/ListItem';
-import ListItemButton from '@mui/material/ListItemButton';
-import ListItemIcon from '@mui/material/ListItemIcon';
-import ListItemText from '@mui/material/ListItemText';
-import Checkbox from '@mui/material/Checkbox';
-import IconButton from '@mui/material/IconButton';
-import EditIcon from '@mui/icons-material/Edit';
-import { ModalHabitos } from '../Modals/ModalHabitos';
 import { ModalEventos } from '../Modals/ModalEventos';
 import { ModalActividades } from '../Modals/ModalActividades';
 import EmojiEventsIcon from '@mui/icons-material/EmojiEvents';
@@ -31,27 +22,16 @@ import ProgresoCohen from './ProgresoCohen';
 import Premios from './Premios';
 import ModalCohen from '../../../Services/Cohen/Components/ModalCohen'
 import ModalMBTI from '../../../Services/MBTI/Components/ModalMBTI';
+import ListHabits from './ListHabits';
 
-const InicioU: React.FunctionComponent = () => {
-  const [checked, setChecked] = React.useState([0]);
+const InicioU: React.FunctionComponent = () => {  
+
   const [value, setValue] = React.useState('Avatar');
-
+  
   function handleChange(event: React.SyntheticEvent, newValue: string): void {
     setValue(newValue);
   }
 
-  const handleToggle = (value: any) => () => {
-    const currentIndex = checked.indexOf(value);
-    const newChecked = [...checked];
-
-    if (currentIndex === -1) {
-      newChecked.push(value);
-    } else {
-      newChecked.splice(currentIndex, 1);
-    }
-
-    setChecked(newChecked);
-  };
   return (
     <>
       <Box sx={{ height: 350 }}>
@@ -148,61 +128,7 @@ const InicioU: React.FunctionComponent = () => {
       <Container>
         <Grid container spacing={2}>
           <Grid item xs={4}>
-            <Paper elevation={6}>
-              <Box>
-                <Card sx={{ display: 'flex', bgcolor: 'primary.light' }}>
-                  <CardContent sx={{ flex: '1 0 auto' }}>
-                    <ModalHabitos />
-                  </CardContent>
-                  <CardContent sx={{ flex: '1 0 auto' }}>
-                    <Typography component="div" variant="h5">
-                      Hábitos
-                    </Typography>
-                  </CardContent>
-                </Card>
-              </Box>
-              <br />
-              {/* 
-              TODO:Lista de Cosas por hacer, necesita las variables cuando el modal se active arriba, 
-              es mejor hacer esta lista un componente aparte y mandarlo a llamar para que contruya toda la lista de cosas por hacer. 
-              Se puede usar para eventos y actividades.  
-              */}
-              <List
-                sx={{
-                  width: '100%',
-                  maxWidth: 360,
-                  bgcolor: 'background.paper'
-                }}
-              >
-                <ListItem
-                  key={1}
-                  secondaryAction={
-                    <IconButton edge="end" aria-label="comments">
-                      {/* TODO:Agregar modal para editar, mantener modal de habitos? y jalar info BD? */}
-                      <EditIcon />
-                    </IconButton>
-                  }
-                  disablePadding
-                >
-                  <ListItemButton
-                    role={undefined}
-                    onClick={handleToggle(1)}
-                    dense
-                  >
-                    <ListItemIcon>
-                      <Checkbox
-                        edge="start"
-                        checked={checked.includes(1)}
-                        tabIndex={-1}
-                        disableRipple
-                        // inputProps={{ 'aria-labelledby': 1 }}
-                      />
-                    </ListItemIcon>
-                    <ListItemText id="a" primary={`Line item 1`} />
-                  </ListItemButton>
-                </ListItem>
-              </List>
-            </Paper>
+            <ListHabits />
           </Grid>
           <Grid item xs={4}>
             <Paper elevation={6}>

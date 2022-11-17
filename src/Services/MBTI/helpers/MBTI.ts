@@ -14,8 +14,8 @@ export default class MBTI {
             this.Aselected[index] = PyR.A[Random];
             this.Bselected[index] = PyR.B[Random];
             this.QIndex[index] = Random;
-            console.log(Random);
-            console.log(this.Qselected[index].toString());
+            // console.log(Random);
+            // console.log(this.Qselected[index].toString());
         }
     }
 

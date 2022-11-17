@@ -1,0 +1,11 @@
+{
+    "title": "prueba3",
+    "notes": "aaaaaaaaa",
+    "dificulty": 1,
+    "EndDate": 1,
+    "Schedule": 1,
+    "Time": 1,
+    "UserId": 2
+  }
+
+

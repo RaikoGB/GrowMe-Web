@@ -64,7 +64,7 @@ export const ModalActividades: React.FunctionComponent = () => {
         <Container component="main" sx={style}>
           <CssBaseline />
           <Grid container spacing={3}>
-            <Grid ml={1} xs>
+            <Grid ml={1} xs={2}>
               <Typography component="div" variant="h5">
                 Crear Actividad
               </Typography>
