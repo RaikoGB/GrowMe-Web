@@ -16,11 +16,6 @@ button {
   padding: 10px;
 }
 
-span,
-.error-message {
-  color: red;
-}
-
 .has-error {
   border: 1px solid red;
 }

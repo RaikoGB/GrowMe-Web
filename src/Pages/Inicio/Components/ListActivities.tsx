@@ -7,20 +7,20 @@ import ListItemText from '@mui/material/ListItemText';
 import Checkbox from '@mui/material/Checkbox';
 import IconButton from '@mui/material/IconButton';
 import EditIcon from '@mui/icons-material/Edit';
-import { ModalHabitos } from '../Modals/ModalHabitos';
+import { ModalActividades } from '../Modals/ModalActividades';
 import Paper from '@mui/material/Paper';
 import { Box } from '@mui/material';
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import Typography from '@mui/material/Typography';
 import growApi from '../../../Services/Api/growApi';
-import habits from '../../../Helpers/Types/habits';
+import activities from '../../../Helpers/Types/activities';
 import { useSelector } from 'react-redux';
 
-const ListHabits: React.FunctionComponent = () => {
+const ListActivities: React.FunctionComponent = () => {
     // Para el check box
     const [checked, setChecked] = React.useState([0]);
-    
+
     const handleToggle = (value: number) => () => {
         const currentIndex = checked.indexOf(value);
         const newChecked = [...checked];
@@ -34,7 +34,7 @@ const ListHabits: React.FunctionComponent = () => {
         setChecked(newChecked);
     };
     // Para la lista
-    const { user } = useSelector( (state : any) => state.auth.user );
+    const { user } = useSelector((state: any) => state.auth.user);
     console.log(user);
 
     const [list, setList] = useState([]);
@@ -42,8 +42,8 @@ const ListHabits: React.FunctionComponent = () => {
     useEffect(() => {
         async function obtenerlista(UserId: string): Promise<void> {
             try {
-                const resp = await growApi.get('/habits/', { data: { UserId } });
-                setList(resp.data.Habits);
+                const resp = await growApi.get('/activities/', { data: { UserId } });
+                setList(resp.data.activities);
             } catch (error) { }
         }
         try {
@@ -59,11 +59,11 @@ const ListHabits: React.FunctionComponent = () => {
                 <Box>
                     <Card sx={{ display: 'flex', bgcolor: 'primary.light' }}>
                         <CardContent sx={{ flex: '1 0 auto' }}>
-                            <ModalHabitos />
+                            <ModalActividades />
                         </CardContent>
                         <CardContent sx={{ flex: '1 0 auto' }}>
                             <Typography component="div" variant="h5">
-                                Hábitos
+                            Actividades
                             </Typography>
                         </CardContent>
                     </Card>
@@ -77,7 +77,7 @@ const ListHabits: React.FunctionComponent = () => {
                     }}
                 >
                     {Array.isArray(list)
-                        ? list.map((item: habits) => (
+                        ? list.map((item: activities) => (
                             <ListItem
                                 key={item.id}
                                 secondaryAction={
@@ -120,4 +120,4 @@ const ListHabits: React.FunctionComponent = () => {
     );
 };
 
-export default ListHabits;
+export default ListActivities

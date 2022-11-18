@@ -66,17 +66,17 @@ export const ModalEventos: React.FunctionComponent = () => {
         <Container component="main" sx={style}>
           <CssBaseline />
           <Grid container spacing={3}>
-            <Grid ml={1} xs={2}>
+            <Grid item xs={2}>
               <Typography component="div" variant="h5">
                 Crear Evento
               </Typography>
             </Grid>
-            <Grid xs={2}>
+            <Grid item xs={2}>
               <Button onClick={handleClose} variant="text">
                 Cancelar
               </Button>
             </Grid>
-            <Grid xs={2}>
+            <Grid item xs={2}>
               <Button variant="contained">Crear</Button>
             </Grid>
           </Grid>

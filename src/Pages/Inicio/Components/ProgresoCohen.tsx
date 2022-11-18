@@ -26,7 +26,7 @@ const ProgresoCohen: React.FunctionComponent = () => {
   return (
     <>
       <Box sx={style}>
-        <Line options={options} data={Data} height={300} width={300}></Line>
+        <Line options={options} data={Data} height={320} width={300} ></Line>
       </Box>
     </>
   );
@@ -36,6 +36,7 @@ export default ProgresoCohen;
 
 export const options = {
   responsive: true,
+  maintainAspectRatio: false,
   plugins: {
     legend: {
       position: 'top' as const,

@@ -1,5 +1,3 @@
-
-
 export interface CohenD {
     id: number
     estres: number
