@@ -16,10 +16,43 @@ export const useEvents: any = () => {
         }
     };
 
+    const createActivities = async (Answer: number): Promise<void> => {
+        try {
+            const now = moment().format("YYYY-MM-DD");
+            const resp = await growApi.post('/cohen/create', { user, Answer, now });
+            console.log(resp)
+        } catch (error) {
+            console.log({ error });
+        }
+    };
+
+    const createEvents = async (Answer: number): Promise<void> => {
+        try {
+            const now = moment().format("YYYY-MM-DD");
+            const resp = await growApi.post('/cohen/create', { user, Answer, now });
+            console.log(resp)
+        } catch (error) {
+            console.log({ error });
+        }
+    };
+
+    const createHabits = async (Answer: number): Promise<void> => {
+        try {
+            const now = moment().format("YYYY-MM-DD");
+            const resp = await growApi.post('/cohen/create', { user, Answer, now });
+            console.log(resp)
+        } catch (error) {
+            console.log({ error });
+        }
+    };
+
 
     return {
 
         //* Métodos
         EnviarCohen,
+        createActivities,
+        createEvents,
+        createHabits
     }
 }
