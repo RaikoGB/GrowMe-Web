@@ -7,7 +7,7 @@ import ListItemText from '@mui/material/ListItemText';
 import Checkbox from '@mui/material/Checkbox';
 import IconButton from '@mui/material/IconButton';
 import EditIcon from '@mui/icons-material/Edit';
-import { ModalHabitos } from '../Modals/ModalHabitos';
+import { ModalHabitos } from '../Modals/Create/ModalHabitos';
 import Paper from '@mui/material/Paper';
 import { Box } from '@mui/material';
 import Card from '@mui/material/Card';

@@ -7,23 +7,20 @@ import {
   TextField,
   Typography,
   Grid,
-  Button
-  , InputLabel
-, Autocomplete } from '@mui/material';
+  Button,
+  InputLabel
+} from '@mui/material';
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import { AdapterMoment } from '@mui/x-date-pickers/AdapterMoment';
 import React from 'react';
 import AddIcon from '@mui/icons-material/Add';
 import { useFormik } from 'formik';
-// import moment from 'moment';
 import * as yup from 'yup';
-import { useEvents } from '../../../hooks/useEvents';
+import { useEvents } from '../../../../hooks/useEvents';
 import { TimePicker } from '@mui/x-date-pickers/TimePicker';
 
 import MenuItem from '@mui/material/MenuItem';
 import Select from '@mui/material/Select/Select';
-
-
 
 export const ModalHabitos: React.FunctionComponent = () => {
 
@@ -91,31 +88,28 @@ export const ModalHabitos: React.FunctionComponent = () => {
                 </Button>
               </Grid>
               <Grid item xs={2}>
-                <Button variant="contained">Crear</Button>
+                <Button variant="contained" type="submit">Crear</Button>
               </Grid>
             </Grid>
             <br></br>
             <Stack spacing={2} sx={{ width: 500 }}>
-              {/* TODO:Cambiar las opciones para que las tome de BD */}
               <Typography>Titulo</Typography>
-              {
-                // todo: cambiar por un sleect porque el auto complete tiene problemas con formik
-              }
-              <Autocomplete
-                fullWidth
-                id="title"
+              <Select
+                required
+                labelId="title"
                 name="title"
-                label="title"
+                id="title"
                 value={formik.values.title}
+                label="title"
                 onChange={formik.handleChange}
-                freeSolo
-                options={top100Films.map((option) => option.title)}
                 error={(formik.touched.title ?? false) && Boolean(formik.errors.title)}
-                helperText={(formik.touched.title ?? false) && formik.errors.title}
-                renderInput={(params) => (
-                  <TextField {...params} label="Hábito" />
-                )}
-              />
+              >
+                {
+                  // todo: si se quieren tomar las opciones de otro lado hacer un list.map para crear los menu item
+                }
+                <MenuItem value={"Ejercicio"}>Ejercicio</MenuItem>
+                <MenuItem value={"Meditar"}>Meditar</MenuItem>
+              </Select>
               <Typography>Notas</Typography>
               <TextField
                 margin="normal"
@@ -150,14 +144,14 @@ export const ModalHabitos: React.FunctionComponent = () => {
             </Select>
             <Typography>Fecha de termino</Typography>
             <Select
-               required
-               labelId="EnDate"
-               name="EnDate"
-               id="EnDate"
-               value={formik.values.EnDate}
-               label="EnDate"
-               onChange={formik.handleChange}
-               error={(formik.touched.EnDate ?? false) && Boolean(formik.errors.EnDate)}
+              required
+              labelId="EnDate"
+              name="EnDate"
+              id="EnDate"
+              value={formik.values.EnDate}
+              label="EnDate"
+              onChange={formik.handleChange}
+              error={(formik.touched.EnDate ?? false) && Boolean(formik.errors.EnDate)}
             >
               <MenuItem value={0}>2 Semanas</MenuItem>
               <MenuItem value={1}>1 Mes</MenuItem>
@@ -166,14 +160,14 @@ export const ModalHabitos: React.FunctionComponent = () => {
             </Select>
             <Typography>Tiempo Minimo (Min)</Typography>
             <Select
-               required
-               labelId="Time"
-               name="Time"
-               id="Time"
-               value={formik.values.Time}
-               label="Time"
-               onChange={formik.handleChange}
-               error={(formik.touched.Time ?? false) && Boolean(formik.errors.Time)}
+              required
+              labelId="Time"
+              name="Time"
+              id="Time"
+              value={formik.values.Time}
+              label="Time"
+              onChange={formik.handleChange}
+              error={(formik.touched.Time ?? false) && Boolean(formik.errors.Time)}
             >
               <MenuItem value={0}>5</MenuItem>
               <MenuItem value={1}>10</MenuItem>
@@ -183,15 +177,17 @@ export const ModalHabitos: React.FunctionComponent = () => {
             <Typography>Horario</Typography>
             <LocalizationProvider dateAdapter={AdapterMoment}>
               <TimePicker
-                label="schedule"
-                value={formik.values.schedule}
+                // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+                // @ts-expect-error
                 id="schedule"
                 name="schedule"
-                onChange={(value2) => {
+                label="schedule"
+                value={formik.values.schedule}
+                onChange={(value2: any) => {
                   void formik.setFieldValue('schedule', value2);
                 }}
-                renderInput={(params) => <TextField {...params} />}
-              />
+                renderInput={(params: any) => <TextField {...params} />}>
+              </TimePicker>
             </LocalizationProvider>
           </Container>
         </form>
@@ -199,17 +195,6 @@ export const ModalHabitos: React.FunctionComponent = () => {
     </>
   );
 };
-
-/* Quitar cuando se tomen los datos de los habitos */
-const top100Films = [
-  { title: 'The Shawshank Redemption', year: 1994 },
-  { title: 'The Godfather', year: 1972 },
-  { title: 'The Godfather: Part II', year: 1974 },
-  { title: 'The Dark Knight', year: 2008 },
-  { title: '12 Angry Men', year: 1957 },
-  { title: "Schindler's List", year: 1993 },
-  { title: 'Pulp Fiction', year: 1994 }
-];
 
 const validationSchema = yup.object({
   title: yup.string().required(),

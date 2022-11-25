@@ -9,7 +9,17 @@
     "7. Do you tend to choose:",
     "8. At parties do you:",
     "9. Are you more attracted to:",
-    "10. Are you more interested in:"
+    "10. Are you more interested in:",
+    "11. In judging others are you more swayed",
+    "12. In approaching others is your inclination",
+    "13. Are you more:",
+    "14. Does it bother you more having things:",
+    "15. In your social groups do you:",
+    "16. In doing ordinary things are you more",
+    "17. Writers should:",
+    "18. Which appeals to you more:",
+    "19. Are you more comfortable in making:",
+    "20. Do you want things:"
   ],
   "A": [
     "a. Interact with many, including strangers",
@@ -21,7 +31,17 @@
     "a. Rather carefully",
     "a. Stay late, with increasing energy",
     "a. Sensible people",
-    "a. What is actual"
+    "a. What is actual",
+    "a. Laws than circumstances",
+    "a. Objective",
+    "a. Punctual",
+    "a. Incomplete",
+    "a. Keep abreast of other’s happenings",
+    "a. Do it the usual way",
+    "a. Say what they mean and mean what they say",
+    "a. Consistency of thought",
+    "a. Logical judgments",
+    "a. Settled and decided"
   ],
   "B": [
     "b. Interact with a few, known to you",
@@ -33,6 +53,16 @@
     "b. Somewhat impulsively",
     "b. Leave early with decreased energy",
     "b. Imaginative people",
-    "b. What is possible"
+    "b. What is possible",
+    "b. Circumstances than laws",
+    "b. Personal",
+    "b. Leisurely",
+    "b. Completed",
+    "b. Get behind on the news",
+    "b. Do it your own way",
+    "b. Express things more by use of analogy",
+    "b. Harmonious human relationships",
+    "b. Value judgments",
+    "b. Unsettled and undecided"
   ]
 }

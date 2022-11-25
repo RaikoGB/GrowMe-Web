@@ -7,7 +7,8 @@ import {
   TextField,
   Typography,
   Grid,
-  Button
+  Button,
+  InputLabel
 } from '@mui/material';
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import { DatePicker } from '@mui/x-date-pickers/DatePicker';
@@ -17,40 +18,39 @@ import AddIcon from '@mui/icons-material/Add';
 import { useFormik } from 'formik';
 import moment from 'moment';
 import * as yup from 'yup';
-import { useEvents } from '../../../hooks/useEvents';
-import { TimePicker } from '@mui/x-date-pickers/TimePicker';
+import { useEvents } from '../../../../hooks/useEvents';
+import Select from '@mui/material/Select/Select';
+import MenuItem from '@mui/material/MenuItem';
 
-export const ModalEventos: React.FunctionComponent = () => {
+export const ModalActividades: React.FunctionComponent = () => {
 
-  const { createEvents } = useEvents()
+  const { createActivities } = useEvents()
   const [open, setOpen] = React.useState(false);
-
+  // abrir el modal
   function handleOpen(): void {
     return setOpen(true);
   }
-
+  // cerrar modal
   function handleClose(): void {
-    console.log("se cierra desde modal eventos");
+    console.log("se cierra desde modal act");
     return setOpen(false);
   }
-
   // funcionamiento del formulario
   const formik = useFormik({
     initialValues: {
       title: '',
       notes: '',
-      time: 1,
+      dificulty: 0,
       EnDate: moment().date(),
     },
     validationSchema,
     onSubmit: (values) => {
       console.log(JSON.stringify(values, null, 2));
       console.log("Se cierra desde el submit");
-      createEvents(values.title, values.notes, values.EnDate, values.time);
+      createActivities(values.title, values.notes, values.dificulty, values.EnDate);
       handleClose();
     },
   });
-
 
   return (
     <>
@@ -68,8 +68,8 @@ export const ModalEventos: React.FunctionComponent = () => {
       <Modal
         open={open}
         onClose={handleClose}
-        aria-labelledby="Modal Eventos"
-        aria-describedby="registrar eventos"
+        aria-labelledby="Modal Actividades"
+        aria-describedby="actividades"
       >
         <form onSubmit={formik.handleSubmit}>
           <Container component="main" sx={style}>
@@ -77,7 +77,7 @@ export const ModalEventos: React.FunctionComponent = () => {
             <Grid container spacing={3}>
               <Grid item xs={2}>
                 <Typography component="div" variant="h5">
-                  Crear Evento
+                  Crear Actividad
                 </Typography>
               </Grid>
               <Grid item xs={2}>
@@ -118,14 +118,34 @@ export const ModalEventos: React.FunctionComponent = () => {
                 helperText={(formik.touched.notes ?? false) && formik.errors.notes}
               />
             </Stack>
+            <InputLabel variant="standard" htmlFor="uncontrolled-native">
+              Dificultad
+            </InputLabel>
+            <Select
+              required
+              labelId="dificulty"
+              name="dificulty"
+              id="dificulty"
+              value={formik.values.dificulty}
+              label="dificulty"
+              onChange={formik.handleChange}
+              error={(formik.touched.dificulty ?? false) && Boolean(formik.errors.dificulty)}
+            >
+              <MenuItem value={0}>Trivial</MenuItem>
+              <MenuItem value={1}>Facil</MenuItem>
+              <MenuItem value={2}>Normal</MenuItem>
+              <MenuItem value={3}>Dificil</MenuItem>
+            </Select>
             <Typography>Fecha de termino</Typography>
             <LocalizationProvider dateAdapter={AdapterMoment}>
               <DatePicker
+                // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+                // @ts-expect-error
+                id="EnDate"
+                name="EnDate"
                 disablePast
                 label="Fecha termino"
                 openTo="year"
-                id="EnDate"
-                name="EnDate"
                 views={['year', 'month', 'day']}
                 value={formik.values.EnDate}
                 onChange={(value) => {
@@ -134,30 +154,12 @@ export const ModalEventos: React.FunctionComponent = () => {
                 renderInput={(params) => <TextField {...params} />}>
               </DatePicker>
             </LocalizationProvider>
-            <Typography>Horario</Typography>
-            <LocalizationProvider dateAdapter={AdapterMoment}>
-              <TimePicker
-                label="Tiempo"
-                value={formik.values.time}
-                id="time"
-                name="time"
-                onChange={(value2) => {
-                  void formik.setFieldValue('time', value2);
-                }}
-                renderInput={(params) => <TextField {...params} />}
-              />
-            </LocalizationProvider>
           </Container>
         </form>
       </Modal>
     </>
   );
 };
-
-const validationSchema = yup.object({
-  title: yup.string().required(),
-  notes: yup.string().required(),
-});
 
 // css para el modal
 const style = {
@@ -174,3 +176,10 @@ const style = {
   flexDirection: 'column',
   alignItems: 'center'
 };
+
+// validaciones front
+const validationSchema = yup.object({
+  title: yup.string().required(),
+  notes: yup.string().required(),
+  dificulty: yup.number().required().positive().integer(),
+});

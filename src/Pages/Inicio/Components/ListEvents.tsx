@@ -7,7 +7,7 @@ import ListItemText from '@mui/material/ListItemText';
 import Checkbox from '@mui/material/Checkbox';
 import IconButton from '@mui/material/IconButton';
 import EditIcon from '@mui/icons-material/Edit';
-import { ModalEventos } from '../Modals/ModalEventos';
+import { ModalEventos } from '../Modals/Create/ModalEventos';
 import Paper from '@mui/material/Paper';
 import { Box } from '@mui/material';
 import Card from '@mui/material/Card';
@@ -33,6 +33,7 @@ const ListEvents: React.FunctionComponent = () => {
 
         setChecked(newChecked);
     };
+
     // Para la lista
     const { user } = useSelector((state: any) => state.auth.user);
     console.log(user);
