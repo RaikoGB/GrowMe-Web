@@ -6,7 +6,7 @@ const Avatar: React.FunctionComponent = () => {
   return (
     <>
       <Box sx={style}>
-        <img alt='avatar' src={AvatarIMG} width={252} height={300}></img>
+        <img alt='avatar' src={AvatarIMG} width={252} height={320}></img>
       </Box>
     </>
   );

@@ -6,10 +6,12 @@ import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import { questionsCohen } from '../helpers/CohenTEST';
 import ButtonGroup from '@mui/material/ButtonGroup';
+import { useEvents } from '../../../hooks/useEvents';
 
 const ModalCohen: React.FunctionComponent = () => {
   const [open, setOpen] = React.useState(false);
   const TotalQ = 13;
+  const { EnviarCohen } = useEvents()
 
   function handleOpen(): void {
     return setOpen(true);
@@ -55,7 +57,7 @@ const ModalCohen: React.FunctionComponent = () => {
       }
     }
     if (NumberQ === TotalQ) {
-      // EnviarCohen(Answer);
+      EnviarCohen(Answer);
       handleClose()
     }
   }

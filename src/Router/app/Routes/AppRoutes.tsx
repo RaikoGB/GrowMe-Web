@@ -5,6 +5,8 @@ import { AppScreen } from '../Screens/AppScreen';
 import PruebaScreen from '../Screens/PruebaScreen';
 import { FAQScreen } from '../Screens/FAQScreen';
 import { MovileScreen } from '../Screens/MovileScreen';
+import EmailScreen from '../Screens/EmailScreen';
+import PWDScreen from '../Screens/PWDScreen';
 
 export const AppRoutes: React.FunctionComponent = () => {
   return (
@@ -14,6 +16,8 @@ export const AppRoutes: React.FunctionComponent = () => {
       <Route path="/About" element={<AboutScreen />} />
       <Route path="/FAQ" element={<FAQScreen />} />
       <Route path="/MovileApp" element={<MovileScreen />} />
+      <Route path="/RecPWD" element={<EmailScreen />} />
+      <Route path="/ChangePWD" element={<PWDScreen />} />
     </Routes>
   );
 };

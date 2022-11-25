@@ -23,6 +23,22 @@ export const useAuthStore : any = () => {
         }
     };
 
+    const CreateUser = async (email: string , password: string): Promise<void> => {
+
+      console.log(typeof email , typeof password , 'Desde auth')
+
+      try {
+        const resp = await growApi.post('/users/login', { email , password });
+        console.log(resp)
+        localStorage.setItem('token', resp.data.token);
+      //   localStorage.setItem('token-init-date', new Date().getTime().toString());
+        dispatch(onLogin({ name: resp.data.name, id: resp.data.id }));
+      } catch (error) {
+        console.log({ error });
+        dispatch(onLogout('Credenciales incorrectas'));
+      }
+  };
+
 
     return {
         //* Propiedades
@@ -34,6 +50,6 @@ export const useAuthStore : any = () => {
         // checkAuthToken,
         startLogin,
         // startLogout,
-        // startRegister,
+        CreateUser,
     }
 }
