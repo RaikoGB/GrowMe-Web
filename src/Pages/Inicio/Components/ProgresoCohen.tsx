@@ -48,6 +48,7 @@ export const options = {
   },
 };
 
+// recibir los datos como MBTI y pasar el objeto xcompleto, se necesita una interface y un archivo ts que asigne el objeto
 export const Data = {
   datasets: [
     {
