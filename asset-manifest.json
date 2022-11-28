@@ -1,19 +1,36 @@
 {
   "files": {
     "main.css": "/GrowMe-Web/static/css/main.a6087d85.css",
-    "main.js": "/GrowMe-Web/static/js/main.4be7e635.js",
+    "main.js": "/GrowMe-Web/static/js/main.d3c72592.js",
     "static/media/AboutIMG.png": "/GrowMe-Web/static/media/AboutIMG.9c8726b9bce072171680.png",
+    "static/media/bgAvatar.jpg": "/GrowMe-Web/static/media/bgAvatar.985fbf5f651d1c3c99d5.jpg",
+    "static/media/ESFj.png": "/GrowMe-Web/static/media/ESFj.fbe26f868a8c3cd33ffb.png",
+    "static/media/INFP.png": "/GrowMe-Web/static/media/INFP.9f979be58452ba246ef3.png",
     "static/media/Trophy1.png": "/GrowMe-Web/static/media/Trophy1.ba2a124f3fffe3a3bcb4.png",
+    "static/media/ISFP.png": "/GrowMe-Web/static/media/ISFP.4b53540bc68f2c663eef.png",
+    "static/media/ENFP.png": "/GrowMe-Web/static/media/ENFP.85fe7fec4c6ab84a3c1b.png",
+    "static/media/INTP.png": "/GrowMe-Web/static/media/INTP.19d5c0374dfa4a5dbdf4.png",
     "static/media/ENFJ.png": "/GrowMe-Web/static/media/ENFJ.24b310004495ed273ea2.png",
+    "static/media/INFJ.png": "/GrowMe-Web/static/media/INFJ.72b515ed31a96a8f2b7a.png",
+    "static/media/ISTP.png": "/GrowMe-Web/static/media/ISTP.f0be584eae245e3e28e3.png",
+    "static/media/INTJ.png": "/GrowMe-Web/static/media/INTJ.7803660af73deedf3cb0.png",
+    "static/media/ENTJ.png": "/GrowMe-Web/static/media/ENTJ.70b624e254ed53cb6302.png",
+    "static/media/ESTP.png": "/GrowMe-Web/static/media/ESTP.0b4454ebe9fd27878440.png",
+    "static/media/ESTJ.png": "/GrowMe-Web/static/media/ESTJ.3e0df0e2ce37240fc5b5.png",
+    "static/media/ESFP.png": "/GrowMe-Web/static/media/ESFP.8e11a51b08852411d4ad.png",
+    "static/media/ISTJ.png": "/GrowMe-Web/static/media/ISTJ.31d89f0a7b4ae3d56ac8.png",
+    "static/media/ISFJ.png": "/GrowMe-Web/static/media/ISFJ.a61a468eff2d08dee669.png",
+    "static/media/ENTP.png": "/GrowMe-Web/static/media/ENTP.ba53df3336416523ec50.png",
     "static/media/GioIMG.png": "/GrowMe-Web/static/media/GioIMG.8722ca4b7ed9fbc19cc8.png",
     "static/media/LeoIMG.png": "/GrowMe-Web/static/media/LeoIMG.8722ca4b7ed9fbc19cc8.png",
     "static/media/RichIMG.png": "/GrowMe-Web/static/media/RichIMG.8722ca4b7ed9fbc19cc8.png",
+    "static/media/Board.png": "/GrowMe-Web/static/media/Board.c85ec9ef441339aa3ff1.png",
     "index.html": "/GrowMe-Web/index.html",
     "main.a6087d85.css.map": "/GrowMe-Web/static/css/main.a6087d85.css.map",
-    "main.4be7e635.js.map": "/GrowMe-Web/static/js/main.4be7e635.js.map"
+    "main.d3c72592.js.map": "/GrowMe-Web/static/js/main.d3c72592.js.map"
   },
   "entrypoints": [
     "static/css/main.a6087d85.css",
-    "static/js/main.4be7e635.js"
+    "static/js/main.d3c72592.js"
   ]
 }
