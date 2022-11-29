@@ -50,9 +50,9 @@ export default class tilemap {
   }
 
   images(filename: string): HTMLImageElement {
-     const img = new Image();
-     img.src = filename;
-     return img;
+    const img = new Image();
+    img.src = filename;
+    return img;
   }
 
   // cada bracket es una fila
@@ -62,9 +62,9 @@ export default class tilemap {
 
   map = [
     [6, 7, 7, 7, 8],
-    [3, 10, 11, 9, 5],
-    [3, 10, 11, 9, 5],
-    [3, 10, 11, 9, 5],
+    [3, 9, 11, 10, 5],
+    [3, 9, 11, 10, 5],
+    [3, 9, 11, 10, 5],
     [0, 1, 1, 1, 2]
   ];
 
@@ -79,7 +79,7 @@ export default class tilemap {
     } catch (error) {
       console.log(error);
     }
-    
+
   }
 
   drawMap(context: CanvasRenderingContext2D | null | undefined): void {

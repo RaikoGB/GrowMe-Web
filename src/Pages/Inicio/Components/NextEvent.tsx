@@ -5,6 +5,7 @@ import Typography from '@mui/material/Typography';
 import growApi from '../../../Services/Api/growApi';
 import { useSelector } from 'react-redux';
 import events from '../../../Helpers/Types/events';
+import moment from 'moment';
 
 const NextEvent: React.FunctionComponent = () => {
 
@@ -40,10 +41,10 @@ const NextEvent: React.FunctionComponent = () => {
             >
                 <Box sx={{ gridRow: '1', bgcolor: 'primary.light' }}>
                     <Typography mt={10} variant="h1" align="center">
-                        Dia {new Date().getDay()}
+                        Dia {moment().date()}
                     </Typography>
                     <Typography variant="h3" align="center" gutterBottom>
-                        Mes {new Date().getMonth()}
+                        Mes {moment().month()}
                     </Typography>
                 </Box>
                 <Box sx={{ gridRow: '1' }}>

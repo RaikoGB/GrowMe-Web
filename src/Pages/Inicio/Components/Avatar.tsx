@@ -21,6 +21,7 @@ import istpIMG from '../../../Assets/16/ISTP.png';
 // otras importaciones
 import growApi from '../../../Services/Api/growApi';
 import DataMBTI from '../../../Helpers/Types/mbti';
+import Imagebg from '../../../Assets/bgAvatar.jpg';
 
 // todo: agregar fondo tematico?
 
@@ -47,44 +48,46 @@ const Avatar: React.FunctionComponent = () => {
   return (
     <>
       <Box sx={style}>
-        {(() => {
-          switch (list?.Personalidad) {
-            case 'ENFJ':
-              return <img alt='avatar' src={enfjIMG} width={252} height={320}></img>
-            case 'ENFP':
-              return <img alt='avatar' src={enfpIMG} width={252} height={320}></img>
-            case 'ENTJ':
-              return <img alt='avatar' src={entjIMG} width={252} height={320}></img>
-            case 'ENTP':
-              return <img alt='avatar' src={entpIMG} width={252} height={320}></img>
-            case 'ESFJ':
-              return <img alt='avatar' src={esfjIMG} width={252} height={320}></img>
-            case 'ESFP':
-              return <img alt='avatar' src={esfpIMG} width={252} height={320}></img>
-            case 'ESTJ':
-              return <img alt='avatar' src={estjIMG} width={252} height={320}></img>
-            case 'ESTP':
-              return <img alt='avatar' src={estpIMG} width={252} height={320}></img>
-            case 'INFJ':
-              return <img alt='avatar' src={infjIMG} width={252} height={320}></img>
-            case 'INFP':
-              return <img alt='avatar' src={infpIMG} width={252} height={320}></img>
-            case 'INTJ':
-              return <img alt='avatar' src={intjIMG} width={252} height={320}></img>
-            case 'INTP':
-              return <img alt='avatar' src={intpIMG} width={252} height={320}></img>
-            case 'ISFJ':
-              return <img alt='avatar' src={isfjIMG} width={252} height={320}></img>
-            case 'ISFP':
-              return <img alt='avatar' src={isfpIMG} width={252} height={320}></img>
-            case 'ISTJ':
-              return <img alt='avatar' src={istjIMG} width={252} height={320}></img>
-            case 'ISTP':
-              return <img alt='avatar' src={istpIMG} width={252} height={320}></img>
-            default:
-              return <img alt='avatar' src={esfjIMG} width={252} height={320}></img>
-          }
-        })()}
+        <Box sx={stylebg}>
+          {(() => {
+            switch (list?.Personalidad) {
+              case 'ENFJ':
+                return <img alt='avatar' src={enfjIMG} width={252} height={320}></img>
+              case 'ENFP':
+                return <img alt='avatar' src={enfpIMG} width={252} height={320}></img>
+              case 'ENTJ':
+                return <img alt='avatar' src={entjIMG} width={252} height={320}></img>
+              case 'ENTP':
+                return <img alt='avatar' src={entpIMG} width={252} height={320}></img>
+              case 'ESFJ':
+                return <img alt='avatar' src={esfjIMG} width={252} height={320}></img>
+              case 'ESFP':
+                return <img alt='avatar' src={esfpIMG} width={252} height={320}></img>
+              case 'ESTJ':
+                return <img alt='avatar' src={estjIMG} width={252} height={320}></img>
+              case 'ESTP':
+                return <img alt='avatar' src={estpIMG} width={252} height={320}></img>
+              case 'INFJ':
+                return <img alt='avatar' src={infjIMG} width={252} height={320}></img>
+              case 'INFP':
+                return <img alt='avatar' src={infpIMG} width={252} height={320}></img>
+              case 'INTJ':
+                return <img alt='avatar' src={intjIMG} width={252} height={320}></img>
+              case 'INTP':
+                return <img alt='avatar' src={intpIMG} width={252} height={320}></img>
+              case 'ISFJ':
+                return <img alt='avatar' src={isfjIMG} width={252} height={320}></img>
+              case 'ISFP':
+                return <img alt='avatar' src={isfpIMG} width={252} height={320}></img>
+              case 'ISTJ':
+                return <img alt='avatar' src={istjIMG} width={252} height={320}></img>
+              case 'ISTP':
+                return <img alt='avatar' src={istpIMG} width={252} height={320}></img>
+              default:
+                return <img alt='avatar' src={esfjIMG} width={252} height={320}></img>
+            }
+          })()}
+        </Box>
       </Box>
     </>
   );
@@ -95,4 +98,12 @@ export default Avatar;
 const style = {
   display: 'flex',
   justifyContent: 'center'
+};
+
+const stylebg = {
+  display: 'flex',
+  justifyContent: 'center',
+  height: 320,
+  width: 320,
+  backgroundImage: `url(${Imagebg})`
 };
