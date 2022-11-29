@@ -76,7 +76,8 @@ const ListActivities: React.FunctionComponent = () => {
                         bgcolor: 'background.paper'
                     }}
                 >
-                    {Array.isArray(list)
+                    {
+                    Array.isArray(list)
                         ? list.map((item: activities) => (
                             <ListItem
                                 key={item.id}

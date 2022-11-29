@@ -29,7 +29,7 @@ export const LogIn: React.FunctionComponent = () => {
     },
     validationSchema,
     onSubmit: (values) => {
-      console.log(JSON.stringify(values, null, 2));
+      // console.log(JSON.stringify(values, null, 2));
       setTimeout(() => {
       startLogin(values.email, values.password);
       navigate('/auth/inicio', { replace: true });
