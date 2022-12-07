@@ -5,10 +5,19 @@ import {
   Container
 } from '@mui/material';
 import { useAuthStore } from '../../../hooks/useAuthStore';
+// import { useEffect } from 'react';
+// import Swal from 'sweetalert2';
 
 export const LogIn: React.FunctionComponent = () => {
 
-  const { startLogin  } = useAuthStore()
+  const { startLogin } = useAuthStore()
+
+  // useEffect(() => {
+  //   if ( errorMessage !== null ) {
+  //     // Swal.fire('Error en la autenticación', errorMessage, 'error');
+  //   }    
+  // }, [errorMessage])
+  
 
   return (
     
@@ -23,7 +32,11 @@ export const LogIn: React.FunctionComponent = () => {
     }}
 
     onSubmit = { ( event ) =>{
-      console.log( event.email , event.password , ' DESDE LOGIN' )
+      // console.log( event.email , event.password , ' DESDE LOGIN' )
+      if( event.email !== 'Hola'){
+        // Swal.fire('Error en registro' , 'Contraseñas diferetenes' , 'error')
+        return;
+      }
       startLogin( event.email , event.password )
 
     }}
