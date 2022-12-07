@@ -18,8 +18,8 @@ export const useEvents: any = () => {
     };
 
     const EnviarMBTI = async (Personalidad: DataMBTI): Promise<void> => {
-        console.log(Personalidad);      
-        // todo: la llamda correcta es checar si existe, luego hacer el respectivo create or update.
+        console.log(Personalidad);
+        // TODO: la llamada correcta es checar si existe, luego hacer el respectivo create or update. Sumar los datos antiguos con los nuevos, re obtener la personalidad.
         try {
             const resp = await growApi.post('/cohen/create', { Personalidad });
             console.log(resp)
