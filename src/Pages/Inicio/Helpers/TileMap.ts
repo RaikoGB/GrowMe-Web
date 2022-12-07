@@ -50,14 +50,9 @@ export default class tilemap {
   }
 
   images(filename: string): HTMLImageElement {
-     const img = new Image();
-     img.src = filename;
-     return img;
-    // const img = React.createElement("img", {
-    //  src: `../../../Assets/Tiles/${filename}`,
-      // any other image attributes you need go here
-    // }, null);
-    // return img;
+    const img = new Image();
+    img.src = filename;
+    return img;
   }
 
   // cada bracket es una fila
@@ -67,9 +62,9 @@ export default class tilemap {
 
   map = [
     [6, 7, 7, 7, 8],
-    [3, 10, 11, 9, 5],
-    [3, 10, 11, 9, 5],
-    [3, 10, 11, 9, 5],
+    [3, 9, 11, 10, 5],
+    [3, 9, 11, 10, 5],
+    [3, 9, 11, 10, 5],
     [0, 1, 1, 1, 2]
   ];
 
@@ -77,10 +72,14 @@ export default class tilemap {
     canvas: HTMLCanvasElement | null,
     context: CanvasRenderingContext2D | null | undefined
   ): void {
-    this.setCanvasSize(canvas);
-    this.clearCanvas(canvas, context);
-    // 
-    this.drawMap(context);
+    try {
+      this.setCanvasSize(canvas);
+      this.clearCanvas(canvas, context);
+      this.drawMap(context);
+    } catch (error) {
+      console.log(error);
+    }
+
   }
 
   drawMap(context: CanvasRenderingContext2D | null | undefined): void {

@@ -10,7 +10,7 @@ import { useAuthStore } from '../../../hooks/useAuthStore';
 
 export const LogIn: React.FunctionComponent = () => {
 
-  const { startLogin } = useAuthStore()
+  const { startLogin , errorMessage } = useAuthStore()
 
   // useEffect(() => {
   //   if ( errorMessage !== null ) {
@@ -18,7 +18,6 @@ export const LogIn: React.FunctionComponent = () => {
   //   }    
   // }, [errorMessage])
   
-
   return (
     
     <Container component="main" maxWidth="xs">

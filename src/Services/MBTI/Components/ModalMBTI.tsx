@@ -6,8 +6,12 @@ import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import ButtonGroup from '@mui/material/ButtonGroup';
 import MBTI from '../helpers/MBTI'
+import { useEvents } from '../../../hooks/useEvents';
+import DataMBTI from '../../../Helpers/Types/mbti';
 
 const ModalMBTI: React.FunctionComponent = () => {
+
+    const { EnviarMBTI } = useEvents()
     const [open, setOpen] = React.useState(false);
     const TotalQ = 4;
     const MB = new MBTI();
@@ -20,7 +24,10 @@ const ModalMBTI: React.FunctionComponent = () => {
     }
 
     const [NumberQ, setNumberQ] = React.useState(0);
-    const [Answer, setAnswer] = React.useState(0);
+    // const [Answer, setAnswer] = React.useState(0);
+    const Answers: number[] = [];
+    let Res: DataMBTI;
+    const i=0;
 
     function NextQ({
         event,
@@ -29,44 +36,22 @@ const ModalMBTI: React.FunctionComponent = () => {
         event: React.MouseEvent<HTMLButtonElement, MouseEvent>;
         index: number;
     }): void {
-        if (NumberQ <= TotalQ) {
-            if (NumberQ === 3 || NumberQ === 4 || NumberQ === 5 || NumberQ === 6 || NumberQ === 8 || NumberQ === 9 || NumberQ === 12) {
-                // todo: se invierte la puntuacion de las preguntas 4,5,6,7,9,10,13
-                setNumberQ(NumberQ + 1);
-                switch (index) {
-                    case 0:
-                        index = 4;
-                        break;
-                    case 1:
-                        index = 3;
-                        break;
-                    case 3:
-                        index = 1;
-                        break;
-                    case 4:
-                        index = 0;
-                        break;
-                }
-                setAnswer(Answer + index)
-            }
-            else {
-                setNumberQ(NumberQ + 1);
-                setAnswer(Answer + index)
-            }
-        }
+        // setAnswer(index);
+        Answers[i] = index;
+        setNumberQ(NumberQ + 1);
         if (NumberQ === TotalQ) {
-            // EnviarCohen(Answer);
-            handleClose()
+            // create or update?
+            Res = MB.getPuntaje(Answers);
+            EnviarMBTI(Res);
+            handleClose();
         }
     }
-
 
     return (
         <>
             <div>
                 <Button onClick={handleOpen} variant="text" startIcon={<SelfImprovementIcon />}>
                     Test de MBTI
-
                 </Button>
             </div>
             <Modal
@@ -79,7 +64,6 @@ const ModalMBTI: React.FunctionComponent = () => {
                     <div>
                         <Typography id="modal-modal-title" variant="h6" component="h2">
                             {
-                                // busca en la clse MBTI y toma de las preguntas seleccionadas para presentar una.
                                 MB.getQselected(NumberQ)
                             }
                         </Typography>

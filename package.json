@@ -2,7 +2,7 @@
   "name": "web-growme",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://raikogb.github.io/GrowMe-Web",
+  "homepage": "https://raikogb.github.io/GrowMe-Web/#/Index",
   "dependencies": {
     "@cloudinary/react": "^1.5.0",
     "@cloudinary/url-gen": "^1.8.6",
@@ -37,6 +37,7 @@
     "formik": "^2.2.9",
     "framer-motion": "^7.6.1",
     "lodash": "^4.17.21",
+    "moment": "^2.29.4",
     "react": "^18.2.0",
     "react-big-calendar": "^1.5.2",
     "react-chartjs-2": "^4.3.1",

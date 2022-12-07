@@ -30,6 +30,7 @@ const Inicio: React.FunctionComponent = () => {
                     variant="body1"
                     color="text.secondary"
                     component="div"
+                    textAlign="justify"
                   >
                     Escuentra la motivacion para realizar tus objetivos.
                   </Typography>
@@ -37,6 +38,7 @@ const Inicio: React.FunctionComponent = () => {
                     variant="body1"
                     color="text.secondary"
                     component="div"
+                    textAlign="justify"
                   >
                     Es momento de hallar diversion en las pequeñas cosas que
                     haces.
@@ -47,6 +49,7 @@ const Inicio: React.FunctionComponent = () => {
                     variant="contained"
                     size="large"
                     href="/GrowMe-Web/#/auth/SingUp"
+                    color="secondary"
                   >
                     Registrate
                   </Button>
@@ -84,9 +87,9 @@ const Inicio: React.FunctionComponent = () => {
           <br></br>
           <Box mt={1}>
             <Grid container spacing={1}>
-              <Grid item xs={4}>
+              <Grid item xs={4} >
                 <Paper elevation={6}>
-                  <Card sx={{ maxWidth: 400 }}>
+                  <Card sx={{ maxWidth: 400, height: 450 }}>
                     <CardMedia
                       component="img"
                       height="280"
@@ -107,9 +110,9 @@ const Inicio: React.FunctionComponent = () => {
                   </Card>
                 </Paper>
               </Grid>
-              <Grid item xs={4}>
-                <Paper elevation={6}>
-                  <Card sx={{ maxWidth: 400 }}>
+              <Grid item xs={4} >
+                <Paper elevation={6} >
+                  <Card sx={{ maxWidth: 400, height: 450 }}>
                     <CardMedia
                       component="img"
                       height="280"
@@ -129,9 +132,9 @@ const Inicio: React.FunctionComponent = () => {
                   </Card>
                 </Paper>
               </Grid>
-              <Grid item xs={4}>
-                <Paper elevation={6}>
-                  <Card sx={{ maxWidth: 400 }}>
+              <Grid item xs={4} >
+                <Paper elevation={6} >
+                  <Card sx={{ maxWidth: 400, height: 450 }}>
                     <CardMedia
                       component="img"
                       height="280"
@@ -174,18 +177,18 @@ const Inicio: React.FunctionComponent = () => {
                 </Box>
                 <CardContent>
                   <br />
-                  <Typography variant="h5" component="div" align="center">
+                  <Typography variant="h4" component="div" align="center">
                     Aplicación Móvil
                   </Typography>
                   <br />
-                  <Typography variant="body1" align="center">
+                  <Typography variant="h6" align="center">
                     Nuestra app móvile hacen sencillo mantenerte al día con tus
                     tareas en movimiento. Alcanza tus objetivos con un solo
                     toque, sin importar dónde estés.
                   </Typography>
                   <br />
                   <CardActions>
-                    <Button size="large" href="/GrowMe-Web/#/MovileApp">
+                    <Button variant="contained" size="large" href="/GrowMe-Web/#/MovileApp">
                       Descargar
                     </Button>
                   </CardActions>
@@ -198,20 +201,17 @@ const Inicio: React.FunctionComponent = () => {
                 <CardContent>
                   <br />
                   <Typography variant="h4" component="div" align="center">
-                    Estilo de vida
+                    Desarrollo personal
                   </Typography>
                   <br />
                   <br />
                   <Typography variant="body1">
-                    Consectetur consequat id dolore dolore. Est consequat
-                    officia deserunt ex qui. Duis id nulla ex laboris pariatur
-                    incididunt Lorem excepteur officia veniam qui. Laboris esse
-                    duis veniam enim commodo.
+                    Espera conseguir que se lleve a cabo una superación personal, se implementen acciones para cambiar comportamientos, actitudes o pensamientos en diferentes áreas de la vida de una persona como lo son, sus relaciones personales, emociones, salud, físico, etc. El objetivo es siempre que la persona consiga una mejor calidad de vida y un bienestar mucho mayor.
                     <br />
                   </Typography>
                 </CardContent>
                 <CardActions>
-                  <Button size="small" href="/GrowMe-Web/#/FAQ">
+                  <Button size="large" href="/GrowMe-Web/#/FAQ">
                     Aprende Mas
                   </Button>
                 </CardActions>
@@ -227,15 +227,12 @@ const Inicio: React.FunctionComponent = () => {
                   <br />
                   <br />
                   <Typography variant="body1">
-                    Sunt ut laboris minim aute. Anim cillum ad ad amet tempor
-                    sit. Incididunt ea duis sit cillum sit laboris eu est
-                    laborum sit aliquip labore. Nulla ex fugiat dolore fugiat.
-                    Deserunt aliqua ea ex qui ea.
+                    Cuesta mucho cambiar los hábitos, sin embargo, la clave de la adquisición de hábitos está en que la persona se habitúa a realizar las actividades esperadas. De esta manera la acción se incorpora a la rutina diaria y se ejecuta sin tener que involucrar la conciencia. Somos seres de hábitos, pero el hábito puede ser modificado de la misma forma en que se crea.
                     <br />
                   </Typography>
                 </CardContent>
                 <CardActions>
-                  <Button size="small" href="/GrowMe-Web/#/FAQ">
+                  <Button size="large" href="/GrowMe-Web/#/FAQ">
                     Aprende Mas
                   </Button>
                 </CardActions>
