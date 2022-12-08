@@ -39,9 +39,13 @@ const SingUP: React.FunctionComponent = () => {
     onSubmit: (values) => {
       console.log(JSON.stringify(values, null, 2));
       setTimeout(() => {
-        CreateUser(values.Nickname, values.email, values.password, values.Gender);
-        startLogin(values.email, values.password);
-        navigate('/auth/inicio', { replace: true });
+        try {
+          CreateUser(values.Nickname, values.email, values.password, values.Gender);
+          startLogin(values.email, values.password);
+          navigate('/auth/inicio', { replace: true });
+        } catch (error) {
+          console.log("🚀 ~ file: SingUP.tsx:45 ~ setTimeout ~ error", error)
+        }
       }, 2000);
     },
   });

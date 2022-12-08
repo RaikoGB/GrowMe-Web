@@ -8,34 +8,27 @@ export const useAuthStore: any = () => {
   const dispatch = useDispatch();
 
   const startLogin = async (email: string, password: string): Promise<void> => {
-
-    console.log(typeof email, typeof password, 'Desde auth')
-
     try {
       const resp = await growApi.post('/users/login', { email, password });
-      //  console.log(resp)
+      // console.log("🚀 ~ file: useAuthStore.ts:16 ~ startLogin ~ resp", resp)
       localStorage.setItem('token', resp.data.token);
-      //   localStorage.setItem('token-init-date', new Date().getTime().toString());
+      // localStorage.setItem('token-init-date', new Date().getTime().toString());
       dispatch(onLogin({ name: resp.data.name, id: resp.data.id }));
     } catch (error) {
-      console.log({ error });
+      console.log("🚀 ~ file: useAuthStore.ts:21 ~ startLogin ~ error", error)
       dispatch(onLogout('Credenciales incorrectas'));
     }
   };
 
-  const CreateUser = async (email: string, password: string): Promise<void> => {
-
-    console.log(typeof email, typeof password, 'Desde auth')
-
+  const CreateUser = async (name: string, email: string, password: string, gender: number): Promise<void> => {
     try {
-      const resp = await growApi.post('/users/login', { email, password });
-      console.log(resp)
+      const resp = await growApi.post('/users/register', { name, email, password, gender });
+      // console.log("🚀 ~ file: useAuthStore.ts:32 ~ CreateUser ~ resp", resp)
       localStorage.setItem('token', resp.data.token);
-      //   localStorage.setItem('token-init-date', new Date().getTime().toString());
       dispatch(onLogin({ name: resp.data.name, id: resp.data.id }));
     } catch (error) {
-      console.log({ error });
-      dispatch(onLogout('Credenciales incorrectas'));
+      console.log("🚀 ~ file: useAuthStore.ts:36 ~ CreateUser ~ error", error)
+      dispatch(onLogout('Error al crear el usuario'));
     }
   };
 
