@@ -19,7 +19,7 @@ export const useAuthStore: any = () => {
       dispatch(onLogin({ name: resp.data.name, id: resp.data.id }));
     } catch (error) {
       console.log({ error });
-      // dispatch(onLogout('Credenciales incorrectas'));
+      dispatch(onLogout('Credenciales incorrectas'));
       setTimeout(() => {
         dispatch(clearErrorMessage());
       }, 10);
@@ -36,7 +36,7 @@ export const useAuthStore: any = () => {
       console.log(resp)
       localStorage.setItem('token', resp.data.token);
       localStorage.setItem('token-init-date', new Date().getTime().toString());
-      dispatch(onLogin({ name: resp.data.name, id: resp.data.id }));
+      dispatch(onLogin({ name: resp.data.name, id: resp.data.id , msg : resp.data.msg}));
     } catch (error: any) {
       console.log({ error })
       // dispatch(onLogout(error.response.data.msg));
@@ -49,9 +49,9 @@ export const useAuthStore: any = () => {
 
   const checkToken = async () : Promise<any> => {
     const token = localStorage.getItem('token');
-    console.log(token)
-    if ( token === undefined ){
-      return dispatch(onLogout(''));
+    console.log(token , 'Yo soy el token1')
+    if ( token !== null ){
+      return dispatch(onLogout(' Yo soy error '));
     }
     
     try {
@@ -59,11 +59,13 @@ export const useAuthStore: any = () => {
       console.log({data})
       localStorage.setItem('token', data.token);
       localStorage.setItem('token-init-date', new Date().getTime().toString());
-      dispatch(onLogin({ name: data.name, email : data.email ,uid: data.uid }));
+      dispatch(onLogin({ name: data.name, email : data.email ,id: data.id }));
     } catch (error) {
-      console.log(error)
       localStorage.clear();
-      dispatch(onLogout('Token expiro'));
+      setTimeout(() => {
+        dispatch(clearErrorMessage());
+      }, 10);
+       dispatch(onLogout('token expiro'));
     }
   }
 

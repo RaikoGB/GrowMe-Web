@@ -22,10 +22,8 @@ export const AppRouter: React.FunctionComponent = () => {
 
   return (
     <Routes>
-
-              <Route path="/auth/*" element={<AuthRoutes />} />
-              <Route path="/*" element={<AppRoutes />} />
-          
+        <Route path="/auth/*" element={<AuthRoutes />} />
+        <Route path="/*" element={<AppRoutes />} />   
     </Routes>
   );
 };

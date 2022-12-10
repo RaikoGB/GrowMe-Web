@@ -20,9 +20,18 @@ import Swal from 'sweetalert2';
 
 export const LogIn: React.FunctionComponent = () => {
 
-  const { startLogin , errorMessage } = useAuthStore();
+  const { startLogin , errorMessage , status } = useAuthStore();
   const navigate = useNavigate();
   const [showPassword, setShowPassword] = useState(false);
+
+
+  useEffect(() => {
+    if( status === 'Authenticated' ){
+      navigate('/auth/inicio', { replace: true });
+    }
+  }, [status])
+  
+  
 
   const formik = useFormik({
     initialValues: {
@@ -32,8 +41,9 @@ export const LogIn: React.FunctionComponent = () => {
     validationSchema,
     onSubmit: (values) => {
       setTimeout(() => {
-        startLogin(values.email, values.password);
-        navigate('/auth/inicio', { replace: true });
+        
+        startLogin(values.email, values.password);       
+           
       }, 2000);
     },
   });
@@ -41,7 +51,7 @@ export const LogIn: React.FunctionComponent = () => {
   const { isSubmitting } = formik;
 
   useEffect(() => {
-    if( errorMessage !== undefined ){
+    if( errorMessage !== undefined && errorMessage !== 'token expiro' && errorMessage !== '' ){
       void Swal.fire('error', errorMessage , 'error')
     }
   },[errorMessage])

@@ -2,7 +2,7 @@
 import * as Yup from 'yup';
 import React, { useEffect, useState } from 'react';
 import { useFormik  } from 'formik';
-// import { useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { LoadingButton } from '@mui/lab';
 import { Icon } from '@iconify/react';
 import CssBaseline from '@mui/material/CssBaseline';
@@ -25,7 +25,7 @@ import Swal from 'sweetalert2';
 
 const SingUP: React.FunctionComponent = () => {
 
-  // const navigate = useNavigate();
+  const navigate = useNavigate();
   const [showPassword, setShowPassword] = useState(false);
   const { createUser , errorMessage } = useAuthStore();
 
@@ -39,11 +39,11 @@ const SingUP: React.FunctionComponent = () => {
     },
     validationSchema,
     onSubmit: (values) => {
-      console.log(JSON.stringify(values, null, 2));
+      // console.log(JSON.stringify(values, null, 2));
       setTimeout(() => {
         createUser(values.name, values.email, values.username, values.password, values.Gender );
         // startLogin(values.email, values.password);
-        // navigate('/auth/inicio', { replace: true });
+        navigate('/auth/inicio', { replace: true });
       }, 2000);
     },
   });
@@ -51,10 +51,10 @@ const SingUP: React.FunctionComponent = () => {
   const { errors, touched, isSubmitting } = formik;
 
   useEffect(() => {
-    if( errorMessage !== undefined){
-      void Swal.fire('Error en la autenticacion ' , errorMessage , 'error')
+    if( errorMessage !== undefined && errorMessage !== 'token expiro' && errorMessage !== '' ){
+      void Swal.fire('error', errorMessage , 'error')
     }
-  }, [errorMessage])
+  },[errorMessage])
   
 
   return (
