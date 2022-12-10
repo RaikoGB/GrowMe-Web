@@ -9,7 +9,7 @@ export interface AuthState {
 const initialState : AuthState = {
   status : 'checking',
   user : {},
-  errorMessage : 'No autenticado'
+  errorMessage : undefined
 }
 
 export const AuthSlice = createSlice({

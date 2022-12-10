@@ -38,7 +38,7 @@ export const MyCalendar : React.FunctionComponent = () => {
           events = { events }
           startAccessor = 'start'
           endAccessor = 'end'
-          style={{ height : 'calc(100vh - 70px)' }}
+          style={{ height : 'calc(100vh - 50px)' }}
 
         />
     </div>
