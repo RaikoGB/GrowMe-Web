@@ -36,7 +36,7 @@ export const useAuthStore: any = () => {
       console.log(resp)
       localStorage.setItem('token', resp.data.token);
       localStorage.setItem('token-init-date', new Date().getTime().toString());
-      dispatch(onLogin({ name: resp.data.name, id: resp.data.id, msg: resp.data.msg }));
+      dispatch(onLogin({ name: resp.data.name, id: resp.data.id , msg : resp.data.msg}));
     } catch (error: any) {
       console.log({ error })
       // dispatch(onLogout(error.response.data.msg));
@@ -47,29 +47,29 @@ export const useAuthStore: any = () => {
     }
   };
 
-  const checkToken = async (): Promise<any> => {
+  const checkToken = async () : Promise<any> => {
     const token = localStorage.getItem('token');
-    console.log(token, 'Yo soy el token1')
-    if (token !== null) {
+    console.log(token , 'Yo soy el token1')
+    if ( token !== null ){
       return dispatch(onLogout(' Yo soy error '));
     }
-
+    
     try {
       const { data } = await growApi.get('/users/renew');
-      console.log({ data })
+      console.log({data})
       localStorage.setItem('token', data.token);
       localStorage.setItem('token-init-date', new Date().getTime().toString());
-      dispatch(onLogin({ name: data.name, email: data.email, id: data.id }));
+      dispatch(onLogin({ name: data.name, email : data.email ,id: data.id }));
     } catch (error) {
       localStorage.clear();
       setTimeout(() => {
         dispatch(clearErrorMessage());
       }, 10);
-      dispatch(onLogout('token expiro'));
+       dispatch(onLogout('token expiro'));
     }
   }
 
-  const startLogout = (): any => {
+  const startLogout = ():any => {
     localStorage.clear();
     dispatch(onLogout('Cerrar sesión'));
   }
