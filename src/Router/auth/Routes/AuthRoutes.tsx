@@ -12,8 +12,8 @@ export const AuthRoutes: React.FunctionComponent = () => {
       <Route path="LogIn" element={<LoginScreen />} />
       <Route path="SingUp" element={<RegisterScreen />} />
       <Route path="Inicio" element={<InicioScreen />} />
-      <Route path="/Calendario" element={<CalendarScreen />} />
-      <Route path="/Cuenta" element={<CuentaScreen />} />
+      <Route path="Calendario" element={<CalendarScreen />} />
+      <Route path="Cuenta" element={<CuentaScreen />} />
     </Routes>
   );
 };

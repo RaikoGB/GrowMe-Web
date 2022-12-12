@@ -10,7 +10,7 @@ import Avatar from '@mui/material/Avatar';
 import Typography from '@mui/material/Typography';
 import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import { motion } from 'framer-motion';
-import { useAuthStore } from '../../../hooks/useAuthStore';
+import { useAuthStore } from '../../../hooks/useAuthStore.tsx';
 import Select from '@mui/material/Select/Select';
 import MenuItem from '@mui/material/MenuItem';
 import {

@@ -1,176 +1,211 @@
 {
-    "Leer": {
-        "E": 30,
-        "I": 70,
-        "S": 70,
-        "N": 30,
-        "T": 50,
-        "F": 50,
-        "J": 70,
-        "P": 30
-    }
+  "Leer": {
+    "Personalidad": "ISXJ",
+    "E": 30,
+    "I": 70,
+    "S": 70,
+    "N": 30,
+    "T": 50,
+    "F": 50,
+    "J": 70,
+    "P": 30
+  },
+  "Ejercicio": {
+    "Personalidad": "ENXX",
+    "E": 70,
+    "I": 30,
+    "S": 20,
+    "N": 80,
+    "T": 50,
+    "F": 50,
+    "J": 50,
+    "P": 50
+  },
+  "Meditación": {
+    "Personalidad": "ISTP",
+    "E": 40,
+    "I": 60,
+    "S": 80,
+    "N": 20,
+    "T": 80,
+    "F": 20,
+    "J": 25,
+    "P": 75
+  },
+  "Estudio": {
+    "Personalidad": "INFJ",
+    "E": 30,
+    "I": 70,
+    "S": 30,
+    "N": 70,
+    "T": 25,
+    "F": 75,
+    "J": 75,
+    "P": 25
+  },
+  "Proyecto Personal": {
+    "Personalidad": "XNXJ",
+    "E": 50,
+    "I": 50,
+    "S": 40,
+    "N": 60,
+    "T": 50,
+    "F": 50,
+    "J": 80,
+    "P": 20
+  },
+  "Escribir": {
+    "Personalidad": "ISXJ",
+    "E": 40,
+    "I": 60,
+    "S": 80,
+    "N": 20,
+    "T": 50,
+    "F": 50,
+    "J": 60,
+    "P": 40
+  },
+  "Socializar": {
+    "Personalidad": "ESFP",
+    "E": 80,
+    "I": 20,
+    "S": 60,
+    "N": 40,
+    "T": 20,
+    "F": 80,
+    "J": 35,
+    "P": 65
+  },
+  "Nueva Habilidad": {
+    "Personalidad": "INFP",
+    "E": 40,
+    "I": 60,
+    "S": 40,
+    "N": 60,
+    "T": 40,
+    "F": 60,
+    "J": 20,
+    "P": 80
+  },
+  "Practicar musica": {
+    "Personalidad": "ESFP",
+    "E": 60,
+    "I": 40,
+    "S": 75,
+    "N": 25,
+    "T": 40,
+    "F": 60,
+    "J": 20,
+    "P": 80
+  },
+  "Estudiar Leguaje": {
+    "Personalidad": "XNTJ",
+    "E": 50,
+    "I": 50,
+    "S": 25,
+    "N": 75,
+    "T": 60,
+    "F": 40,
+    "J": 60,
+    "P": 40
+  },
+  "finanzas personales": {
+    "Personalidad": "XNTJ",
+    "E": 50,
+    "I": 50,
+    "S": 20,
+    "N": 80,
+    "T": 80,
+    "F": 20,
+    "J": 80,
+    "P": 20
+  },
+  "Baile": {
+    "Personalidad": "ESFP",
+    "E": 70,
+    "I": 30,
+    "S": 75,
+    "N": 25,
+    "T": 40,
+    "F": 60,
+    "J": 20,
+    "P": 80
+  },
+  "Llevar un Diario": {
+    "Personalidad": "ISFJ",
+    "E": 25,
+    "I": 75,
+    "S": 65,
+    "N": 35,
+    "T": 20,
+    "F": 80,
+    "J": 60,
+    "P": 40
+  },
+  "Hacer la cama": {
+    "Personalidad": "INXJ",
+    "E": 30,
+    "I": 70,
+    "S": 40,
+    "N": 60,
+    "T": 50,
+    "F": 50,
+    "J": 80,
+    "P": 20
+  },
+  "Caminar": {
+    "Personalidad": "EXXX",
+    "E": 60,
+    "I": 40,
+    "S": 50,
+    "N": 50,
+    "T": 50,
+    "F": 50,
+    "J": 50,
+    "P": 50
+  },
+  "Levantarse temprano": {
+    "Personalidad": "XXXJ",
+    "E": 50,
+    "I": 50,
+    "S": 50,
+    "N": 50,
+    "T": 50,
+    "F": 50,
+    "J": 60,
+    "P": 40
+  },
+  "Tomar agua al levantarse": {
+    "Personalidad": "XXXX",
+    "E": 50,
+    "I": 50,
+    "S": 50,
+    "N": 50,
+    "T": 50,
+    "F": 50,
+    "J": 50,
+    "P": 50
+  },
+  "Duchas fría": {
+    "Personalidad": "XNXX",
+    "E": 50,
+    "I": 50,
+    "S": 40,
+    "N": 60,
+    "T": 50,
+    "F": 50,
+    "J": 50,
+    "P": 50
+  },
+  "Cuidado personal ": {
+    "Personalidad": "XXXX",
+    "E": 50,
+    "I": 50,
+    "S": 50,
+    "N": 50,
+    "T": 50,
+    "F": 50,
+    "J": 50,
+    "P": 50
+  }
 }
-Ejercicio
-70
-30
-20
-80
-50
-50
-50
-50
-Meditación
-40
-60
-80
-20
-80
-20
-25
-75
-Hábitos de estudio
-30
-70
-30
-70
-25
-75
-75
-25
-Trabajar en proyectos personales
-50
-50
-40
-60
-50
-50
-80
-20
-Escribir
-40
-60
-80
-20
-50
-50
-60
-40
-Socializar con amigos o familia
-80
-20
-60
-40
-20
-80
-35
-65
-Practicar alguna habilidad nueva.
-40
-60
-40
-60
-40
-60
-20
-80
-Practicar algún instrumento musical
-60
-40
-75
-25
-40
-60
-20
-80
-Estudiar una lengua extranjera  
-50
-50
-25
-75
-60
-40
-60
-40
-Aprender finanzas personales 
-50
-50
-20
-80
-80
-20
-80
-20
-Baile
-70
-30
-75
-25
-40
-60
-20
-80
-Llevar un diario
-25
-75
-65
-35
-20
-80
-60
-40
-Hacer la cama
-30
-70
-40
-60
-50
-50
-80
-20
-Caminar
-60
-40
-50
-50
-50
-50
-50
-50
-Levantarse temprano
-50
-50
-50
-50
-50
-50
-60
-40
-Tomar agua al levantarse
-
-
-50
-50
-50
-50
-50
-50
-50
-50
-Duchas de agua fría
-50
-50
-40
-60
-50
-50
-50
-50
-Cuidado personal 
-50
-50
-50
-50
-50
-50
-50
-50
