@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { useFormik } from "formik";
+import React, { useEffect, useState } from 'react';
+import { useFormik } from 'formik';
 import * as Yup from 'yup'
 import { Container, Box, Grid, Link, IconButton } from '@mui/material';
 import { useAuthStore } from '../../../hooks/useAuthStore';
@@ -15,12 +15,23 @@ import { LoadingButton } from '@mui/lab';
 import InputAdornment from '@mui/material/InputAdornment/InputAdornment';
 import { Icon } from '@iconify/react';
 import { useNavigate } from 'react-router-dom';
+import Swal from 'sweetalert2';
+// import { Navigate } from 'react-router-dom';
 
 export const LogIn: React.FunctionComponent = () => {
 
-  const { startLogin } = useAuthStore();
+  const { startLogin , errorMessage , status } = useAuthStore();
   const navigate = useNavigate();
   const [showPassword, setShowPassword] = useState(false);
+
+
+  useEffect(() => {
+    if( status === 'Authenticated' ){
+      navigate('/auth/inicio', { replace: true });
+    }
+  }, [status])
+  
+  
 
   const formik = useFormik({
     initialValues: {
@@ -30,13 +41,21 @@ export const LogIn: React.FunctionComponent = () => {
     validationSchema,
     onSubmit: (values) => {
       setTimeout(() => {
-      startLogin(values.email, values.password);
-      navigate('/auth/inicio', { replace: true });
-    }, 2000);
+        
+        startLogin(values.email, values.password);       
+           
+      }, 2000);
     },
   });
 
   const { isSubmitting } = formik;
+
+  useEffect(() => {
+    if( errorMessage !== undefined && errorMessage !== 'token expiro' && errorMessage !== '' ){
+      void Swal.fire('error', errorMessage , 'error')
+    }
+  },[errorMessage])
+
 
   return (
     <>

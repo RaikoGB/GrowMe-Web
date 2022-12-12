@@ -5,7 +5,6 @@ import * as Yup from 'yup'
 import {
   Container
 } from '@mui/material';
-// import { useAuthStore } from '../../../hooks/useAuthStore';
 
 const RecuperarPWD: React.FunctionComponent = () => {
   return (
@@ -17,9 +16,6 @@ const RecuperarPWD: React.FunctionComponent = () => {
         }}
 
         onSubmit={(event) => {
-          // console.log(event.email, event.password, ' DESDE LOGIN')
-          // startLogin(event.email, event.password)
-
         }}
         validationSchema={
           Yup.object({

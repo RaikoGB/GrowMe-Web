@@ -37,7 +37,7 @@ const Footer: React.FunctionComponent = () => {
                 </Link>
               </Box>
               <Box>
-                <Link href="/GrowMe-Web/#/Index" color="inherit">
+                <Link href="/GrowMe-Web/Index" color="inherit">
                   About
                 </Link>
               </Box>

@@ -14,6 +14,9 @@ import AccountCircle from '@mui/icons-material/AccountCircle';
 import NotificationsIcon from '@mui/icons-material/Notifications';
 import { Badge } from '@mui/material';
 import LogoutIcon from '@mui/icons-material/Logout';
+import { useAuthStore } from '../../hooks/useAuthStore';
+
+// import { useSelector } from 'react-redux';
 
 const pages = [
   {
@@ -27,6 +30,10 @@ const pages = [
 ];
 
 const UserNavBar: React.FunctionComponent = () => {
+
+
+  const { user , startLogout } = useAuthStore()
+
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorEl, setAnchorEl] = React.useState(null);
   const isMenuOpen = Boolean(anchorEl);
@@ -95,11 +102,11 @@ const UserNavBar: React.FunctionComponent = () => {
     >
       <MenuItem>
         <Button variant="text" href='/#/auth/cuenta' startIcon={<AccountCircle />}>
-          Cuenta
+          {user.name}
         </Button>
       </MenuItem>
       <MenuItem>
-        <Button variant="text" href='/#/auth/cuenta' startIcon={<LogoutIcon />}>
+        <Button variant="text" href="/#/index" onClick={ startLogout } startIcon={<LogoutIcon />}>
           Cerrar Sesion
         </Button>
       </MenuItem>

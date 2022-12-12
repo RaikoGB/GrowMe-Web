@@ -147,7 +147,7 @@ const Navbar: React.FunctionComponent = () => {
               <Button
                 variant="text"
                 color="inherit"
-                href="/GrowMe-Web/#/auth/LogIn"
+                href="/GrowMe-Web/#/auth/login"
                 startIcon={<LoginIcon color="secondary" />}
               >
                 Iniciar Sesion
