@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/strict-boolean-expressions */
 import * as Yup from 'yup';
-import React, { useState } from 'react';
-import { useFormik } from 'formik';
+import React, { useEffect, useState } from 'react';
+import { useFormik  } from 'formik';
 import { useNavigate } from 'react-router-dom';
 import { LoadingButton } from '@mui/lab';
 import { Icon } from '@iconify/react';
@@ -10,7 +10,7 @@ import Avatar from '@mui/material/Avatar';
 import Typography from '@mui/material/Typography';
 import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import { motion } from 'framer-motion';
-import { useAuthStore } from '../../../hooks/useAuthStore';
+import { useAuthStore } from '../../../hooks/useAuthStore.tsx';
 import Select from '@mui/material/Select/Select';
 import MenuItem from '@mui/material/MenuItem';
 import {
@@ -21,36 +21,41 @@ import {
   Box,
   Container
 } from '@mui/material';
+import Swal from 'sweetalert2';
 
 const SingUP: React.FunctionComponent = () => {
 
   const navigate = useNavigate();
   const [showPassword, setShowPassword] = useState(false);
-  const { startLogin, CreateUser } = useAuthStore();
+  const { createUser , errorMessage } = useAuthStore();
 
   const formik = useFormik({
     initialValues: {
-      Nickname: '',
+      name : '',
+      username: '',
       Gender: 0,
       email: '',
       password: ''
     },
     validationSchema,
     onSubmit: (values) => {
-      console.log(JSON.stringify(values, null, 2));
+      // console.log(JSON.stringify(values, null, 2));
       setTimeout(() => {
-        try {
-          CreateUser(values.Nickname, values.email, values.password, values.Gender);
-          startLogin(values.email, values.password);
-          navigate('/auth/inicio', { replace: true });
-        } catch (error) {
-          console.log("🚀 ~ file: SingUP.tsx:45 ~ setTimeout ~ error", error)
-        }
+        createUser(values.name, values.email, values.username, values.password, values.Gender );
+        // startLogin(values.email, values.password);
+        navigate('/auth/inicio', { replace: true });
       }, 2000);
     },
   });
 
   const { errors, touched, isSubmitting } = formik;
+
+  useEffect(() => {
+    if( errorMessage !== undefined && errorMessage !== 'token expiro' && errorMessage !== '' ){
+      void Swal.fire('error', errorMessage , 'error')
+    }
+  },[errorMessage])
+  
 
   return (
     <>
@@ -83,18 +88,31 @@ const SingUP: React.FunctionComponent = () => {
                 direction={{ xs: 'column', sm: 'row' }}
                 spacing={2}
               >
+                  <TextField
+                  margin="normal"
+                  required
+                  fullWidth
+                  id="name"
+                  label="name"
+                  name="name"
+                  autoComplete="name"
+                  onChange={formik.handleChange}
+                  value={formik.values.name}
+                  error={(formik.touched.name ?? false) && Boolean(formik.errors.name)}
+                  helperText={(formik.touched.name ?? false) && formik.errors.name}
+                />
                 <TextField
                   margin="normal"
                   required
                   fullWidth
-                  id="Nickname"
-                  label="Nickname"
-                  name="Nickname"
-                  autoComplete="Nickname"
+                  id="username"
+                  label="username"
+                  name="username"
+                  autoComplete="username"
                   onChange={formik.handleChange}
-                  value={formik.values.Nickname}
-                  error={(formik.touched.Nickname ?? false) && Boolean(formik.errors.Nickname)}
-                  helperText={(formik.touched.Nickname ?? false) && formik.errors.Nickname}
+                  value={formik.values.username}
+                  error={(formik.touched.username ?? false) && Boolean(formik.errors.username)}
+                  helperText={(formik.touched.username ?? false) && formik.errors.username}
                 />
 
                 <Select
