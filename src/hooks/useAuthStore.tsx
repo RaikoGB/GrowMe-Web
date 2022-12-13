@@ -16,7 +16,7 @@ export const useAuthStore: any = () => {
       console.log(resp)
       localStorage.setItem('token', resp.data.token);
       localStorage.setItem('token-init-date', new Date().getTime().toString());
-      dispatch(onLogin({ name: resp.data.name, id: resp.data.id }));
+      dispatch(onLogin({ name: resp.data.name, uid: resp.data.id }));
     } catch (error) {
       console.log({ error });
       dispatch(onLogout('Credenciales incorrectas'));
@@ -27,45 +27,39 @@ export const useAuthStore: any = () => {
     }
   };
 
-  const createUser = async (name: string, email: string, password: string, username: string, gender: number): Promise<any> => {
+  const createUser = async (name: string, email: string, password: string, gender: number): Promise<any> => {
 
-    dispatch(onChecking());
+    // dispatch(onChecking());
 
     try {
-      const resp = await growApi.post('/users/register', { name, email, password, username, gender });
-      console.log(resp)
-      localStorage.setItem('token', resp.data.token);
-      localStorage.setItem('token-init-date', new Date().getTime().toString());
-      dispatch(onLogin({ name: resp.data.name, id: resp.data.id , msg : resp.data.msg}));
-    } catch (error: any) {
-      console.log({ error })
+      const resp = await growApi.post('/users/register', { name, email, password, gender});
+      console.log("🚀 ~ file: useAuthStore.tsx:36 ~ createUser ~ resp", resp)
+      // localStorage.setItem('token', resp.data.token);
+      // localStorage.setItem('token-init-date', new Date().getTime().toString());
+      // dispatch(onLogin({ name: resp.data.name, id: resp.data.id , msg : resp.data.msg}));
+    } catch (error) {
+      console.log("🚀 ~ file: useAuthStore.tsx:41 ~ createUser ~ error", error)
       // dispatch(onLogout(error.response.data.msg));
-      setTimeout(() => {
-        dispatch(clearErrorMessage());
-      }, 10);
-
+      // setTimeout(() => {
+      //   dispatch(clearErrorMessage());
+      // }, 10);
     }
   };
 
   const checkToken = async () : Promise<any> => {
     const token = localStorage.getItem('token');
-    console.log(token , 'Yo soy el token1')
-    if ( token !== null ){
-      return dispatch(onLogout(' Yo soy error '));
-    }
-    
+    console.log("🚀 ~ file: useAuthStore.tsx:52 ~ checkToken ~ token", token)
     try {
       const { data } = await growApi.get('/users/renew');
       console.log({data})
       localStorage.setItem('token', data.token);
       localStorage.setItem('token-init-date', new Date().getTime().toString());
-      dispatch(onLogin({ name: data.name, email : data.email ,id: data.id }));
+      dispatch(onLogin({ name: data.name, email : data.email , uid: data.id }));
+      console.log("🚀 ~ file: useAuthStore.tsx:58 ~ checkToken ~ data.uid ", data.id )
     } catch (error) {
+      console.log(error)
       localStorage.clear();
-      setTimeout(() => {
-        dispatch(clearErrorMessage());
-      }, 10);
-       dispatch(onLogout('token expiro'));
+      dispatch(onLogout('Token expiro'));
     }
   }
 

@@ -9,7 +9,7 @@ import { RegisterScreen } from '../Screens/RegisterScreen';
 export const AuthRoutes: React.FunctionComponent = () => {
   return (
     <Routes>
-      <Route path="LogIn" element={<LoginScreen />} />
+      <Route path="Login" element={<LoginScreen />} />
       <Route path="SingUp" element={<RegisterScreen />} />
       <Route path="Inicio" element={<InicioScreen />} />
       <Route path="Calendario" element={<CalendarScreen />} />

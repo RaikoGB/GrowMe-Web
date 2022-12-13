@@ -7,10 +7,10 @@ export const useEvents: any = () => {
 
     const { user } = useSelector((state: any) => state.auth);
 
-    const EnviarCohen = async (Answer: number): Promise<void> => {
+    const EnviarCohen = async (stress: number, userid: String): Promise<void> => {
         try {
-            const now = moment().format("YYYY-MM-DD");
-            const resp = await growApi.post('/cohen/create', { user, Answer, now });
+            const fechaRes = moment().format('YYYY-MM-DD HH:mm:ss');
+            const resp = await growApi.post('/cohen/create', { userid, stress, fechaRes });
             console.log(resp)
         } catch (error) {
             console.log({ error });
@@ -28,12 +28,15 @@ export const useEvents: any = () => {
         }
     };
 
-    const createActivities = async (Answer: number): Promise<void> => {
+    const createActivities = async (UserId: String, title: String, notes: String, dificulty: number, Date: number): Promise<void> => {
+        // const EnDate = moment(Date).format('YYYY-MM-DD HH:mm:ss');
+        const endDate = moment(Date).format('YYYY-MM-DD');
+        console.log("🚀 ~ file: useEvents.ts:34 ~ createActivities ~ EnDate", endDate)
         try {
-            const resp = await growApi.post('/activities/create', { user });
-            console.log(resp)
+            const resp = await growApi.post('/activities/create', { UserId, title, notes, dificulty, endDate });
+            console.log("🚀 ~ file: useEvents.ts:34 ~ createActivities ~ resp", resp)
         } catch (error) {
-            console.log({ error });
+            console.log("🚀 ~ file: useEvents.ts:38 ~ createActivities ~ error", error)
         }
     };
 
