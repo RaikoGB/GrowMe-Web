@@ -1,15 +1,15 @@
 import { createSlice } from '@reduxjs/toolkit';
 
-export interface AuthState { 
-  status : string,
-  user : any, // ID del usuario
-  errorMessage : any,
+export interface AuthState {
+  status: string,
+  user: any, // ID del usuario
+  errorMessage: any,
 }
 
-const initialState : AuthState = {
-  status : 'checking',
-  user : {},
-  errorMessage : undefined
+const initialState: AuthState = {
+  status: 'checking',
+  user: {},
+  errorMessage: undefined
 }
 
 export const AuthSlice = createSlice({

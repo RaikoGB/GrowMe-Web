@@ -29,9 +29,8 @@ export const LogIn: React.FunctionComponent = () => {
     if( status === 'Authenticated' ){
       navigate('/auth/inicio', { replace: true });
     }
+    // eslint-disable-next-line 
   }, [status])
-  
-  
 
   const formik = useFormik({
     initialValues: {
@@ -41,9 +40,7 @@ export const LogIn: React.FunctionComponent = () => {
     validationSchema,
     onSubmit: (values) => {
       setTimeout(() => {
-        
-        startLogin(values.email, values.password);       
-           
+        startLogin(values.email, values.password);          
       }, 2000);
     },
   });

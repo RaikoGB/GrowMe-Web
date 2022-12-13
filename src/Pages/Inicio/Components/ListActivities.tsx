@@ -34,20 +34,22 @@ const ListActivities: React.FunctionComponent = () => {
         setChecked(newChecked);
     };
     // Para la lista
-    const { user } = useSelector((state: any) => state.auth.user);
-    console.log(user);
+    const user = useSelector((state: any) => state.auth.user);
 
     const [list, setList] = useState([]);
 
     useEffect(() => {
         async function obtenerlista(UserId: string): Promise<void> {
             try {
-                const resp = await growApi.get('/activities/', { data: { UserId } });
-                setList(resp.data.activities);
-            } catch (error) { }
+                const resp = await growApi.get(`/activities/${UserId}`, { data: { UserId } });
+                console.log("🚀 ~ file: ListActivities.tsx:46 ~ obtenerlista ~ resp", resp)
+                setList(resp.data);
+            } catch (error) {
+                console.log("🚀 ~ file: ListActivities.tsx:49 ~ obtenerlista ~ error", error)
+            }
         }
         try {
-            void obtenerlista(user);
+            void obtenerlista(user.uid);
         } catch (error) {
             console.log({ error });
         }
@@ -63,7 +65,7 @@ const ListActivities: React.FunctionComponent = () => {
                         </CardContent>
                         <CardContent sx={{ flex: '1 0 auto' }}>
                             <Typography component="div" variant="h5">
-                            Actividades
+                                Actividades
                             </Typography>
                         </CardContent>
                     </Card>
@@ -77,44 +79,44 @@ const ListActivities: React.FunctionComponent = () => {
                     }}
                 >
                     {
-                    Array.isArray(list)
-                        ? list.map((item: activities) => (
-                            <ListItem
-                                key={item.id}
-                                secondaryAction={
-                                    <IconButton edge="end" aria-label="comments">
-                                        <EditIcon />
-                                        {
-                                            // falta poner modal aqui que pida el item.id
-                                        }
-                                    </IconButton>
-                                }
-                                disablePadding
-                            >
-                                <ListItemButton
-                                    role={undefined}
-                                    onClick={handleToggle(item.id)}
-                                    dense
+                        Array.isArray(list)
+                            ? list.map((item: activities) => (
+                                <ListItem
+                                    key={item.id}
+                                    secondaryAction={
+                                        <IconButton edge="end" aria-label="comments">
+                                            <EditIcon />
+                                            {
+                                                // falta poner modal aqui que pida el item.id
+                                            }
+                                        </IconButton>
+                                    }
+                                    disablePadding
                                 >
-                                    <ListItemIcon>
-                                        <Checkbox
-                                            edge="start"
-                                            checked={checked.includes(item.id)}
-                                            tabIndex={-1}
-                                            disableRipple
-                                            inputProps={{
-                                                'aria-labelledby': item.id.toLocaleString()
-                                            }}
+                                    <ListItemButton
+                                        role={undefined}
+                                        onClick={handleToggle(item.id)}
+                                        dense
+                                    >
+                                        <ListItemIcon>
+                                            <Checkbox
+                                                edge="start"
+                                                checked={checked.includes(item.id)}
+                                                tabIndex={-1}
+                                                disableRipple
+                                                inputProps={{
+                                                    'aria-labelledby': item.id.toLocaleString()
+                                                }}
+                                            />
+                                        </ListItemIcon>
+                                        <ListItemText
+                                            id={item.id.toLocaleString()}
+                                            primary={item.title}
                                         />
-                                    </ListItemIcon>
-                                    <ListItemText
-                                        id={item.id.toLocaleString()}
-                                        primary={item.title}
-                                    />
-                                </ListItemButton>
-                            </ListItem>
-                        ))
-                        : null}
+                                    </ListItemButton>
+                                </ListItem>
+                            ))
+                            : null}
                 </List>
             </Paper>
         </>

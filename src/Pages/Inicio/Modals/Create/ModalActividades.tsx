@@ -21,9 +21,11 @@ import * as yup from 'yup';
 import { useEvents } from '../../../../hooks/useEvents';
 import Select from '@mui/material/Select/Select';
 import MenuItem from '@mui/material/MenuItem';
+import { useSelector } from 'react-redux';
 
 export const ModalActividades: React.FunctionComponent = () => {
 
+  const user  = useSelector((state: any) => state.auth.user);
   const { createActivities } = useEvents()
   const [open, setOpen] = React.useState(false);
   // abrir el modal
@@ -32,7 +34,6 @@ export const ModalActividades: React.FunctionComponent = () => {
   }
   // cerrar modal
   function handleClose(): void {
-    console.log("se cierra desde modal act");
     return setOpen(false);
   }
   // funcionamiento del formulario
@@ -40,15 +41,21 @@ export const ModalActividades: React.FunctionComponent = () => {
     initialValues: {
       title: '',
       notes: '',
-      dificulty: 0,
-      EnDate: moment().date(),
+      dificulty: 1,
+      EnDate: moment().date()
     },
     validationSchema,
     onSubmit: (values) => {
       console.log(JSON.stringify(values, null, 2));
-      console.log("Se cierra desde el submit");
-      createActivities(values.title, values.notes, values.dificulty, values.EnDate);
-      handleClose();
+      console.log("🚀 ~ file: ModalActividades.tsx:29 ~ user", user)
+      setTimeout(() => {
+        try {
+          createActivities(user.uid, values.title, values.notes, values.dificulty, values.EnDate);
+        } catch (error) {
+          console.log("🚀 ~ file: ModalActividades.tsx:52 ~ error", error)
+        }
+        handleClose();
+      }, 2000);
     },
   });
 
@@ -131,10 +138,10 @@ export const ModalActividades: React.FunctionComponent = () => {
               onChange={formik.handleChange}
               error={(formik.touched.dificulty ?? false) && Boolean(formik.errors.dificulty)}
             >
-              <MenuItem value={0}>Trivial</MenuItem>
-              <MenuItem value={1}>Facil</MenuItem>
-              <MenuItem value={2}>Normal</MenuItem>
-              <MenuItem value={3}>Dificil</MenuItem>
+              <MenuItem value={1}>Trivial</MenuItem>
+              <MenuItem value={2}>Facil</MenuItem>
+              <MenuItem value={3}>Normal</MenuItem>
+              <MenuItem value={4}>Dificil</MenuItem>
             </Select>
             <Typography>Fecha de termino</Typography>
             <LocalizationProvider dateAdapter={AdapterMoment}>
