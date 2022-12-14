@@ -2,8 +2,9 @@ interface events {
     id: number;
     title: string,
     notes: string,
-    EnDate: Date,
-    Time: number,
+    startEvent: Date,
+    endEvent: Date,
+    finish: boolean,
     UserId: string,
 
 }

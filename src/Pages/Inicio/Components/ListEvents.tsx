@@ -35,22 +35,24 @@ const ListEvents: React.FunctionComponent = () => {
     };
 
     // Para la lista
-    const { user } = useSelector((state: any) => state.auth.user);
-    console.log(user);
+    const user = useSelector((state: any) => state.auth.user);
 
     const [list, setList] = useState([]);
 
     useEffect(() => {
         async function obtenerlista(UserId: string): Promise<void> {
             try {
-                const resp = await growApi.get('/events/', { data: { UserId } });
-                setList(resp.data.events);
-            } catch (error) { }
+                const resp = await growApi.get(`/events/${UserId}`, { data: { UserId } });
+                setList(resp.data);
+                // console.log("🚀 ~ file: ListEvents.tsx:47 ~ obtenerlista ~ resp", resp)
+            } catch (error) {
+            console.log("🚀 ~ file: ListEvents.tsx:48 ~ obtenerlista ~ error", error)
+            }
         }
         try {
-            void obtenerlista(user);
+            void obtenerlista(user.uid);
         } catch (error) {
-            console.log({ error });
+            console.log("🚀 ~ file: ListEvents.tsx:54 ~ useEffect ~ error", error)
         }
     }, [setList, user]);
 
