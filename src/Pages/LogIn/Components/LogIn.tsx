@@ -20,17 +20,17 @@ import Swal from 'sweetalert2';
 
 export const LogIn: React.FunctionComponent = () => {
 
-  const { startLogin , errorMessage , status } = useAuthStore();
+  const { startLogin, errorMessage, status } = useAuthStore();
   const navigate = useNavigate();
   const [showPassword, setShowPassword] = useState(false);
 
 
   useEffect(() => {
-    if( status === 'Authenticated' ){
+    if (status === 'Authenticated') {
       navigate('/auth/inicio', { replace: true });
     }
     // eslint-disable-next-line 
-  }, [status])
+  }, [status]);
 
   const formik = useFormik({
     initialValues: {
@@ -40,7 +40,7 @@ export const LogIn: React.FunctionComponent = () => {
     validationSchema,
     onSubmit: (values) => {
       setTimeout(() => {
-        startLogin(values.email, values.password);          
+        startLogin(values.email, values.password);
       }, 2000);
     },
   });
@@ -48,10 +48,10 @@ export const LogIn: React.FunctionComponent = () => {
   const { isSubmitting } = formik;
 
   useEffect(() => {
-    if( errorMessage !== undefined && errorMessage !== 'token expiro' && errorMessage !== '' ){
-      void Swal.fire('error', errorMessage , 'error')
+    if (errorMessage !== undefined && errorMessage !== 'Token expiro' && errorMessage !== '') {
+      void Swal.fire('error', errorMessage, 'error')
     }
-  },[errorMessage])
+  }, [errorMessage])
 
 
   return (
@@ -126,13 +126,13 @@ export const LogIn: React.FunctionComponent = () => {
                 control={<Checkbox value="remember" color="primary" />}
                 label="Remember me"
               />
-                <LoadingButton
-                  fullWidth
-                  size="large"
-                  type="submit"
-                  variant="contained"
-                  loading={isSubmitting}
-                >
+              <LoadingButton
+                fullWidth
+                size="large"
+                type="submit"
+                variant="contained"
+                loading={isSubmitting}
+              >
                 Iniciar Sesion
               </LoadingButton>
               <Grid container>

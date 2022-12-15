@@ -29,10 +29,9 @@ export const useEvents: any = () => {
     };
 
     const createActivities = async (UserId: String, title: String, notes: String, dificulty: number, Date: number): Promise<void> => {
-        // const EnDate = moment(Date).format('YYYY-MM-DD HH:mm:ss');
         const endDate = moment(Date).format('YYYY-MM-DD');
-        console.log("🚀 ~ file: useEvents.ts:34 ~ createActivities ~ EnDate", endDate)
         try {
+            // await growApi.post('/activities/create', { UserId, title, notes, dificulty, endDate });
             const resp = await growApi.post('/activities/create', { UserId, title, notes, dificulty, endDate });
             console.log("🚀 ~ file: useEvents.ts:34 ~ createActivities ~ resp", resp)
         } catch (error) {
@@ -40,19 +39,22 @@ export const useEvents: any = () => {
         }
     };
 
-    const createEvents = async (Answer: number): Promise<void> => {
+    const createEvents = async (UserId: String, title: String, notes: String, Date: number, sDate: number): Promise<void> => {
+        const endEvent = moment(Date).format('YYYY-MM-DD HH:mm:ss');
+        const startEvent = moment(sDate).format('YYYY-MM-DD HH:mm:ss');
         try {
-            const resp = await growApi.post('/events/create', { user });
-            console.log(resp)
+            const resp = await growApi.post('/events/create', { UserId, title, notes, endEvent, startEvent });
+            console.log("🚀 ~ file: useEvents.ts:47 ~ createEvents ~ resp", resp);
         } catch (error) {
-            console.log({ error });
+            console.log("🚀 ~ file: useEvents.ts:49 ~ createEvents ~ error", error);
         }
     };
 
-    const createHabits = async (Answer: number): Promise<void> => {
+    const createHabits = async (UserId: String, title: String, notes: String, dificulty: number, EndDate: number, dateTime: number, Time: number): Promise<void> => {
+        const Schedule = moment(dateTime).format('HH:mm:ss');
         try {
-            const resp = await growApi.post('/habits/create', { user });
-            console.log(resp)
+            const resp = await growApi.post('/habits/create', { UserId, title, notes, dificulty, EndDate, Schedule, Time });
+            console.log("🚀 ~ file: useEvents.ts:56 ~ createHabits ~ resp", resp)
         } catch (error) {
             console.log({ error });
         }

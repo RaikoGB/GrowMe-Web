@@ -8,12 +8,10 @@ export const useAuthStore: any = () => {
   const dispatch = useDispatch();
 
   const startLogin = async (email: string, password: string): Promise<any> => {
-
-    // console.log(typeof email , typeof password , 'Desde auth')
     dispatch(onChecking());
     try {
       const resp = await growApi.post('/users/login', { email, password });
-      console.log(resp)
+      // console.log(resp)
       localStorage.setItem('token', resp.data.token);
       localStorage.setItem('token-init-date', new Date().getTime().toString());
       dispatch(onLogin({ name: resp.data.name, uid: resp.data.id }));
@@ -32,7 +30,7 @@ export const useAuthStore: any = () => {
     // dispatch(onChecking());
 
     try {
-      const resp = await growApi.post('/users/register', { name, email, password, gender});
+      const resp = await growApi.post('/users/register', { name, email, password, gender });
       console.log("🚀 ~ file: useAuthStore.tsx:36 ~ createUser ~ resp", resp)
       // localStorage.setItem('token', resp.data.token);
       // localStorage.setItem('token-init-date', new Date().getTime().toString());
@@ -46,16 +44,17 @@ export const useAuthStore: any = () => {
     }
   };
 
-  const checkToken = async () : Promise<any> => {
+  const checkToken = async (): Promise<any> => {
+    // eslint-disable-next-line no-unused-vars, @typescript-eslint/no-unused-vars
     const token = localStorage.getItem('token');
-    console.log("🚀 ~ file: useAuthStore.tsx:52 ~ checkToken ~ token", token)
+    // console.log("🚀 ~ file: useAuthStore.tsx:52 ~ checkToken ~ token", token)
     try {
       const { data } = await growApi.get('/users/renew');
-      console.log({data})
+      // console.log({data})
       localStorage.setItem('token', data.token);
       localStorage.setItem('token-init-date', new Date().getTime().toString());
-      dispatch(onLogin({ name: data.name, email : data.email , uid: data.id }));
-      console.log("🚀 ~ file: useAuthStore.tsx:58 ~ checkToken ~ data.uid ", data.id )
+      dispatch(onLogin({ name: data.name, email: data.email, uid: data.id }));
+      // console.log("🚀 ~ file: useAuthStore.tsx:58 ~ checkToken ~ data.uid ", data.id )
     } catch (error) {
       console.log(error)
       localStorage.clear();
@@ -63,7 +62,7 @@ export const useAuthStore: any = () => {
     }
   }
 
-  const startLogout = ():any => {
+  const startLogout = (): any => {
     localStorage.clear();
     dispatch(onLogout('Cerrar sesión'));
   }

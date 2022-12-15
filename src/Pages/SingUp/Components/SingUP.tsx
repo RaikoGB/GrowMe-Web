@@ -56,8 +56,8 @@ const SingUP: React.FunctionComponent = () => {
   const { errors, touched, isSubmitting } = formik;
 
   useEffect(() => {
-    if( errorMessage !== undefined && errorMessage !== 'token expiro' && errorMessage !== '' ){
-      void Swal.fire('error', errorMessage , 'error')
+    if( errorMessage !== undefined && errorMessage !== 'Token expiro' && errorMessage !== '' ){
+      void Swal.fire('error', errorMessage , 'error');
     }
   },[errorMessage])
   

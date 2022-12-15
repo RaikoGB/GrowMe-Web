@@ -21,9 +21,11 @@ import { TimePicker } from '@mui/x-date-pickers/TimePicker';
 
 import MenuItem from '@mui/material/MenuItem';
 import Select from '@mui/material/Select/Select';
+import { useSelector } from 'react-redux';
 
 export const ModalHabitos: React.FunctionComponent = () => {
 
+  const user  = useSelector((state: any) => state.auth.user);
   const { createHabits } = useEvents()
   const [open, setOpen] = React.useState(false);
 
@@ -48,10 +50,14 @@ export const ModalHabitos: React.FunctionComponent = () => {
     },
     validationSchema,
     onSubmit: (values) => {
-      console.log(JSON.stringify(values, null, 2));
-      console.log("Se cierra desde el submit");
-      createHabits(values.title, values.notes, values.dificulty, values.EnDate, values.schedule, values.Time);
-      handleClose();
+      setTimeout(() => {
+        try {
+          createHabits(user.uid, values.title, values.notes, values.dificulty, values.EnDate, values.schedule, values.Time);
+        } catch (error) {
+        console.log("🚀 ~ file: ModalHabitos.tsx:56 ~ setTimeout ~ error", error)
+        }
+        handleClose();
+      }, 2000);
     },
   });
 

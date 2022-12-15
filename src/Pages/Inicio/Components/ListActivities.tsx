@@ -42,7 +42,6 @@ const ListActivities: React.FunctionComponent = () => {
         async function obtenerlista(UserId: string): Promise<void> {
             try {
                 const resp = await growApi.get(`/activities/${UserId}`, { data: { UserId } });
-                console.log("🚀 ~ file: ListActivities.tsx:46 ~ obtenerlista ~ resp", resp)
                 setList(resp.data);
             } catch (error) {
                 console.log("🚀 ~ file: ListActivities.tsx:49 ~ obtenerlista ~ error", error)

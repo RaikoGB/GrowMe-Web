@@ -10,7 +10,6 @@ import {
   Button
 } from '@mui/material';
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
-import { DatePicker } from '@mui/x-date-pickers/DatePicker';
 import { AdapterMoment } from '@mui/x-date-pickers/AdapterMoment';
 import React from 'react';
 import AddIcon from '@mui/icons-material/Add';
@@ -18,10 +17,14 @@ import { useFormik } from 'formik';
 import moment from 'moment';
 import * as yup from 'yup';
 import { useEvents } from '../../../../hooks/useEvents';
-import { TimePicker } from '@mui/x-date-pickers/TimePicker';
+// import { TimePicker } from '@mui/x-date-pickers/TimePicker';
+// import { DatePicker } from '@mui/x-date-pickers/DatePicker';
+import { DateTimePicker } from '@mui/x-date-pickers/DateTimePicker';
+import { useSelector } from 'react-redux';
 
 export const ModalEventos: React.FunctionComponent = () => {
 
+  const user  = useSelector((state: any) => state.auth.user);
   const { createEvents } = useEvents()
   const [open, setOpen] = React.useState(false);
 
@@ -30,7 +33,6 @@ export const ModalEventos: React.FunctionComponent = () => {
   }
 
   function handleClose(): void {
-    console.log("se cierra desde modal eventos");
     return setOpen(false);
   }
 
@@ -39,17 +41,23 @@ export const ModalEventos: React.FunctionComponent = () => {
     initialValues: {
       title: '',
       notes: '',
-      time: 1,
+      startDate: moment().date(),
       EnDate: moment().date(),
     },
     validationSchema,
     onSubmit: (values) => {
-      console.log(JSON.stringify(values, null, 2));
-      console.log("Se cierra desde el submit");
-      createEvents(values.title, values.notes, values.EnDate, values.time);
-      handleClose();
+      console.log("🚀 ~ file: ModalEventos.tsx:57 ~ values", values)
+      setTimeout(() => {
+        try {
+          createEvents(user.uid, values.title, values.notes, values.EnDate, values.startDate);
+        } catch (error) {
+        console.log("🚀 ~ file: ModalEventos.tsx:52 ~ setTimeout ~ error", error)
+        }
+        handleClose();
+      }, 2000);
     },
   });
+    
 
 
   return (
@@ -118,9 +126,27 @@ export const ModalEventos: React.FunctionComponent = () => {
                 helperText={(formik.touched.notes ?? false) && formik.errors.notes}
               />
             </Stack>
+            <Typography>Fecha de Inicio</Typography>
+            <LocalizationProvider dateAdapter={AdapterMoment}>
+              <DateTimePicker
+                // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+                // @ts-expect-error
+                id="startDate"
+                name="startDate"
+                disablePast
+                label="Fecha inicio"
+                openTo="year"
+                // views={['year', 'month', 'day']}
+                value={formik.values.startDate}
+                onChange={(value) => {
+                  void formik.setFieldValue('startDate', value);
+                }}
+                renderInput={(params) => <TextField {...params} />}>
+              </DateTimePicker>
+            </LocalizationProvider>
             <Typography>Fecha de termino</Typography>
             <LocalizationProvider dateAdapter={AdapterMoment}>
-              <DatePicker
+              <DateTimePicker
                 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
                 // @ts-expect-error
                 id="EnDate"
@@ -128,15 +154,15 @@ export const ModalEventos: React.FunctionComponent = () => {
                 disablePast
                 label="Fecha termino"
                 openTo="year"
-                views={['year', 'month', 'day']}
+                // views={['year', 'month', 'day']}
                 value={formik.values.EnDate}
                 onChange={(value) => {
                   void formik.setFieldValue('EnDate', value);
                 }}
                 renderInput={(params) => <TextField {...params} />}>
-              </DatePicker>
+              </DateTimePicker>
             </LocalizationProvider>
-            <Typography>Horario</Typography>
+            {/* <Typography>Horario</Typography>
             <LocalizationProvider dateAdapter={AdapterMoment}>
               <TimePicker
                 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
@@ -150,7 +176,7 @@ export const ModalEventos: React.FunctionComponent = () => {
                 }}
                 renderInput={(params) => <TextField {...params} />}
               />
-            </LocalizationProvider>
+            </LocalizationProvider> */}
           </Container>
         </form>
       </Modal>

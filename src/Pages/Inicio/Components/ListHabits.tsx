@@ -34,22 +34,23 @@ const ListHabits: React.FunctionComponent = () => {
         setChecked(newChecked);
     };
     // Para la lista
-    const { user } = useSelector( (state : any) => state.auth.user );
-    console.log(user);
+    const user = useSelector((state: any) => state.auth.user);
 
     const [list, setList] = useState([]);
 
     useEffect(() => {
         async function obtenerlista(UserId: string): Promise<void> {
             try {
-                const resp = await growApi.get('/habits/', { data: { UserId } });
-                setList(resp.data.Habits);
-            } catch (error) { }
+                const resp = await growApi.get(`/habits/${UserId}`, { data: { UserId } });
+                setList(resp.data);
+            } catch (error) {
+            console.log("🚀 ~ file: ListHabits.tsx:47 ~ obtenerlista ~ error", error)
+            }
         }
         try {
-            void obtenerlista(user);
+            void obtenerlista(user.uid);
         } catch (error) {
-            console.log({ error });
+            console.log("🚀 ~ file: ListHabits.tsx:53 ~ useEffect ~ error", error)
         }
     }, [setList, user]);
 

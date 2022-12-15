@@ -46,8 +46,6 @@ export const ModalActividades: React.FunctionComponent = () => {
     },
     validationSchema,
     onSubmit: (values) => {
-      console.log(JSON.stringify(values, null, 2));
-      console.log("🚀 ~ file: ModalActividades.tsx:29 ~ user", user)
       setTimeout(() => {
         try {
           createActivities(user.uid, values.title, values.notes, values.dificulty, values.EnDate);
