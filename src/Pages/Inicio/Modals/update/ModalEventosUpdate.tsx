@@ -25,7 +25,7 @@ interface Props {
   ItemId: number
 }
 
-export const ModalEventos: React.FC<Props> = (props: Props) => {
+export const ModalEventosUpdate: React.FC<Props> = (props: Props) => {
 
   const { updateEvents } = useEvents()
   const [open, setOpen] = React.useState(false);

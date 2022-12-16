@@ -5,9 +5,8 @@ import ListItemButton from '@mui/material/ListItemButton';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
 import Checkbox from '@mui/material/Checkbox';
-import IconButton from '@mui/material/IconButton';
-import EditIcon from '@mui/icons-material/Edit';
 import { ModalHabitos } from '../Modals/Create/ModalHabitos';
+import { ModalHabitosUpdate } from '../Modals/update/ModalHabitosUpdate';
 import Paper from '@mui/material/Paper';
 import { Box } from '@mui/material';
 import Card from '@mui/material/Card';
@@ -82,12 +81,7 @@ const ListHabits: React.FunctionComponent = () => {
                             <ListItem
                                 key={item.id}
                                 secondaryAction={
-                                    <IconButton edge="end" aria-label="comments">
-                                        <EditIcon />
-                                        {
-                                            // falta poner modal aqui que pida el item.id
-                                        }
-                                    </IconButton>
+                                    <ModalHabitosUpdate ItemId={item.id} />
                                 }
                                 disablePadding
                             >
