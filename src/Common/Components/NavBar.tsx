@@ -16,7 +16,7 @@ import PersonAddIcon from '@mui/icons-material/PersonAdd';
 const pages = [
   {
     text: 'Comenzar',
-    Link: '/GrowMe-Web/#/auth/SingUp'
+    Link: '/GrowMe-Web/#/SingUp'
   },
   {
     text: 'Aplicacion Móvil',
@@ -147,7 +147,7 @@ const Navbar: React.FunctionComponent = () => {
               <Button
                 variant="text"
                 color="inherit"
-                href="/GrowMe-Web/#/auth/login"
+                href="/GrowMe-Web/#/login"
                 startIcon={<LoginIcon color="secondary" />}
               >
                 Iniciar Sesion
@@ -157,7 +157,7 @@ const Navbar: React.FunctionComponent = () => {
               <Button
                 variant="outlined"
                 color="inherit"
-                href="/GrowMe-Web/#/auth/SingUp"
+                href="/GrowMe-Web/#/SingUp"
                 startIcon={<PersonAddIcon color="secondary" />}
               >
                 Resgistrate

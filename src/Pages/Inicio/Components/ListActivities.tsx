@@ -5,9 +5,8 @@ import ListItemButton from '@mui/material/ListItemButton';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
 import Checkbox from '@mui/material/Checkbox';
-import IconButton from '@mui/material/IconButton';
-import EditIcon from '@mui/icons-material/Edit';
 import { ModalActividades } from '../Modals/Create/ModalActividades';
+import { ModalActividadesUpdate } from '../Modals/update/ModalActividadesUpdate';
 import Paper from '@mui/material/Paper';
 import { Box } from '@mui/material';
 import Card from '@mui/material/Card';
@@ -16,9 +15,11 @@ import Typography from '@mui/material/Typography';
 import growApi from '../../../Services/Api/growApi';
 import activities from '../../../Helpers/Types/activities';
 import { useSelector } from 'react-redux';
+import { useEvents } from '../../../hooks/useEvents';
 
 const ListActivities: React.FunctionComponent = () => {
     // Para el check box
+    const { DeleteActivities } = useEvents();
     const [checked, setChecked] = React.useState([0]);
 
     const handleToggle = (value: number) => () => {
@@ -83,12 +84,7 @@ const ListActivities: React.FunctionComponent = () => {
                                 <ListItem
                                     key={item.id}
                                     secondaryAction={
-                                        <IconButton edge="end" aria-label="comments">
-                                            <EditIcon />
-                                            {
-                                                // falta poner modal aqui que pida el item.id
-                                            }
-                                        </IconButton>
+                                        <ModalActividadesUpdate ItemId={item.id} />
                                     }
                                     disablePadding
                                 >
@@ -103,6 +99,7 @@ const ListActivities: React.FunctionComponent = () => {
                                                 checked={checked.includes(item.id)}
                                                 tabIndex={-1}
                                                 disableRipple
+                                                onChange={DeleteActivities(item.id)}
                                                 inputProps={{
                                                     'aria-labelledby': item.id.toLocaleString()
                                                 }}

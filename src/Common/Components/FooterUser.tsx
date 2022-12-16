@@ -19,12 +19,12 @@ const FooterUser: React.FunctionComponent = () => {
             <Grid item xs={12} sm={4}>
               <Box borderBottom={1}>Producto</Box>
               <Box>
-                <Link href="/GrowMe-Web/#/MovileApp" color="inherit">
+                <Link href="/GrowMe-Web/#/auth/MovileApp" color="inherit">
                   Android App
                 </Link>
               </Box>
               <Box>
-                <Link href="/GrowMe-Web/#/FAQ" color="inherit">
+                <Link href="/GrowMe-Web/#/auth/FAQ" color="inherit">
                   ¿Como funciona?
                 </Link>
               </Box>
@@ -32,12 +32,12 @@ const FooterUser: React.FunctionComponent = () => {
             <Grid item xs={12} sm={4}>
               <Box borderBottom={1}>Apoyo</Box>
               <Box>
-                <Link href="/GrowMe-Web/#/FAQ" color="inherit">
+                <Link href="/GrowMe-Web/#/auth/FAQ" color="inherit">
                   Preguntas Frecuentes
                 </Link>
               </Box>
               <Box>
-                <Link href="/GrowMe-Web/Index" color="inherit">
+                <Link href="/GrowMe-Web/#/auth/about" color="inherit">
                   About
                 </Link>
               </Box>
@@ -45,19 +45,19 @@ const FooterUser: React.FunctionComponent = () => {
             <Grid item xs={12} sm={4}>
               <Box borderBottom={1}>Sociales</Box>
               <Box>
-                <Link href="/GrowMe-Web/#/About" color="inherit">
+                <Link href="/GrowMe-Web/#/auth/About" color="inherit">
                   ¿Quienes Somos?
                 </Link>
               </Box>
               <Box>
                 <Stack direction="row">
-                  <IconButton aria-label="Twitter" href="/GrowMe-Web/#/Index">
+                  <IconButton aria-label="Twitter" href="/GrowMe-Web/#/auth/inicio">
                     <TwitterIcon />
                   </IconButton>
-                  <IconButton aria-label="Facebook" href="/GrowMe-Web/#/Index">
+                  <IconButton aria-label="Facebook" href="/GrowMe-Web/#/auth/inicio">
                     <FacebookIcon />
                   </IconButton>
-                  <IconButton aria-label="Instagram" href="/GrowMe-Web/#/Index">
+                  <IconButton aria-label="Instagram" href="/GrowMe-Web/#/auth/inicio">
                     <InstagramIcon />
                   </IconButton>
                 </Stack>

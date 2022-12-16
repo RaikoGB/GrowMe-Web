@@ -17,8 +17,6 @@ import { useFormik } from 'formik';
 import moment from 'moment';
 import * as yup from 'yup';
 import { useEvents } from '../../../../hooks/useEvents';
-// import { TimePicker } from '@mui/x-date-pickers/TimePicker';
-// import { DatePicker } from '@mui/x-date-pickers/DatePicker';
 import { DateTimePicker } from '@mui/x-date-pickers/DateTimePicker';
 import { useSelector } from 'react-redux';
 
@@ -162,21 +160,6 @@ export const ModalEventos: React.FunctionComponent = () => {
                 renderInput={(params) => <TextField {...params} />}>
               </DateTimePicker>
             </LocalizationProvider>
-            {/* <Typography>Horario</Typography>
-            <LocalizationProvider dateAdapter={AdapterMoment}>
-              <TimePicker
-                // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-                // @ts-expect-error
-                id="time"
-                name="time"
-                label="Tiempo"
-                value={formik.values.time}
-                onChange={(value2) => {
-                  void formik.setFieldValue('time', value2);
-                }}
-                renderInput={(params) => <TextField {...params} />}
-              />
-            </LocalizationProvider> */}
           </Container>
         </form>
       </Modal>

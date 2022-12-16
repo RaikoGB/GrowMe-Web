@@ -10,18 +10,16 @@ import {
   Button
 } from '@mui/material';
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
-import { DatePicker } from '@mui/x-date-pickers/DatePicker';
 import { AdapterMoment } from '@mui/x-date-pickers/AdapterMoment';
 import React, { useState, useEffect } from 'react';
-import AddIcon from '@mui/icons-material/Add';
+import EditIcon from '@mui/icons-material/Edit';
 import { useFormik } from 'formik';
-// import moment from 'moment';
 import * as yup from 'yup';
 import { useEvents } from '../../../../hooks/useEvents';
-import { TimePicker } from '@mui/x-date-pickers/TimePicker';
 import { useSelector } from 'react-redux';
 import events from '../../../../Helpers/Types/events';
 import growApi from '../../../../Services/Api/growApi';
+import { DateTimePicker } from '@mui/x-date-pickers/DateTimePicker';
 
 interface Props {
   ItemId: number
@@ -50,7 +48,7 @@ export const ModalEventos: React.FC<Props> = (props: Props) => {
   useEffect(() => {
     async function obtenerlista(Id: number, UserId: string): Promise<void> {
       try {
-        const resp = await growApi.get('/events/', {
+        const resp = await growApi.get(`/events/${UserId}:${Id}`, {
           data: { Id, UserId }
         });
         setList(resp.data.events);
@@ -68,30 +66,27 @@ export const ModalEventos: React.FC<Props> = (props: Props) => {
     initialValues: {
       title: list?.title,
       notes: list?.notes,
-      time: list?.startEvent,
+      startDate: list?.startEvent,
       EnDate: list?.endEvent,
     },
     validationSchema,
     onSubmit: (values) => {
-      console.log(JSON.stringify(values, null, 2));
-      console.log("Se cierra desde el submit");
-      updateEvents(values.title, values.notes, values.EnDate, values.time);
-      handleClose();
+      setTimeout(() => {
+        try {
+          updateEvents(props.ItemId, values.title, values.notes, values.EnDate, values.startDate);
+        } catch (error) {
+        console.log("🚀 ~ file: ModalEventos.tsx:80 ~ setTimeout ~ error", error)
+        }
+        handleClose();
+      }, 2000);  
     },
   });
-
 
   return (
     <>
       <div>
-        <IconButton
-          onClick={handleOpen}
-          size="medium"
-          color="inherit"
-          aria-label="add"
-        >
-          <AddIcon />
-
+        <IconButton onClick={handleOpen} edge="end" aria-label="comments">
+          <EditIcon />
         </IconButton>
       </div>
       <Modal
@@ -147,9 +142,27 @@ export const ModalEventos: React.FC<Props> = (props: Props) => {
                 helperText={(formik.touched.notes ?? false) && formik.errors.notes}
               />
             </Stack>
+            <Typography>Fecha de Inicio</Typography>
+            <LocalizationProvider dateAdapter={AdapterMoment}>
+              <DateTimePicker
+                // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+                // @ts-expect-error
+                id="startDate"
+                name="startDate"
+                disablePast
+                label="Fecha inicio"
+                openTo="year"
+                // views={['year', 'month', 'day']}
+                value={formik.values.startDate}
+                onChange={(value) => {
+                  void formik.setFieldValue('startDate', value);
+                }}
+                renderInput={(params) => <TextField {...params} />}>
+              </DateTimePicker>
+            </LocalizationProvider>
             <Typography>Fecha de termino</Typography>
             <LocalizationProvider dateAdapter={AdapterMoment}>
-              <DatePicker
+              <DateTimePicker
                 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
                 // @ts-expect-error
                 id="EnDate"
@@ -157,28 +170,13 @@ export const ModalEventos: React.FC<Props> = (props: Props) => {
                 disablePast
                 label="Fecha termino"
                 openTo="year"
-                views={['year', 'month', 'day']}
+                // views={['year', 'month', 'day']}
                 value={formik.values.EnDate}
                 onChange={(value) => {
                   void formik.setFieldValue('EnDate', value);
                 }}
                 renderInput={(params) => <TextField {...params} />}>
-              </DatePicker>
-            </LocalizationProvider>
-            <Typography>Horario</Typography>
-            <LocalizationProvider dateAdapter={AdapterMoment}>
-              <TimePicker
-                // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-                // @ts-expect-error
-                id="time"
-                name="time"
-                label="Tiempo"
-                value={formik.values.time}
-                onChange={(value2) => {
-                  void formik.setFieldValue('time', value2);
-                }}
-                renderInput={(params) => <TextField {...params} />}
-              />
+              </DateTimePicker>
             </LocalizationProvider>
           </Container>
         </form>
