@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/restrict-plus-operands */
 import { useSelector } from 'react-redux';
 import growApi from '../Services/Api/growApi';
 import moment from 'moment';
@@ -18,15 +19,65 @@ export const useEvents: any = () => {
         }
     };
 
-    const EnviarMBTI = async (Personalidad: DataMBTI): Promise<void> => {
-        console.log(Personalidad);
-        // TODO: la llamada correcta es checar si existe, luego hacer el respectivo create or update. Sumar los datos antiguos con los nuevos, re obtener la personalidad.
-        try {
-            const resp = await growApi.post('/cohen/create', { Personalidad });
-            console.log(resp)
-        } catch (error) {
-            console.log("🚀 ~ file: useEvents.ts:28 ~ EnviarMBTI ~ error", error)
+    const EnviarMBTI = async (personaity: DataMBTI, UserId: string): Promise<void> => {
+        console.log("🚀 ~ file: useEvents.ts:22 ~ EnviarMBTI ~ personaity", personaity)
+        if (user.MBTI !== true) {
+            try {
+                const Personalidad = personaity.Personalidad;
+                const E = personaity.E;
+                const I = personaity.I;
+                const N = personaity.N;
+                const S = personaity.S;
+                const T = personaity.T;
+                const F = personaity.F;
+                const J = personaity.J;
+                const P = personaity.P;
+                const resp = await growApi.post('/mbti/create', { UserId, Personalidad, E, I, N, S, T, F, J, P });
+                console.log("🚀 ~ file: useEvents.ts:35 ~ EnviarMBTI ~ resp", resp)
+            } catch (error) {
+                console.log("🚀 ~ file: useEvents.ts:37 ~ EnviarMBTI ~ error", error)
+            }
         }
+        else {
+            try {
+                const res = await growApi.get(`/mbti/${UserId}`, { data: { UserId } });
+                console.log("🚀 ~ file: useEvents.ts:44 ~ EnviarMBTI ~ res", res)
+                const E = personaity.E + res.data.E;
+                const I = personaity.I + res.data.I;
+                const N = personaity.N + res.data.N;
+                const S = personaity.S + res.data.S;
+                const T = personaity.T + res.data.T;
+                const F = personaity.F + res.data.F;
+                const J = personaity.J + res.data.J;
+                const P = personaity.P + res.data.P;
+                let Personalidad = "";
+                if (E >= I) {
+                    Personalidad = Personalidad.concat("E");
+                } else {
+                    Personalidad = Personalidad.concat("I");
+                }
+                if (S >= N) {
+                    Personalidad = Personalidad.concat("S");
+                } else {
+                    Personalidad = Personalidad.concat("N");
+                }
+                if (T >= F) {
+                    Personalidad = Personalidad.concat("T");
+                } else {
+                    Personalidad = Personalidad.concat("F");
+                }
+                if (J >= P) {
+                    Personalidad = Personalidad.concat("J");
+                } else {
+                    Personalidad = Personalidad.concat("P");
+                }
+                const resp = await growApi.post('/mbti/update', { UserId, Personalidad, E, I, N, S, T, F, J, P });
+                console.log("🚀 ~ file: useEvents.ts:76 ~ EnviarMBTI ~ resp", resp)
+            } catch (error) {
+                console.log("🚀 ~ file: useEvents.ts:77 ~ EnviarMBTI ~ error", error)
+            }
+        }
+
     };
 
     const createActivities = async (UserId: String, title: String, notes: String, dificulty: number, Date: number): Promise<void> => {
