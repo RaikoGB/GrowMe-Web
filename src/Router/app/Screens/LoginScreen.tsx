@@ -1,17 +1,16 @@
-import React from 'react';
 import { Box } from '@mui/material';
+import React from 'react';
 import Navbar from '../../../Common/Components/NavBar';
 import Footer from '../../../Common/Components/Footer';
-import Inicio from '../../../Pages/Index/Components/Inicio';
+import { LogIn } from '../../../Pages/LogIn/Components/LogIn';
 
-export const AppScreen: React.FunctionComponent = () => {
-
+export const LoginScreen: React.FunctionComponent = () => {
   return (
     <>
       <Navbar />
       <Box mt={10}></Box>
-      <Inicio />
-      <br></br>
+      <LogIn />
+      <Box mt={20}></Box>
       <Footer />
     </>
   );

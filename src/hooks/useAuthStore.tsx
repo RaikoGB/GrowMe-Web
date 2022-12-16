@@ -16,31 +16,21 @@ export const useAuthStore: any = () => {
       localStorage.setItem('token-init-date', new Date().getTime().toString());
       dispatch(onLogin({ name: resp.data.name, uid: resp.data.id }));
     } catch (error) {
-      console.log({ error });
+      console.log("🚀 ~ file: useAuthStore.tsx:19 ~ startLogin ~ error", error);
       dispatch(onLogout('Credenciales incorrectas'));
       setTimeout(() => {
         dispatch(clearErrorMessage());
       }, 10);
-
     }
   };
 
   const createUser = async (name: string, email: string, password: string, gender: number): Promise<any> => {
 
-    // dispatch(onChecking());
-
     try {
       const resp = await growApi.post('/users/register', { name, email, password, gender });
       console.log("🚀 ~ file: useAuthStore.tsx:36 ~ createUser ~ resp", resp)
-      // localStorage.setItem('token', resp.data.token);
-      // localStorage.setItem('token-init-date', new Date().getTime().toString());
-      // dispatch(onLogin({ name: resp.data.name, id: resp.data.id , msg : resp.data.msg}));
     } catch (error) {
       console.log("🚀 ~ file: useAuthStore.tsx:41 ~ createUser ~ error", error)
-      // dispatch(onLogout(error.response.data.msg));
-      // setTimeout(() => {
-      //   dispatch(clearErrorMessage());
-      // }, 10);
     }
   };
 
@@ -67,20 +57,14 @@ export const useAuthStore: any = () => {
     dispatch(onLogout('Cerrar sesión'));
   }
 
-
-
-
   return {
     //* Propiedades
     errorMessage,
     status,
     user,
-
     startLogin,
     createUser,
     checkToken,
     startLogout
-
-
   }
 }

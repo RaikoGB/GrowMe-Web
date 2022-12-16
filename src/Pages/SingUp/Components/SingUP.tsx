@@ -32,19 +32,16 @@ const SingUP: React.FunctionComponent = () => {
   const formik = useFormik({
     initialValues: {
       name : '',
-      // username: '',
       Gender: 0,
       email: '',
       password: ''
     },
     validationSchema,
     onSubmit: (values) => {
-      // console.log(JSON.stringify(values, null, 2));
       setTimeout(() => {
         try {
           createUser(values.name, values.email, values.password, values.Gender );
           navigate('/auth/login', { replace: true });
-          // startLogin(values.email, values.password);
         } catch (error) {
           console.log("🚀 ~ file: SingUP.tsx:47 ~ setTimeout ~ error", error)
         }
@@ -106,20 +103,6 @@ const SingUP: React.FunctionComponent = () => {
                   error={(formik.touched.name ?? false) && Boolean(formik.errors.name)}
                   helperText={(formik.touched.name ?? false) && formik.errors.name}
                 />
-                {/* <TextField
-                  margin="normal"
-                  required
-                  fullWidth
-                  id="username"
-                  label="username"
-                  name="username"
-                  autoComplete="username"
-                  onChange={formik.handleChange}
-                  value={formik.values.username}
-                  error={(formik.touched.username ?? false) && Boolean(formik.errors.username)}
-                  helperText={(formik.touched.username ?? false) && formik.errors.username}
-                /> */}
-
                 <Select
                   required
                   labelId="Gender"

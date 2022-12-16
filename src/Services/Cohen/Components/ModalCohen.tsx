@@ -7,17 +7,19 @@ import Typography from '@mui/material/Typography';
 import { questionsCohen } from '../helpers/CohenTEST';
 import ButtonGroup from '@mui/material/ButtonGroup';
 import { useEvents } from '../../../hooks/useEvents';
+import { useSelector } from 'react-redux';
 
 const ModalCohen: React.FunctionComponent = () => {
+
+  const  user  = useSelector((state: any) => state.auth.user);
   const [open, setOpen] = React.useState(false);
   const TotalQ = 13;
-  const { EnviarCohen } = useEvents()
+  const { EnviarCohen } = useEvents();
 
   function handleOpen(): void {
     return setOpen(true);
   }
   function handleClose(): void {
-    console.log("se cierra desde modal cohen");
     return setOpen(false);
   }
 
@@ -57,8 +59,8 @@ const ModalCohen: React.FunctionComponent = () => {
       }
     }
     if (NumberQ === TotalQ) {
-      EnviarCohen(Answer);
-      handleClose()
+      void EnviarCohen(Answer, user.uid);
+      handleClose();
     }
   }
 
@@ -67,7 +69,6 @@ const ModalCohen: React.FunctionComponent = () => {
       <div>
         <Button onClick={handleOpen} variant="text" startIcon={<SelfImprovementIcon />}>
           Test semanal de Resilencia
-
         </Button>
       </div>
       <Modal

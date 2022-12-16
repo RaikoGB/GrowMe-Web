@@ -10,7 +10,7 @@ import {
 const RecuperarEmail: React.FunctionComponent = () => {
   return (
     <Container component="main" maxWidth="xs">
-      <h1> LOGIN </h1>
+      <h1> Recuperar email</h1>
       <Formik
         initialValues={{
           email: '',

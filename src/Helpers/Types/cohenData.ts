@@ -1,6 +1,8 @@
-interface cohenData {
+export interface cohenData {
+    id: number,
     stress: number,
     fechaRes: Date,
 }
-
-export default cohenData;
+export interface cohenDatas {
+    Cohens: cohenData[],
+}
