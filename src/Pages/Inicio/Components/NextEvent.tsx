@@ -58,10 +58,10 @@ const NextEvent: React.FunctionComponent = () => {
                                         {item.title}
                                     </Typography>
                                     <Typography variant="h3" align="center">
-                                        {item.startEvent.toString()}
+                                        {moment(item.startEvent).calendar()}
                                     </Typography>
                                     <Typography variant="h5" align="center" gutterBottom>
-                                        {item.endEvent.toString()}
+                                        {moment(item.endEvent).calendar()}
                                     </Typography>
                                     <Typography ml={2} variant="body1" gutterBottom>
                                         {item.notes}

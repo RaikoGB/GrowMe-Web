@@ -68,8 +68,8 @@ export const ModalEventos: React.FC<Props> = (props: Props) => {
     initialValues: {
       title: list?.title,
       notes: list?.notes,
-      time: list?.Time,
-      EnDate: list?.EnDate,
+      time: list?.startEvent,
+      EnDate: list?.endEvent,
     },
     validationSchema,
     onSubmit: (values) => {

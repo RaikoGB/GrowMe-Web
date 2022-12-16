@@ -9,7 +9,7 @@ import {
 const RecuperarPWD: React.FunctionComponent = () => {
   return (
     <Container component="main" maxWidth="xs">
-      <h1> LOGIN </h1>
+      <h1> Recuperar Contraseña </h1>
       <Formik
         initialValues={{
           password: '',

@@ -7,13 +7,14 @@ export const useEvents: any = () => {
 
     const { user } = useSelector((state: any) => state.auth);
 
-    const EnviarCohen = async (stress: number, userid: String): Promise<void> => {
+    const EnviarCohen = async (stress: number, UserId: String): Promise<void> => {
         try {
-            const fechaRes = moment().format('YYYY-MM-DD HH:mm:ss');
-            const resp = await growApi.post('/cohen/create', { userid, stress, fechaRes });
-            console.log(resp)
+            const fechaRes = moment().format('YYYY-MM-DD');
+            console.log("🚀 ~ file: useEvents.ts:13 ~ EnviarCohen ~ fechaRes", fechaRes);
+            const resp = await growApi.post('/cohen/create', { UserId, stress, fechaRes });
+            console.log("🚀 ~ file: useEvents.ts:15 ~ EnviarCohen ~ resp", resp);
         } catch (error) {
-            console.log({ error });
+            console.log("🚀 ~ file: useEvents.ts:17 ~ EnviarCohen ~ error", error);
         }
     };
 
@@ -24,7 +25,7 @@ export const useEvents: any = () => {
             const resp = await growApi.post('/cohen/create', { Personalidad });
             console.log(resp)
         } catch (error) {
-            console.log({ error });
+            console.log("🚀 ~ file: useEvents.ts:28 ~ EnviarMBTI ~ error", error)
         }
     };
 
