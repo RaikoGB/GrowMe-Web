@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/GrowMe-Web/static/css/main.a6087d85.css",
-    "main.js": "/GrowMe-Web/static/js/main.d3c72592.js",
+    "main.css": "/GrowMe-Web/static/css/main.3f1e45a6.css",
+    "main.js": "/GrowMe-Web/static/js/main.d8dec801.js",
     "static/media/AboutIMG.png": "/GrowMe-Web/static/media/AboutIMG.9c8726b9bce072171680.png",
     "static/media/bgAvatar.jpg": "/GrowMe-Web/static/media/bgAvatar.985fbf5f651d1c3c99d5.jpg",
     "static/media/ESFj.png": "/GrowMe-Web/static/media/ESFj.fbe26f868a8c3cd33ffb.png",
@@ -25,12 +25,13 @@
     "static/media/LeoIMG.png": "/GrowMe-Web/static/media/LeoIMG.8722ca4b7ed9fbc19cc8.png",
     "static/media/RichIMG.png": "/GrowMe-Web/static/media/RichIMG.8722ca4b7ed9fbc19cc8.png",
     "static/media/Board.png": "/GrowMe-Web/static/media/Board.c85ec9ef441339aa3ff1.png",
+    "static/media/googlepPlay.png": "/GrowMe-Web/static/media/googlepPlay.cf81659eac63dc0e0175.png",
     "index.html": "/GrowMe-Web/index.html",
-    "main.a6087d85.css.map": "/GrowMe-Web/static/css/main.a6087d85.css.map",
-    "main.d3c72592.js.map": "/GrowMe-Web/static/js/main.d3c72592.js.map"
+    "main.3f1e45a6.css.map": "/GrowMe-Web/static/css/main.3f1e45a6.css.map",
+    "main.d8dec801.js.map": "/GrowMe-Web/static/js/main.d8dec801.js.map"
   },
   "entrypoints": [
-    "static/css/main.a6087d85.css",
-    "static/js/main.d3c72592.js"
+    "static/css/main.3f1e45a6.css",
+    "static/js/main.d8dec801.js"
   ]
 }
