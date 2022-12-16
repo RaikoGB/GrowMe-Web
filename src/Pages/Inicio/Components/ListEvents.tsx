@@ -5,8 +5,6 @@ import ListItemButton from '@mui/material/ListItemButton';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
 import Checkbox from '@mui/material/Checkbox';
-import IconButton from '@mui/material/IconButton';
-import EditIcon from '@mui/icons-material/Edit';
 import { ModalEventos } from '../Modals/Create/ModalEventos';
 import Paper from '@mui/material/Paper';
 import { Box } from '@mui/material';
@@ -17,6 +15,7 @@ import growApi from '../../../Services/Api/growApi';
 import events from '../../../Helpers/Types/events';
 import { useSelector } from 'react-redux';
 import { useEvents } from '../../../hooks/useEvents';
+import { ModalEventosUpdate } from '../Modals/update/ModalEventosUpdate';
 
 const ListEvents: React.FunctionComponent = () => {
     // Para el check box
@@ -86,12 +85,7 @@ const ListEvents: React.FunctionComponent = () => {
                             <ListItem
                                 key={item.id}
                                 secondaryAction={
-                                    <IconButton edge="end" aria-label="comments">
-                                        <EditIcon />
-                                        {
-                                            // falta poner modal aqui que pida el item.id
-                                        }
-                                    </IconButton>
+                                    <ModalEventosUpdate ItemId={item.id} />
                                 }
                                 disablePadding
                             >
