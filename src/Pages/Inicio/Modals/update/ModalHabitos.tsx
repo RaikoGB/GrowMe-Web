@@ -13,7 +13,7 @@ import {
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import { AdapterMoment } from '@mui/x-date-pickers/AdapterMoment';
 import React, { useState, useEffect } from 'react';
-import AddIcon from '@mui/icons-material/Add';
+import EditIcon from '@mui/icons-material/Edit';
 import { useFormik } from 'formik';
 import * as yup from 'yup';
 import { useEvents } from '../../../../hooks/useEvents';
@@ -51,11 +51,13 @@ export const ModalHabitos: React.FC<Props> = (props: Props) => {
   useEffect(() => {
     async function obtenerlista(Id: number, UserId: string): Promise<void> {
       try {
-        const resp = await growApi.get('/events/', {
+        const resp = await growApi.get(`/habits/${UserId}:${Id}`, {
           data: { Id, UserId }
         });
         setList(resp.data.habits);
-      } catch (error) {}
+      } catch (error) {
+      console.log("🚀 ~ file: ModalHabitos.tsx:59 ~ obtenerlista ~ error", error)
+      }
     }
     try {
       void obtenerlista(props.ItemId, user);
@@ -76,23 +78,22 @@ export const ModalHabitos: React.FC<Props> = (props: Props) => {
     },
     validationSchema,
     onSubmit: (values) => {
-      console.log(JSON.stringify(values, null, 2));
-      console.log("Se cierra desde el submit");
-      updateHabits(values.title, values.notes, values.dificulty, values.EnDate, values.schedule, values.Time);
-      handleClose();
+      setTimeout(() => {
+        try {
+          updateHabits(props.ItemId, values.title, values.notes, values.dificulty, values.EnDate, values.schedule, values.Time);
+        } catch (error) {
+          console.log("🚀 ~ file: ModalHabitos.tsx:83 ~ setTimeout ~ error", error)
+        }
+        handleClose();
+      }, 2000);
     },
   });
 
   return (
     <>
       <div>
-        <IconButton
-          onClick={handleOpen}
-          size="medium"
-          color="inherit"
-          aria-label="add"
-        >
-          <AddIcon />
+        <IconButton onClick={handleOpen} edge="end" aria-label="comments">
+          <EditIcon />
         </IconButton>
       </div>
       <Modal

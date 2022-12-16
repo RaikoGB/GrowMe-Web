@@ -14,9 +14,8 @@ import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import { DatePicker } from '@mui/x-date-pickers/DatePicker';
 import { AdapterMoment } from '@mui/x-date-pickers/AdapterMoment';
 import React, { useState, useEffect } from 'react';
-import AddIcon from '@mui/icons-material/Add';
+import EditIcon from '@mui/icons-material/Edit';
 import { useFormik } from 'formik';
-// import moment from 'moment';
 import * as yup from 'yup';
 import { useEvents } from '../../../../hooks/useEvents';
 import Select from '@mui/material/Select/Select';
@@ -29,7 +28,7 @@ interface Props {
   ItemId: number
 }
 
-export const ModalActividades: React.FC<Props> = (props: Props) => {
+export const ModalActividadesUpdate: React.FC<Props> = (props: Props) => {
   const { updateActivities } = useEvents();
   const [open, setOpen] = React.useState(false);
   // abrir el modal
@@ -38,7 +37,6 @@ export const ModalActividades: React.FC<Props> = (props: Props) => {
   }
   // cerrar modal
   function handleClose(): void {
-    console.log('se cierra desde modal act');
     return setOpen(false);
   }
 
@@ -50,16 +48,17 @@ export const ModalActividades: React.FC<Props> = (props: Props) => {
   useEffect(() => {
     async function obtenerlista(Id: number, UserId: string): Promise<void> {
       try {
-        const resp = await growApi.get('/activities/', {
-          data: { Id, UserId }
-        });
-        setList(resp.data.activities);
-      } catch (error) {}
+        const resp = await growApi.get(`/activities/${UserId}:${Id}`, {data: { UserId, Id }});
+        setList(resp.data);
+        console.log("🚀 ~ file: ModalActividadesUpdate.tsx:53 ~ obtenerlista ~ resp", resp)
+      } catch (error) {
+      console.log("🚀 ~ file: ModalActividadesUpdate.tsx:55 ~ obtenerlista ~ error", error)
+      }
     }
     try {
       void obtenerlista(props.ItemId, user);
     } catch (error) {
-      console.log({ error });
+      console.log("🚀 ~ file: ModalActividadesUpdate.tsx:61 ~ useEffect ~ error", error)
     }
   }, [props.ItemId, setList, user]);
 
@@ -73,28 +72,28 @@ export const ModalActividades: React.FC<Props> = (props: Props) => {
     },
     validationSchema,
     onSubmit: (values) => {
-      console.log(JSON.stringify(values, null, 2));
-      console.log('Se cierra desde el submit');
-      updateActivities(
-        values.title,
-        values.notes,
-        values.dificulty,
-        values.EnDate
-      );
-      handleClose();
+      setTimeout(() => {
+        try {
+          updateActivities(
+            props.ItemId,
+            values.title,
+            values.notes,
+            values.dificulty,
+            values.EnDate
+          );
+        } catch (error) {
+        console.log("🚀 ~ file: ModalActividadesUpdate.tsx:84 ~ setTimeout ~ error", error)
+        }
+        handleClose();
+      }, 2000);
     }
   });
 
   return (
     <>
       <div>
-        <IconButton
-          onClick={handleOpen}
-          size="medium"
-          color="inherit"
-          aria-label="add"
-        >
-          <AddIcon />
+        <IconButton onClick={handleOpen} edge="end" aria-label="comments">
+          <EditIcon />
         </IconButton>
       </div>
       <Modal

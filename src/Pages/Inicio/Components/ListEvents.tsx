@@ -16,10 +16,12 @@ import Typography from '@mui/material/Typography';
 import growApi from '../../../Services/Api/growApi';
 import events from '../../../Helpers/Types/events';
 import { useSelector } from 'react-redux';
+import { useEvents } from '../../../hooks/useEvents';
 
 const ListEvents: React.FunctionComponent = () => {
     // Para el check box
     const [checked, setChecked] = React.useState([0]);
+    const { DeleteEvents } = useEvents();
 
     const handleToggle = (value: number) => () => {
         const currentIndex = checked.indexOf(value);
@@ -104,6 +106,7 @@ const ListEvents: React.FunctionComponent = () => {
                                             checked={checked.includes(item.id)}
                                             tabIndex={-1}
                                             disableRipple
+                                            onChange={DeleteEvents(item.id)}
                                             inputProps={{
                                                 'aria-labelledby': item.id.toLocaleString()
                                             }}

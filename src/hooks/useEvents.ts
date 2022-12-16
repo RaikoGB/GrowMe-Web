@@ -5,8 +5,7 @@ import moment from 'moment';
 import DataMBTI from '../Helpers/Types/mbti';
 
 export const useEvents: any = () => {
-
-    const { user } = useSelector((state: any) => state.auth);
+    const user = useSelector((state: any) => state.auth);
 
     const EnviarCohen = async (stress: number, UserId: String): Promise<void> => {
         try {
@@ -77,13 +76,11 @@ export const useEvents: any = () => {
                 console.log("🚀 ~ file: useEvents.ts:77 ~ EnviarMBTI ~ error", error)
             }
         }
-
     };
 
     const createActivities = async (UserId: String, title: String, notes: String, dificulty: number, Date: number): Promise<void> => {
         const endDate = moment(Date).format('YYYY-MM-DD');
         try {
-            // await growApi.post('/activities/create', { UserId, title, notes, dificulty, endDate });
             const resp = await growApi.post('/activities/create', { UserId, title, notes, dificulty, endDate });
             console.log("🚀 ~ file: useEvents.ts:34 ~ createActivities ~ resp", resp)
         } catch (error) {
@@ -108,35 +105,72 @@ export const useEvents: any = () => {
             const resp = await growApi.post('/habits/create', { UserId, title, notes, dificulty, EndDate, Schedule, Time });
             console.log("🚀 ~ file: useEvents.ts:56 ~ createHabits ~ resp", resp)
         } catch (error) {
-            console.log({ error });
+            console.log("🚀 ~ file: useEvents.ts:108 ~ createHabits ~ error", error)
         }
     };
 
-    const updateActivities = async (Answer: number): Promise<void> => {
+    const updateActivities = async (id: number, title: String, notes: String, dificulty: number, Date: number): Promise<void> => {
+        const endDate = moment(Date).format('YYYY-MM-DD');
+        const UserId = user.uid;
         try {
-            const resp = await growApi.post('/activities/update', { user });
-            console.log(resp)
+            const resp = await growApi.post('/activities/update', { UserId, id, title, notes, dificulty, endDate });
+            console.log("🚀 ~ file: useEvents.ts:118 ~ updateActivities ~ resp", resp);
         } catch (error) {
-            console.log({ error });
+            console.log("🚀 ~ file: useEvents.ts:120 ~ updateActivities ~ error", error);
         }
     }
 
-    const updateEvents = async (Answer: number): Promise<void> => {
+    const DeleteActivities = async (id: number): Promise<void> => {
+        const UserId = user.uid;
         try {
-            const resp = await growApi.post('/events/update', { user });
-            console.log(resp)
+            const resp = await growApi.post('/activities/delete', { UserId, id, });
+            console.log("🚀 ~ file: useEvents.ts:128 ~ DeleteActivities ~ resp", resp);
         } catch (error) {
-            console.log({ error });
+            console.log("🚀 ~ file: useEvents.ts:130 ~ DeleteActivities ~ error", error);
         }
     }
-    const updateHabits = async (Answer: number): Promise<void> => {
-        try {
-            const resp = await growApi.post('/habits/update', { user });
-            console.log(resp)
-        } catch (error) {
-            console.log({ error });
-        }
 
+    const DeleteHabits = async (id: number): Promise<void> => {
+        const UserId = user.uid;
+        try {
+            const resp = await growApi.post('/habits/delete', { UserId, id, });
+            console.log("🚀 ~ file: useEvents.ts:136 ~ DeleteHabits ~ resp", resp)
+        } catch (error) {
+            console.log("🚀 ~ file: useEvents.ts:138 ~ DeleteHabits ~ error", error)
+        }
+    }
+
+    const DeleteEvents = async (id: number): Promise<void> => {
+        const UserId = user.uid;
+        try {
+            const resp = await growApi.post('/events/delete', { UserId, id, });
+            console.log("🚀 ~ file: useEvents.ts:145 ~ DeleteEvents ~ resp", resp)
+        } catch (error) {
+            console.log("🚀 ~ file: useEvents.ts:148 ~ DeleteEvents ~ error", error)
+        }
+    }
+
+    const updateEvents = async (id: number, title: String, notes: String, Date: number, sDate: number): Promise<void> => {
+        const UserId = user.uid;
+        const endEvent = moment(Date).format('YYYY-MM-DD HH:mm:ss');
+        const startEvent = moment(sDate).format('YYYY-MM-DD HH:mm:ss');
+        try {
+            const resp = await growApi.post('/events/update', { UserId, id, title, notes, endEvent, startEvent });
+            console.log("🚀 ~ file: useEvents.ts:139 ~ updateEvents ~ resp", resp)
+        } catch (error) {
+            console.log("🚀 ~ file: useEvents.ts:141 ~ updateEvents ~ error", error)
+        }
+    }
+
+    const updateHabits = async (id: number, title: String, notes: String, dificulty: number, EndDate: number, dateTime: number, Time: number): Promise<void> => {
+        const UserId = user.uid;
+        const Schedule = moment(dateTime).format('HH:mm:ss');
+        try {
+            const resp = await growApi.post('/habits/update', { UserId, id, title, notes, dificulty, EndDate, Schedule, Time });
+            console.log("🚀 ~ file: useEvents.ts:149 ~ updateHabits ~ resp", resp)
+        } catch (error) {
+            console.log("🚀 ~ file: useEvents.ts:151 ~ updateHabits ~ error", error)
+        }
     }
 
     return {
@@ -148,6 +182,9 @@ export const useEvents: any = () => {
         updateActivities,
         updateHabits,
         updateEvents,
-        EnviarMBTI
+        EnviarMBTI,
+        DeleteActivities,
+        DeleteHabits,
+        DeleteEvents
     }
 }
