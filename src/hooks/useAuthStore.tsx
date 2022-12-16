@@ -11,7 +11,6 @@ export const useAuthStore: any = () => {
     dispatch(onChecking());
     try {
       const resp = await growApi.post('/users/login', { email, password });
-      // console.log(resp)
       localStorage.setItem('token', resp.data.token);
       localStorage.setItem('token-init-date', new Date().getTime().toString());
       dispatch(onLogin({ name: resp.data.name, uid: resp.data.id }));
@@ -46,7 +45,7 @@ export const useAuthStore: any = () => {
       dispatch(onLogin({ name: data.name, email: data.email, uid: data.id }));
       // console.log("🚀 ~ file: useAuthStore.tsx:58 ~ checkToken ~ data.uid ", data.id )
     } catch (error) {
-      console.log(error)
+      console.log("🚀 ~ file: useAuthStore.tsx:48 ~ checkToken ~ error", error);
       localStorage.clear();
       dispatch(onLogout('Token expiro'));
     }
