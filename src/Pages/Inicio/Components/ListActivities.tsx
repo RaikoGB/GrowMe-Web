@@ -33,6 +33,7 @@ const ListActivities: React.FunctionComponent = () => {
         }
 
         setChecked(newChecked);
+        DeleteActivities(value);
     };
     // Para la lista
     const user = useSelector((state: any) => state.auth.user);
@@ -99,7 +100,7 @@ const ListActivities: React.FunctionComponent = () => {
                                                 checked={checked.includes(item.id)}
                                                 tabIndex={-1}
                                                 disableRipple
-                                                onChange={DeleteActivities(item.id)}
+                                                // onChange={DeleteActivities(item.id)}
                                                 inputProps={{
                                                     'aria-labelledby': item.id.toLocaleString()
                                                 }}

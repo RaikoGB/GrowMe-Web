@@ -12,11 +12,10 @@ import CardMedia from '@mui/material/CardMedia';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import CardActions from '@mui/material/CardActions';
 import AboutIMG from '../../../Assets/AboutIMG.png';
-import GioIMG from '../../../Assets/GioIMG.png';
-import LeoIMG from '../../../Assets/LeoIMG.png';
+import GioIMG from '../../../Assets/GioIMG.jpg';
+import LeoIMG from '../../../Assets/LeoIMG.jpeg';
 import RichIMG from '../../../Assets/RichIMG.png';
 import Divider from '@mui/material/Divider';
-
 
 const About: React.FunctionComponent = () => {
   return (
@@ -29,11 +28,7 @@ const About: React.FunctionComponent = () => {
         <Grid container spacing={2}>
           <Grid item xs={5}>
             <Typography mt={20} variant="h5" align="center">
-              Velit deserunt culpa ad pariatur tempor labore magna incididunt
-              tempor est consectetur anim. Deserunt culpa enim esse do magna
-              deserunt cillum. Velit quis duis est reprehenderit consequat et
-              reprehenderit minim aliquip. Veniam mollit officia eiusmod et ea
-              id deserunt pariatur fugiat cupidatat veniam aliquip.
+              Somos una empresa dedicada a mejorar la calidad de vida de las personas a través de la gamificación de hábitos saludables. Creemos que al hacer de la adopción de hábitos positivos un juego, es más fácil para las personas incorporarlos en sus vidas diarias. Nuestro equipo está compuesto por desarrolladores y diseñadores altamente capacitados. Trabajamos constantemente para ofrecer a nuestros usuarios la mejor experiencia posible y ayudarles a alcanzar sus metas de desarrollo personal y bienestar a través de nuestra plataforma única y divertida.
             </Typography>
           </Grid>
           <br></br>
@@ -58,7 +53,7 @@ const About: React.FunctionComponent = () => {
                 width="200"
                 height="250"
                 image={GioIMG}
-                sx={{borderRadius: "50%"}}
+                sx={{ borderRadius: "50%" }}
                 alt="Gio"
               ></CardMedia>
               <CardContent>
@@ -83,7 +78,7 @@ const About: React.FunctionComponent = () => {
                 width="200"
                 height="250"
                 image={RichIMG}
-                sx={{borderRadius: "50%"}}
+                sx={{ borderRadius: "50%" }}
                 alt="Gio"
               ></CardMedia>
               <CardContent>
@@ -108,7 +103,7 @@ const About: React.FunctionComponent = () => {
                 width="200"
                 height="250"
                 image={LeoIMG}
-                sx={{borderRadius: "50%"}}
+                sx={{ borderRadius: "50%" }}
                 alt="Gio"
               ></CardMedia>
               <CardContent>

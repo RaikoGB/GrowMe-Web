@@ -29,8 +29,8 @@ const ListHabits: React.FunctionComponent = () => {
         } else {
             newChecked.splice(currentIndex, 1);
         }
-
         setChecked(newChecked);
+        // todo: mandar update del estado del habito
     };
     // Para la lista
     const user = useSelector((state: any) => state.auth.user);

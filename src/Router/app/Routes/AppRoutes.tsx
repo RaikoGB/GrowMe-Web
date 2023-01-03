@@ -9,6 +9,7 @@ import PWDScreen from '../Screens/PWDScreen';
 import { LoginScreen } from '../Screens/LoginScreen';
 import { RegisterScreen } from '../Screens/RegisterScreen';
 import { useAuthStore } from '../../../hooks/useAuthStore';
+import { RecomendacionScreen } from '../Screens/RecomendacionScreen';
 
 export const AppRoutes: React.FunctionComponent = () => {
   const { status } = useAuthStore();
@@ -27,6 +28,7 @@ export const AppRoutes: React.FunctionComponent = () => {
       <Route path="Index" element={<AppScreen />} />
       <Route path="About" element={<AboutScreen />} />
       <Route path="FAQ" element={<FAQScreen />} />
+      <Route path="Recomendacion" element={<RecomendacionScreen />} />
       <Route path="MovileApp" element={<MovileScreen />} />
       <Route path="RecPWD" element={<EmailScreen />} />
       <Route path="ChangePWD" element={<PWDScreen />} />

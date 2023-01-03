@@ -33,6 +33,7 @@ const ListEvents: React.FunctionComponent = () => {
         }
 
         setChecked(newChecked);
+        DeleteEvents(value);
     };
 
     // Para la lista
@@ -100,7 +101,7 @@ const ListEvents: React.FunctionComponent = () => {
                                             checked={checked.includes(item.id)}
                                             tabIndex={-1}
                                             disableRipple
-                                            onChange={DeleteEvents(item.id)}
+                                            // onChange={DeleteEvents(item.id)}
                                             inputProps={{
                                                 'aria-labelledby': item.id.toLocaleString()
                                             }}
