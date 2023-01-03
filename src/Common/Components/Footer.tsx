@@ -37,6 +37,11 @@ const Footer: React.FunctionComponent = () => {
                 </Link>
               </Box>
               <Box>
+                <Link href="/GrowMe-Web/#/Recomendacion" color="inherit">
+                  Recomendacion de Hábitos
+                </Link>
+              </Box>
+              <Box>
                 <Link href="/GrowMe-Web/#/About" color="inherit">
                   About
                 </Link>

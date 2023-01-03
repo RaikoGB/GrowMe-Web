@@ -43,8 +43,7 @@ export const ModalHabitosUpdate: React.FC<Props> = (props: Props) => {
   }
 
   // Para info
-  const { user } = useSelector((state: any) => state.auth.user);
-  console.log(user);
+  const user = useSelector((state: any) => state.auth.user);
 
   const [list, setList] = useState<habits>();
 

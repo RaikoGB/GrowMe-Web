@@ -9,6 +9,7 @@ import { useAuthStore } from '../../../hooks/useAuthStore';
 import { FAQScreen } from '../Screens/FAQScreen';
 import { MovileScreen } from '../Screens/MovileScreen';
 import AboutScreen from '../Screens/AboutScreen';
+import { RecomendacionScreen } from '../Screens/RecomendacionScreen';
 
 export const AuthRoutes: React.FunctionComponent = () => {
   const { status } = useAuthStore();
@@ -26,6 +27,7 @@ export const AuthRoutes: React.FunctionComponent = () => {
     <Routes>
       {/* <Route path="Login" element={<LoginScreen />} />
       <Route path="SingUp" element={<RegisterScreen />} /> */}
+      <Route path="Recomendacion" element={<RecomendacionScreen />} />
       <Route path="Inicio" element={<InicioScreen />} />
       <Route path="Calendario" element={<CalendarScreen />} />
       <Route path="Cuenta" element={<CuentaScreen />} />
