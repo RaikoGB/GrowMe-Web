@@ -50,6 +50,7 @@ const Avatar: React.FunctionComponent = () => {
       <Box sx={style}>
         <Box sx={stylebg}>
           {(() => {
+            // switch (user.Personalidad) {
             switch (list?.Personalidad) {
               case 'ENFJ':
                 return <img alt='avatar' src={enfjIMG} width={252} height={320}></img>

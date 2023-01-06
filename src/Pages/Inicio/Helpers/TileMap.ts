@@ -68,6 +68,16 @@ export default class tilemap {
     [0, 1, 1, 1, 2]
   ];
 
+  map2 = [
+    [6, 7, 7, 7, 8],
+    [3, 9, 11, 10, 5],
+    [3, 9, 11, 10, 5],
+    [3, 9, 11, 10, 5],
+    [0, 1, 1, 1, 2]
+  ];
+
+
+
   draw(
     canvas: HTMLCanvasElement | null,
     context: CanvasRenderingContext2D | null | undefined

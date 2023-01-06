@@ -14,7 +14,7 @@ import CardActions from '@mui/material/CardActions';
 import AboutIMG from '../../../Assets/AboutIMG.png';
 import GioIMG from '../../../Assets/GioIMG.jpg';
 import LeoIMG from '../../../Assets/LeoIMG.jpeg';
-import RichIMG from '../../../Assets/RichIMG.png';
+import RichIMG from '../../../Assets/RichIMG.jpeg';
 import Divider from '@mui/material/Divider';
 
 const About: React.FunctionComponent = () => {
@@ -53,7 +53,7 @@ const About: React.FunctionComponent = () => {
                 width="200"
                 height="250"
                 image={GioIMG}
-                sx={{ borderRadius: "50%" }}
+                sx={{ borderRadius: "15%" }}
                 alt="Gio"
               ></CardMedia>
               <CardContent>
@@ -78,7 +78,7 @@ const About: React.FunctionComponent = () => {
                 width="200"
                 height="250"
                 image={RichIMG}
-                sx={{ borderRadius: "50%" }}
+                sx={{ borderRadius: "15%" }}
                 alt="Gio"
               ></CardMedia>
               <CardContent>
@@ -103,7 +103,7 @@ const About: React.FunctionComponent = () => {
                 width="200"
                 height="250"
                 image={LeoIMG}
-                sx={{ borderRadius: "50%" }}
+                sx={{ borderRadius: "15%" }}
                 alt="Gio"
               ></CardMedia>
               <CardContent>
