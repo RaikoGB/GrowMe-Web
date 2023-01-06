@@ -18,15 +18,17 @@ import { useFormik } from 'formik';
 import * as yup from 'yup';
 import { useEvents } from '../../../../hooks/useEvents';
 import { TimePicker } from '@mui/x-date-pickers/TimePicker';
-
+import { SugestHabit } from '../../../../Services/MBTI/helpers/SugestHabit';
 import MenuItem from '@mui/material/MenuItem';
 import Select from '@mui/material/Select/Select';
 import { useSelector } from 'react-redux';
 
 export const ModalHabitos: React.FunctionComponent = () => {
 
-  const user  = useSelector((state: any) => state.auth.user);
-  const { createHabits } = useEvents()
+  const user = useSelector((state: any) => state.auth.user);
+  const { createHabits } = useEvents();
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars, no-unused-vars
+  const { findPersonality } = SugestHabit();
   const [open, setOpen] = React.useState(false);
 
   function handleOpen(): void {
@@ -54,7 +56,7 @@ export const ModalHabitos: React.FunctionComponent = () => {
         try {
           createHabits(user.uid, values.title, values.notes, values.dificulty, values.EnDate, values.schedule, values.Time);
         } catch (error) {
-        console.log("🚀 ~ file: ModalHabitos.tsx:56 ~ setTimeout ~ error", error)
+          console.log("🚀 ~ file: ModalHabitos.tsx:56 ~ setTimeout ~ error", error)
         }
         handleClose();
       }, 2000);
@@ -98,6 +100,10 @@ export const ModalHabitos: React.FunctionComponent = () => {
               </Grid>
             </Grid>
             <br></br>
+            <Typography component="div" variant="h5">
+              {/* {findPersonality(user.Personalidad)} */}
+            </Typography>
+            <br></br>
             <Stack spacing={2} sx={{ width: 500 }}>
               <Typography>Titulo</Typography>
               <Select
@@ -115,6 +121,23 @@ export const ModalHabitos: React.FunctionComponent = () => {
                 }
                 <MenuItem value={"Ejercicio"}>Ejercicio</MenuItem>
                 <MenuItem value={"Meditar"}>Meditar</MenuItem>
+                <MenuItem value={"Leer"}>Leer</MenuItem>
+                <MenuItem value={"Estudiar"}>Estudiar</MenuItem>
+                <MenuItem value={"Escribir"}>Escribir</MenuItem>
+                <MenuItem value={"proyectos personales"}>proyectos personales</MenuItem>
+                <MenuItem value={"Socializar "}>Socializar </MenuItem>
+                <MenuItem value={"Nueva habilidad"}>Nueva habilidad</MenuItem>
+                <MenuItem value={"Instrumento musical"}>Instrumento musical</MenuItem>
+                <MenuItem value={"Estudiar un idioma"}>Estudiar un idioma</MenuItem>
+                <MenuItem value={"inanzas personales"}>Finanzas personales</MenuItem>
+                <MenuItem value={"Hacer la cama"}>Hacer la cama</MenuItem>
+                <MenuItem value={"Caminar"}>Caminar</MenuItem>
+                <MenuItem value={"Baile"}>Baile</MenuItem>
+                <MenuItem value={"Llevar un diario"}>Llevar un diario</MenuItem>
+                <MenuItem value={"Levantarse temprano"}>Levantarse temprano</MenuItem>
+                <MenuItem value={"Tomar agua en el día"}>Tomar agua en el día </MenuItem>
+                <MenuItem value={"Duchas de agua fría"}>Duchas de agua fría</MenuItem>
+                <MenuItem value={"Cuidado personal "}>Cuidado personal </MenuItem>
               </Select>
               <Typography>Notas</Typography>
               <TextField

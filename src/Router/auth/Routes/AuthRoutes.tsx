@@ -10,6 +10,7 @@ import { FAQScreen } from '../Screens/FAQScreen';
 import { MovileScreen } from '../Screens/MovileScreen';
 import AboutScreen from '../Screens/AboutScreen';
 import { RecomendacionScreen } from '../Screens/RecomendacionScreen';
+import  GuiaScreen  from '../Screens/GuiaScreen';
 
 export const AuthRoutes: React.FunctionComponent = () => {
   const { status } = useAuthStore();
@@ -34,6 +35,7 @@ export const AuthRoutes: React.FunctionComponent = () => {
       <Route path="About" element={<AboutScreen />} />
       <Route path="FAQ" element={<FAQScreen />} />
       <Route path="MovileApp" element={<MovileScreen />} />
+      <Route path="Guia" element={<GuiaScreen />} />
     </Routes>
   );
 };

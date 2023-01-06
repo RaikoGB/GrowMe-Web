@@ -42,6 +42,11 @@ const FooterUser: React.FunctionComponent = () => {
                 </Link>
               </Box>
               <Box>
+                <Link href="/GrowMe-Web/#/auth/Guia" color="inherit">
+                  Guia Inicial
+                </Link>
+              </Box>
+              <Box>
                 <Link href="/GrowMe-Web/#/auth/about" color="inherit">
                   About
                 </Link>
