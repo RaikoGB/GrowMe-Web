@@ -1,10 +1,17 @@
 {
   "files": {
     "main.css": "/GrowMe-Web/static/css/main.3f1e45a6.css",
-    "main.js": "/GrowMe-Web/static/js/main.26a2cbae.js",
+    "main.js": "/GrowMe-Web/static/js/main.f3059295.js",
     "static/media/GioIMG.jpg": "/GrowMe-Web/static/media/GioIMG.d05bbc04edce3c21411d.jpg",
+    "static/media/7.png": "/GrowMe-Web/static/media/7.c70d0d7b1536b08e3c21.png",
+    "static/media/1.png": "/GrowMe-Web/static/media/1.fcd0308015b7960920d0.png",
+    "static/media/RichIMG.jpeg": "/GrowMe-Web/static/media/RichIMG.360ca48caa4b2de81867.jpeg",
     "static/media/AboutIMG.png": "/GrowMe-Web/static/media/AboutIMG.9c8726b9bce072171680.png",
+    "static/media/5.png": "/GrowMe-Web/static/media/5.d2213220ea8fab79c4a8.png",
+    "static/media/4.png": "/GrowMe-Web/static/media/4.f00a44a9263f06349b11.png",
     "static/media/LeoIMG.jpeg": "/GrowMe-Web/static/media/LeoIMG.053963896c6d70009a5d.jpeg",
+    "static/media/3.png": "/GrowMe-Web/static/media/3.ce90b6e08790a6715ee7.png",
+    "static/media/2.png": "/GrowMe-Web/static/media/2.4393d52125f380abad79.png",
     "static/media/bgAvatar.jpg": "/GrowMe-Web/static/media/bgAvatar.985fbf5f651d1c3c99d5.jpg",
     "static/media/ESFj.png": "/GrowMe-Web/static/media/ESFj.fbe26f868a8c3cd33ffb.png",
     "static/media/INFP.png": "/GrowMe-Web/static/media/INFP.9f979be58452ba246ef3.png",
@@ -23,15 +30,15 @@
     "static/media/ISTJ.png": "/GrowMe-Web/static/media/ISTJ.31d89f0a7b4ae3d56ac8.png",
     "static/media/ISFJ.png": "/GrowMe-Web/static/media/ISFJ.a61a468eff2d08dee669.png",
     "static/media/ENTP.png": "/GrowMe-Web/static/media/ENTP.ba53df3336416523ec50.png",
-    "static/media/RichIMG.png": "/GrowMe-Web/static/media/RichIMG.8722ca4b7ed9fbc19cc8.png",
+    "static/media/6.png": "/GrowMe-Web/static/media/6.a905152799cbf9d5be80.png",
     "static/media/Board.png": "/GrowMe-Web/static/media/Board.c85ec9ef441339aa3ff1.png",
     "static/media/googlepPlay.png": "/GrowMe-Web/static/media/googlepPlay.cf81659eac63dc0e0175.png",
     "index.html": "/GrowMe-Web/index.html",
     "main.3f1e45a6.css.map": "/GrowMe-Web/static/css/main.3f1e45a6.css.map",
-    "main.26a2cbae.js.map": "/GrowMe-Web/static/js/main.26a2cbae.js.map"
+    "main.f3059295.js.map": "/GrowMe-Web/static/js/main.f3059295.js.map"
   },
   "entrypoints": [
     "static/css/main.3f1e45a6.css",
-    "static/js/main.26a2cbae.js"
+    "static/js/main.f3059295.js"
   ]
 }
