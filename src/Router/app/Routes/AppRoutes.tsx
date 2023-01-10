@@ -30,7 +30,7 @@ export const AppRoutes: React.FunctionComponent = () => {
       <Route path="FAQ" element={<FAQScreen />} />
       <Route path="Recomendacion" element={<RecomendacionScreen />} />
       <Route path="MovileApp" element={<MovileScreen />} />
-      <Route path="RecPWD" element={<EmailScreen />} />
+      <Route path="ResetPWD" element={<EmailScreen />} />
       <Route path="ChangePWD" element={<PWDScreen />} />
       <Route path="Login" element={<LoginScreen />} />
       <Route path="SingUp" element={<RegisterScreen />} />
