@@ -137,12 +137,12 @@ export const LogIn: React.FunctionComponent = () => {
               </LoadingButton>
               <Grid container>
                 <Grid item xs>
-                  <Link href="/ResetPWD" variant="body2">
+                  <Link href="/#/ResetPWD" variant="body2">
                     Olvidaste tu contraseña?
                   </Link>
                 </Grid>
                 <Grid item>
-                  <Link href="/SingUp" variant="body2">
+                  <Link href="/#/SingUp" variant="body2">
                     {"No tienes una cuenta? Registrate"}
                   </Link>
                 </Grid>
